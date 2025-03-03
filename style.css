@@ -13,26 +13,26 @@ header {
     position: sticky;
     top: 0;
     z-index: 100;
-    text-align: center; /* Centrar título y botón en header */
-    display: flex; /* Usar flexbox para alinear elementos en header */
-    justify-content: space-between; /* Espacio entre título y botón */
-    align-items: center; /* Alinear verticalmente */
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 header h1 {
-    margin: 0; /* Eliminar margen por defecto del H1 */
-    font-size: 24px; /* Ajustar tamaño de fuente del título */
+    margin: 0;
+    font-size: 24px;
 }
 
 header button {
     background: #2196F3;
     color: white;
     border: none;
-    padding: 10px 15px; /* Reducir padding horizontal para pantallas pequeñas */
+    padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s;
-    font-size: 16px; /* Ajustar tamaño de fuente del botón */
+    font-size: 16px;
 }
 
 header button:hover {
@@ -41,18 +41,17 @@ header button:hover {
 
 .container {
     padding: 20px;
-    max-width: 960px; /* Ancho máximo del contenido */
-    margin: 0 auto; /* Centrar el container en pantallas grandes */
-    text-align: center; /* ¡NUEVO! Centrar contenido horizontalmente dentro de container */
+    max-width: 960px;
+    margin: 0 auto;
+    text-align: center;
 }
 
-#charger-list { /* ¡NUEVO!  Estilos para centrar la lista UL dentro del container */
-    list-style: none; /* Quitar bullets por defecto de la lista */
-    padding: 0; /* Quitar padding por defecto de la lista */
-    display: inline-block; /*  Para que la lista se ajuste al ancho de los items y se pueda centrar con text-align en el container */
-    text-align: left; /*  Alinear el texto de los items de la lista a la izquierda */
+#charger-list {
+    list-style: none;
+    padding: 0;
+    display: inline-block;
+    text-align: left;
 }
-
 
 .charger-item {
     background: white;
@@ -62,31 +61,29 @@ header button:hover {
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     transition: transform 0.2s;
     cursor: pointer;
-    margin-bottom: 15px; /* ¡AUMENTADO MARGIN-BOTTOM PARA MÁS ESPACIO VERTICAL ENTRE ITEMS! */
-    width: 90%; /* ¡NUEVO! Ancho del 90% para las tarjetas de cargadores */
-    max-width: 600px; /* ¡NUEVO! Ancho máximo de 600px para las tarjetas */
-    display: block; /* ¡NUEVO!  Convertir charger-item a block para aplicar margin horizontal auto */
-    margin-left: auto; /* ¡NUEVO!  Centrar horizontalmente las tarjetas */
-    margin-right: auto; /* ¡NUEVO!  Centrar horizontalmente las tarjetas */
+    margin-bottom: 15px;
+    width: 90%;
+    max-width: 600px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
-
 
 .charger-item:hover {
-    transform: translateX(5px); /* Reducir el translate en hover para pantallas pequeñas */
+    transform: translateX(5px);
 }
 
-.charger-item-content { /* ¡ESTILOS PARA EL NUEVO DIV 'charger-item-content' - FLEXBOX! */
-    display: flex; /* Usar Flexbox para alinear elementos dentro de charger-item */
-    align-items: center; /* Alinear verticalmente los elementos */
-    width: 100%; /* Asegurar que el contenido ocupe todo el ancho del charger-item */
+.charger-item-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
 }
-
 
 .status-light {
-    width: 30px; /* Reducir tamaño del indicador de estado para pantallas pequeñas */
+    width: 30px;
     height: 30px;
     border-radius: 50%;
-    margin-right: 15px; /* Reducir margen derecho para pantallas pequeñas */
+    margin-right: 15px;
     flex-shrink: 0;
 }
 
@@ -99,13 +96,13 @@ header button:hover {
 }
 
 .charger-info h3 {
-    margin-top: 0; /* Eliminar margen superior del H3 */
-    font-size: 20px; /* ¡TAMAÑO DE FUENTE DEL NOMBRE DEL CARGADOR AUMENTADO A 20px! */
+    margin-top: 0;
+    font-size: 20px;
 }
 
 .charger-info p {
-    margin-bottom: 0; /* Eliminar margen inferior de párrafos */
-    font-size: 16px; /* ¡TAMAÑO DE FUENTE DE LA UBICACIÓN AUMENTADO A 16px! */
+    margin-bottom: 0;
+    font-size: 16px;
     color: #666;
 }
 
@@ -113,13 +110,13 @@ header button:hover {
     background: #2196F3;
     color: white;
     border: none;
-    padding: 8px 15px; /* Reducir padding del botón "Navegar" */
+    padding: 8px 15px;
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s;
-    margin-left: 10px; /* Reducir margen izquierdo del botón "Navegar" */
-    font-size: 14px; /* Ajustar tamaño de fuente del botón "Navegar" */
-    flex-shrink: 0; /* Evitar que el botón se encoja demasiado */
+    margin-left: 10px;
+    font-size: 14px;
+    flex-shrink: 0;
 }
 
 .navigate-btn:hover {
@@ -135,38 +132,35 @@ header button:hover {
     bottom: 0;
     background: white;
     padding: 20px;
-    overflow-y: auto; /* Añadido overflow-y para scroll si el contenido es largo */
+    overflow-y: auto;
 }
 
 .about-content {
     max-width: 800px;
-    margin: 30px auto 20px auto; /* Ajustado margen superior para separar más del header */
-    padding: 25px; /* ¡AUMENTADO PADDING A 25px PARA MÁS ESPACIO INTERNO EN "ACERCA DE"! */
-    border-radius: 8px; /* Añadido border-radius al contenido de "Acerca de" */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Añadido box-shadow al contenido de "Acerca de" */
-    text-align: center; /* Centrar contenido de "Acerca de" */
-    /* ¡AJUSTES  CSS  PARA  MEJORAR  ORGANIZACIÓN  "ACERCA  DE"  -  NUEVO! */
-    display: flex; /* Usar flexbox para el contenido de "Acerca de" */
-    flex-direction: column; /* Alinear elementos verticalmente */
-    align-items: center; /* Centrar horizontalmente los elementos */
+    margin: 30px auto 20px auto;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.about-content h2, .about-content h3, .about-content p, .about-content ul, .about-content button { /* ¡AÑADIDO 'BUTTON' AL SELECTOR PARA CENTRAR BOTÓN FEEDBACK! */
-    margin-top: 10px; /* Reducir margen superior de elementos de texto en "Acerca de" */
-    margin-bottom: 15px; /* ¡AUMENTADO MARGIN-BOTTOM A 15px PARA MÁS ESPACIO VERTICAL EN "ACERCA DE"! */
-    font-size: 16px; /* Ajustar tamaño de fuente del texto en "Acerca de" */
-    line-height: 1.6; /*  Ligeramente aumentado el line-height para mejor espaciado vertical */
-    max-width: 100%; /* Asegurar que el contenido no se salga del contenedor */
-    box-sizing: border-box; /* Incluir padding y border en el ancho */
-    padding-left: 0; /* Eliminar padding izquierdo innecesario */
-    padding-right: 0; /* Eliminar padding derecho innecesario */
-    text-align: center; /* Forzar centrado del texto */
+.about-content h2, .about-content h3, .about-content p, .about-content ul, .about-content button {
+    margin-top: 10px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    line-height: 1.6;
+    max-width: 100%;
+    box-sizing: border-box;
+    text-align: center;
 }
 
 .about-content ul {
-    padding-left: 20px; /* Ajustar padding de la lista en "Acerca de" */
-    align-self: start; /* Alinear la lista a la izquierda dentro del contenedor flex */
-    text-align: left; /* Alinear el texto de la lista a la izquierda */
+    padding-left: 20px;
+    align-self: start;
+    text-align: left;
 }
 
 .modal {
@@ -180,10 +174,9 @@ header button:hover {
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.2);
     z-index: 1000;
-    text-align: center; /* Centrar contenido del modal */
-    height: auto; /* ¡ALTURA DEL MODAL AJUSTADA A 'AUTO'! (Lo añadimos antes) */
-    min-height: 400px; /* ¡ALTURA MÍNIMA DEL MODAL AUMENTADA A 400px! */
-    min-width: 300px; /* ¡ANCHO MÍNIMO DEL MODAL AÑADIDO A 300px! */
+    text-align: center;
+    min-height: 400px;
+    min-width: 300px;
 }
 
 .modal-overlay {
@@ -198,15 +191,14 @@ header button:hover {
 }
 
 .modal-content {
-    display: flex; /* ¡ACTIVAMOS FLEXBOX EN .modal-content! */
-    flex-direction: column; /* Alineamos los elementos en columna */
-    justify-content: space-between; /* Espacio entre elementos para empujar botones abajo */
-    height: 100%; /* Para que flex-direction y justify-content funcionen en altura */
-    padding-bottom: 20px; /* Reducimos padding-bottom a 20px (ajuste) */
-    text-align: center; /* Centrar texto */
-    font-size: 19px; /* ¡TAMAÑO DE FUENTE BASE REDUCIDO A 19px PARA TODO EL MODAL-CONTENT! (MÁS PEQUEÑO) */
-    /* ¡AJUSTES  CSS  PARA  MEJORAR  ORGANIZACIÓN  MODAL  -  NUEVO! */
-    align-items: center; /* Centrar horizontalmente los elementos del modal */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding-bottom: 20px;
+    text-align: center;
+    font-size: 19px;
+    align-items: center;
 }
 
 .modal-content img {
@@ -219,19 +211,19 @@ header button:hover {
 
 .modal-content h3 {
     margin-top: 0;
-    font-size: 25px; /* ¡TAMAÑO DE FUENTE DEL TÍTULO REDUCIDO A 25px! (MÁS PEQUEÑO) */
-    margin-bottom: 10px; /* ¡AÑADIDO MARGIN-BOTTOM DE 10px AL TÍTULO DEL MODAL! */
-    text-align: center; /* ¡FORZAR CENTRADO DEL TEXTO DEL TÍTULO EN EL MODAL! - NUEVO */
+    font-size: 25px;
+    margin-bottom: 10px;
+    text-align: center;
 }
 
 .modal-content p {
-    margin-bottom: 10px; /* ¡REDUCIDO MARGIN-BOTTOM DE LOS PÁRRAFOS DEL MODAL A 10px! */
-    font-size: 21px; /* ¡TAMAÑO DE FUENTE DE LOS PÁRRAFOS REDUCIDO A 21px! (MÁS PEQUEÑO) */
-    color: #666; /* Mantenemos el color original */
-    max-width: 90%; /* ¡REDUCIDO ANCHO MÁXIMO DE LOS PÁRRAFOS DEL MODAL PARA EVITAR DESBORDAMIENTO EN PANTALLAS PEQUEÑAS! */
-    margin-left: auto; /* Centrar párrafos horizontalmente */
-    margin-right: auto; /* Centrar párrafos horizontalmente */
-    text-align: center; /* ¡FORZAR CENTRADO DEL TEXTO DE LOS PÁRRAFOS EN EL MODAL! - NUEVO */
+    margin-bottom: 10px;
+    font-size: 21px;
+    color: #666;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
 
 .modal button {
@@ -242,10 +234,9 @@ header button:hover {
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s;
-    font-size: 17px; /* ¡TAMAÑO DE FUENTE DEL BOTÓN DEL MODAL REDUCIDO A 17px! (MÁS PEQUEÑO) */
-        /* ¡¡¡FLOAT Y CLEAR BORRADOS - VOLVEMOS AL CÓDIGO ORIGINAL!!! */
-    margin-bottom: 15px; /* ¡MARGEN INFERIOR AÑADIDO A LOS BOTONES DEL MODAL! */
-    align-self: center; /* Centrar botón del modal horizontalmente */
+    font-size: 17px;
+    margin-bottom: 15px;
+    align-self: center;
 }
 
 .modal button:hover {
@@ -254,142 +245,135 @@ header button:hover {
 
 .rating-buttons {
     display: flex;
-    margin-left: auto; /* Empujar los botones a la derecha */
-    gap: 5px; /* Espacio entre botones */
-    align-self: center; /* Centrar botones de rating horizontalmente */
-    margin-top: 10px; /* ¡AÑADIDO MARGIN-TOP DE 10px A LOS BOTONES DE RATING! */
-    margin-bottom: 0; /* ¡ESTABLECIDO MARGIN-BOTTOM A 0 PARA LOS BOTONES DE RATING! */
+    margin-left: auto;
+    gap: 5px;
+    align-self: center;
+    margin-top: 10px;
+    margin-bottom: 0;
 }
 
 .rating-button {
     background: none;
     border: none;
-    font-size: 22px; /* ¡TAMAÑO DE FUENTE REDUCIDO A 22px PARA SOLUCIONAR SUPERPOSICIÓN! */
+    font-size: 22px;
     cursor: pointer;
-    padding: 2px 5px; /* ¡PADDING VERTICAL REDUCIDO A 2px! */
+    padding: 2px 5px;
     border-radius: 5px;
     transition: background-color 0.3s;
-    line-height: 1; /* Añadido para alinear verticalmente las caritas */
-    margin-bottom: 0; /* ¡MARGIN-BOTTOM AÑADIDO Y ESTABLECIDO A 0! */
+    line-height: 1;
+    margin-bottom: 0;
 }
 
 .rating-button:hover {
-    background-color: #eee; /* Color de fondo al pasar el ratón */
+    background-color: #eee;
 }
 
 .rating-button:active {
-    background-color: #ddd; /* Color de fondo al hacer clic */
+    background-color: #ddd;
 }
 
 .positive-rating {
-    color: inherit; /* Elimina el color verde específico, usa el color de texto por defecto */
+    color: inherit;
 }
-
 
 .negative-rating {
-    color: inherit; /* Elimina el color rojo específico, usa el color de texto por defecto */
+    color: inherit;
 }
 
-.about-section .about-content button.navigate-btn.cerrar-about-btn { /* Selector CSS CORRECTO para "Cerrar" en "Acerca de" */
-    display: block; /* Asegurar que el botón se comporte como bloque para ocupar el ancho y centrarse */
-    margin: 20px auto 0 auto; /* Centrar horizontalmente: auto a izquierda y derecha, y añadir margen superior */
-    padding: 10px 15px; /* Asegurar el mismo padding que otros botones navigate-btn */
-    font-size: 16px; /* Asegurar el mismo tamaño de fuente que otros botones navigate-btn */
-    text-align: center; /* Forzar el centrado del texto dentro del botón por si acaso */
+.about-section .about-content button.navigate-btn.cerrar-about-btn {
+    display: block;
+    margin: 20px auto 0 auto;
+    padding: 10px 15px;
+    font-size: 16px;
+    text-align: center;
 }
 
-.charger-info p strong { /* Estilos para la palabra "Conectores:" en negrita - ¡NUEVO! */
+.charger-info p strong {
     font-weight: bold;
 }
 
-.charger-info p:nth-child(3) { /* Estilos para el 3er párrafo dentro de .charger-info (el de Conectores) - ¡NUEVO! */
+.charger-info p:nth-child(3) {
     font-size: 13px;
     color: #777;
     margin-bottom: 0;
 }
 
-/* Estilos para el Tooltip en "Acerca de" - ¡NUEVO! */
 .mvp-info-tooltip {
-    position: relative; /* Para posicionar el tooltip en relación al icono */
-    display: inline-block; /* Para que ocupe solo el ancho del icono y texto */
-    margin-top: 10px; /* Añadido margen superior para separar del texto anterior */
+    position: relative;
+    display: inline-block;
+    margin-top: 10px;
 }
 
 .info-icon {
     display: inline-block;
-    width: 20px; /* Ajustar tamaño del icono */
+    width: 20px;
     height: 20px;
     border-radius: 50%;
-    border: 1px solid #999; /* Estilo visual del icono "i" */
+    border: 1px solid #999;
     text-align: center;
     line-height: 20px;
-    font-style: italic; /* "i" itálica para icono de información */
+    font-style: italic;
     cursor: pointer;
-    font-size: 0.8em; /* Reducir ligeramente tamaño de la 'i' */
-    color: #666; /* Color más discreto */
-    background-color: white; /* Fondo blanco para el icono */
+    font-size: 0.8em;
+    color: #666;
+    background-color: white;
 }
 
 .tooltip-text {
-    visibility: hidden; /* Ocultar inicialmente */
-    width: 250px; /* Ancho del tooltip */
+    visibility: hidden;
+    width: 250px;
     background-color: white;
     color: #333;
     text-align: left;
     padding: 10px;
     border-radius: 6px;
-    position: absolute; /* Posicionamiento absoluto para el tooltip */
+    position: absolute;
     z-index: 1;
-    bottom: 125%; /* Posición por encima del icono */
+    bottom: 125%;
     left: 50%;
-    margin-left: -125px; /* Centrar el tooltip horizontalmente */
-    opacity: 0; /* Transparencia inicial */
-    transition: opacity 0.3s, visibility 0.3s; /* Transición suave al mostrar/ocultar */
+    margin-left: -125px;
+    opacity: 0;
+    transition: opacity 0.3s, visibility 0.3s;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
-.mvp-info-tooltip:hover .tooltip-text { /* Mostrar al hacer hover en el icono */
+.mvp-info-tooltip:hover .tooltip-text {
     visibility: visible;
     opacity: 1;
 }
 
-/* Estilos para el Pie de Página Persistente - ¡NUEVO! */
 footer {
-    position: fixed; /* Pie de página fijo en la parte inferior */
+    position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: #f5f5f5; /* Mismo color de fondo que el body */
+    background-color: #f5f5f5;
     padding: 10px 20px;
-    text-align: right; /* Alinear contenido del pie de página a la derecha */
-    border-top: 1px solid #eee; /* Línea superior para separar del contenido principal */
-    z-index: 100; /* Asegurar que esté por encima del contenido principal */
-}
-
-.footer-content {
-    /* Estilos para el contenedor interno del pie de página si es necesario */
+    text-align: right;
+    border-top: 1px solid #eee;
+    z-index: 100;
 }
 
 .footer-info-icon {
     display: inline-block;
-    width: 20px; /* Ajustar tamaño del icono en el pie de página */
+    width: 20px;
     height: 20px;
     border-radius: 50%;
-    border: 1px solid #999; /* Estilo visual del icono "i" en el pie de página */
+    border: 1px solid #999;
     text-align: center;
     line-height: 20px;
     font-style: italic;
     cursor: pointer;
-    font-size: 0.8em; /* Reducir ligeramente el tamaño de la "i" en el pie de página */
-    color: #666; /* Color más discreto en el pie de página */
-    background-color: #f5f5f5; /* Mismo color de fondo que el footer para que se integre bien */
+    font-size: 0.8em;
+    color: #666;
+    background-color: #f5f5f5;
 }
 
 
 /* Media query para pantallas más pequeñas (smartphones) */
 @media (max-width: 768px) {
     header {
-        flex-direction: column; /* Apilar verticalmente en pantallas pequeñas */
+        flex-direction: column;
         padding: 8px;
     }
 
@@ -407,8 +391,8 @@ footer {
         padding: 15px;
     }
 
-    #charger-list { /* Media Query para centrar lista en móviles - ¡NUEVO! */
-        text-align: center; /* Centrar contenido de la lista en móviles */
+    #charger-list {
+        text-align: center;
     }
 
     .charger-item {
@@ -418,13 +402,13 @@ footer {
         margin-bottom: 6px;
         /* Refuerzo EXTRA para el ancho del 100% en móviles - ¡NUEVO! */
         width: calc(100% - 0px) !important; /* ¡¡¡ANCHO AL 100% CON CALC Y !important -  MÁXIMO REFUERZO!!! */
-        max-width: none !important; /* ¡¡¡ELIMINAMOS max-width CON !important POR SI ACASO INTERFIERE!!! */
-        box-sizing: border-box !important; /* ¡¡¡AÑADIMOS box-sizing: border-box CON !important PARA INCLUIR PADDING Y BORDER EN EL ANCHO!!! */
+        max-width: none !important;
+        box-sizing: border-box !important;
     }
 
-    .charger-item-content { /* Media Query para 'charger-item-content' en móviles - ¡NUEVO! */
-        flex-direction: column; /* Apilar verticalmente en móviles */
-        align-items: center; /* Centrar elementos en móviles */
+    .charger-item-content {
+        flex-direction: column;
+        align-items: center;
     }
 
     .status-light {
@@ -502,42 +486,42 @@ footer {
         margin: 0 auto;
     }
 
-    footer { /* Media Query para Footer en móviles - ¡NUEVO! */
-        padding: 8px 15px; /* Reducir padding en móviles */
-        font-size: 0.9em; /* Reducir tamaño de fuente en móviles si hay texto en el footer */
-        text-align: center; /* Centrar texto en móviles si añades más texto al footer */
+    footer {
+        padding: 8px 15px;
+        font-size: 0.9em;
+        text-align: center;
     }
 
-    .footer-info-icon { /* Media Query para Icono "i" en footer en móviles - ¡NUEVO! */
-        width: 18px; /* Reducir tamaño del icono en móviles */
+    .footer-info-icon {
+        width: 18px;
         height: 18px;
-        line-height: 18px; /* Ajustar line-height al nuevo tamaño */
-        font-size: 0.7em; /* Reducir aún más el tamaño de la "i" en móviles */
+        line-height: 18px;
+        font-size: 0.7em;
     }
 
-    .feedback-btn { /* Estilos para el botón Feedback - ¡NUEVO! */
-        margin-top: 20px; /* Espacio superior para separar del tooltip */
-        display: block; /* Para que ocupe todo el ancho disponible */
+    .feedback-btn {
+        margin-top: 20px;
+        display: block;
         margin-left: auto;
-        margin-right: auto; /* Para centrar el botón horizontalmente */
-        max-width: 250px; /* Ancho máximo para el botón de feedback */
-        text-align: center; /* Centrar el texto dentro del botón */
+        margin-right: auto;
+        max-width: 250px;
+        text-align: center;
     }
 
-    .modal-status-container { /* Media Query para 'modal-status-container' en móviles - ¡NUEVO! */
-        display: flex; /* Usar flexbox en móviles */
-        align-items: center; /* Alinear verticalmente */
-        justify-content: center; /* Centrar horizontalmente */
-        margin-bottom: 10px; /* Espacio debajo del contenedor del semáforo en móviles */
+    .modal-status-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 10px;
     }
 
-    .modal-status-light { /* Media Query para 'modal-status-light' en móviles - ¡NUEVO! */
-        width: 25px; /* Reducir tamaño del semáforo en el modal en móviles */
+    .modal-status-light {
+        width: 25px;
         height: 25px;
-        margin-right: 8px; /* Reducir margen derecho en móviles */
+        margin-right: 8px;
     }
 
-    .modal-status-text { /* Media Query para 'modal-status-text' en móviles - ¡NUEVO! */
-        font-size: 18px; /* Reducir tamaño del texto del semáforo en móviles */
+    .modal-status-text {
+        font-size: 18px;
     }
 }
