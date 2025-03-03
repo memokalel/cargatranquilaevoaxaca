@@ -155,12 +155,12 @@ document.addEventListener('DOMContentLoaded', () => {
     renderChargers();
 
     // Event listener para el botón "Acerca de" en el HEADER - ¡MOVIDO AQUÍ PARA MAYOR CLARIDAD!
-    const aboutBtnHeader = document.getElementById('about-btn'); // ¡ID CORRECTO! 'about-btn'
-    if (aboutBtnHeader) {
-        aboutBtnHeader.addEventListener('click', toggleAbout);
-    } else {
-        console.error("Error: Botón 'Acerca de' no encontrado en el header."); // Mensaje de error si no se encuentra el botón
-    }
+    // const aboutBtnHeader = document.getElementById('about-btn'); // ¡ID CORRECTO! 'about-btn'
+    // if (aboutBtnHeader) {
+    //     aboutBtnHeader.addEventListener('click', toggleAbout);
+    // } else {
+    //     console.error("Error: Botón 'Acerca de' no encontrado en el header."); // Mensaje de error si no se encuentra el botón
+    // }
 
      // Event listener para el icono "i" en el FOOTER - ¡NUEVO!
      const footerAboutBtn = document.getElementById('footer-about-btn'); // ¡ID CORRECTO! 'footer-about-btn'
