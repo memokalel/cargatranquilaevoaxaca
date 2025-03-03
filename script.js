@@ -1,4 +1,4 @@
-// Datos simulados de cargadores (Añadida propiedad 'imagen')
+// Datos simulados de cargadores (Añadida propiedad 'imagen' y 'potencia' - ¡POTENCIA REAL!)
 const chargers = [
     {
         nombre: "Cargador Plaza Oaxaca",
@@ -9,7 +9,8 @@ const chargers = [
         operador: "Electrolinera XYZ",
         lat: 17.0636,
         lng: -96.7251,
-        imagen: "plaza_oaxaca.jpg" // Nombre de archivo de imagen (PLACEHOLDER - REEMPLAZAR con URLs reales)
+        imagen: "plaza_oaxaca.jpg",
+        potencia: "20kW" // ¡POTENCIA REAL: 20kW!
     },
     {
         nombre: "Cargador Gasolinera Centro",
@@ -20,7 +21,8 @@ const chargers = [
         operador: "Pemex",
         lat: 17.0612,
         lng: -96.7283,
-        imagen: "gasolinera_centro.jpg" // Nombre de archivo de imagen (PLACEHOLDER - REEMPLAZAR con URLs reales)
+        imagen: "gasolinera_centro.jpg",
+        potencia: "7kW"  // ¡POTENCIA REAL: 7kW!
     },
     {
         nombre: "Cargador Hotel Reforma",
@@ -31,7 +33,8 @@ const chargers = [
         operador: "Hotel Reforma",
         lat: 17.0588,
         lng: -96.7315,
-        imagen: "hotel_reforma.jpg" // Nombre de archivo de imagen (PLACEHOLDER - REEMPLAZAR con URLs reales)
+        imagen: "hotel_reforma.jpg",
+        potencia: "11kW"  // ¡POTENCIA REAL: 11kW!
     },
     {
         nombre: "Cargador Desconocido 1",
@@ -42,7 +45,8 @@ const chargers = [
         operador: "Desconocido",
         lat: 17.0564,
         lng: -96.7347,
-        imagen: "desconocido_1.jpg" // Nombre de archivo de imagen (PLACEHOLDER - REEMPLAZAR con URLs reales)
+        imagen: "desconocido_1.jpg",
+        potencia: "6kW" // ¡POTENCIA REAL: 6kW!
     }
 ];
 
@@ -102,9 +106,9 @@ function showChargerDetails(charger) {
         <h3>${charger.nombre}</h3>
         <p><strong>Dirección:</strong> ${charger.direccion}</p>
         <p><strong>Conectores:</strong> ${charger.conectores.join(', ')}</p>
+        <p><strong>Potencia:</strong> ${charger.potencia}</p>
         <p><strong>Operador:</strong> ${charger.operador}</p>
         <div style="text-align: center; margin-top: 15px;">
-            <p style="margin-bottom: 10px;">¿Cargador incorrecto o fuera de servicio?</p>
             <button class="rating-button positive-rating" onclick="rateCharger('${charger.nombre}', 'positive')">😊 Cargador DISPONIBLE</button><br><br>
             <button class="rating-button negative-rating" onclick="rateCharger('${charger.nombre}', 'negative')">😔 Cargador NO DISPONIBLE</button>
         </div>
