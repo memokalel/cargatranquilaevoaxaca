@@ -165,22 +165,33 @@ header button:hover {
     z-index: 999;
 }
 
+.modal-content {
+    display: flex; /* ¡ACTIVAMOS FLEXBOX EN .modal-content! */
+    flex-direction: column; /* Alineamos los elementos en columna */
+    justify-content: space-between; /* Espacio entre elementos para empujar botones abajo */
+    height: 100%; /* Para que flex-direction y justify-content funcionen en altura */
+    padding-bottom: 20px; /* Reducimos padding-bottom a 20px (ajuste) */
+    text-align: center; /* Centrar texto */
+    font-size: 18px; /* ¡TAMAÑO DE FUENTE BASE AUMENTADO A 18px PARA TODO EL MODAL-CONTENT! */
+}
+
 .modal-content img {
-    max-width: 200px; /* Ancho máximo de la imagen en el modal */
+    max-width: 200px;
     height: auto;
     display: block;
-    margin: 0 auto 15px auto; /* Centrar imagen y añadir margen inferior */
-    border-radius: 8px; /* Añadir borde redondeado a la imagen */
+    margin: 0 auto 15px auto;
+    border-radius: 8px;
 }
 
 .modal-content h3 {
-    margin-top: 0; /* Eliminar margen superior del H3 en el modal */
-    font-size: 20px; /* Ajustar tamaño de fuente del título del modal */
+    margin-top: 0;
+    font-size: 24px; /* Aumentamos aún más el tamaño del título */
 }
 
 .modal-content p {
-    margin-bottom: 10px; /* Reducir margen inferior de párrafos en el modal */
-    font-size: 15px; /* Ajustar tamaño de fuente del texto del modal */
+    margin-bottom: 15px; /* Aumentamos margin-bottom para separar más los párrafos */
+    font-size: 20px; /* Aumentamos aún más el tamaño de los párrafos */
+    color: #666; /* Mantenemos el color original */
 }
 
 .modal button {
