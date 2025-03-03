@@ -43,7 +43,16 @@ header button:hover {
     padding: 20px;
     max-width: 960px; /* Ancho máximo del contenido */
     margin: 0 auto; /* Centrar el container en pantallas grandes */
+    text-align: center; /* ¡NUEVO! Centrar contenido horizontalmente dentro de container */
 }
+
+#charger-list { /* ¡NUEVO!  Estilos para centrar la lista UL dentro del container */
+    list-style: none; /* Quitar bullets por defecto de la lista */
+    padding: 0; /* Quitar padding por defecto de la lista */
+    display: inline-block; /*  Para que la lista se ajuste al ancho de los items y se pueda centrar con text-align en el container */
+    text-align: left; /*  Alinear el texto de los items de la lista a la izquierda */
+}
+
 
 .charger-item {
     background: white;
@@ -54,7 +63,13 @@ header button:hover {
     transition: transform 0.2s;
     cursor: pointer;
     margin-bottom: 15px; /* ¡AUMENTADO MARGIN-BOTTOM PARA MÁS ESPACIO VERTICAL ENTRE ITEMS! */
+    width: 90%; /* ¡NUEVO! Ancho del 90% para las tarjetas de cargadores */
+    max-width: 600px; /* ¡NUEVO! Ancho máximo de 600px para las tarjetas */
+    display: block; /* ¡NUEVO!  Convertir charger-item a block para aplicar margin horizontal auto */
+    margin-left: auto; /* ¡NUEVO!  Centrar horizontalmente las tarjetas */
+    margin-right: auto; /* ¡NUEVO!  Centrar horizontalmente las tarjetas */
 }
+
 
 .charger-item:hover {
     transform: translateX(5px); /* Reducir el translate en hover para pantallas pequeñas */
@@ -392,11 +407,17 @@ footer {
         padding: 15px;
     }
 
+    #charger-list { /* Media Query para centrar lista en móviles - ¡NUEVO! */
+        text-align: center; /* Centrar contenido de la lista en móviles */
+    }
+
     .charger-item {
         flex-direction: column;
         align-items: stretch;
         padding: 12px;
         margin-bottom: 6px;
+        width: 95%; /* ¡NUEVO! Ancho del 95% en móviles */
+        max-width: none; /* ¡NUEVO! Eliminar max-width en móviles para que ocupe el 95% */
     }
 
     .charger-item-content { /* Media Query para 'charger-item-content' en móviles - ¡NUEVO! */
