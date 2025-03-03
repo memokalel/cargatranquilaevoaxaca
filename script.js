@@ -1,4 +1,4 @@
-// Datos simulados de cargadores (Añadida propiedad 'imagen' y 'potencia' - ¡POTENCIA REAL!)
+// Datos simulados de cargadores
 const chargers = [
     {
         nombre: "Cargador Plaza Oaxaca",
@@ -9,32 +9,32 @@ const chargers = [
         operador: "Electrolinera XYZ",
         lat: 17.0636,
         lng: -96.7251,
-        imagen: "charger-icon.png", // ¡IMAGEN GENÉRICA PARA INICIO!
-        potencia: "20kW" // ¡POTENCIA REAL: 20kW!
+        imagen: "charger-icon.png",
+        potencia: "20kW"
     },
     {
         nombre: "Cargador Gasolinera Centro",
         ubicacion: "Gasolinera Pemex Centro, Oaxaca",
         direccion: "Calle Macedonio Alcalá 507, Centro, 68000 Oaxaca de Juárez",
-        semaforo: "VERDE",
+        semaforo: "AMARILLO",
         conectores: ["Tipo 2"],
         operador: "Pemex",
         lat: 17.0612,
         lng: -96.7283,
-        imagen: "charger-icon.png", // ¡IMAGEN GENÉRICA PARA INICIO!
-        potencia: "7kW"  // ¡POTENCIA REAL: 7kW!
+        imagen: "charger-icon.png",
+        potencia: "7kW"
     },
     {
         nombre: "Cargador Hotel Reforma",
         ubicacion: "Hotel Reforma, Oaxaca",
         direccion: "Av. Independencia 1003, Centro, 68000 Oaxaca de Juárez",
-        semaforo: "AMARILLO",
+        semaforo: "ROJO",
         conectores: ["CCS"],
         operador: "Hotel Reforma",
         lat: 17.0588,
         lng: -96.7315,
-        imagen: "charger-icon.png", // ¡IMAGEN GENÉRICA PARA INICIO!
-        potencia: "11kW"  // ¡POTENCIA REAL: 11kW!
+        imagen: "charger-icon.png",
+        potencia: "11kW"
     },
     {
         nombre: "Cargador Desconocido 1",
@@ -45,40 +45,39 @@ const chargers = [
         operador: "Desconocido",
         lat: 17.0564,
         lng: -96.7347,
-        imagen: "charger-icon.png", // ¡IMAGEN GENÉRICA PARA INICIO!
-        potencia: "6kW" // ¡POTENCIA REAL: 6kW!
+        imagen: "charger-icon.png",
+        potencia: "6kW"
     }
 ];
 
-// Ordenar por semáforo: VERDE > AMARILLO > ROJO
+// Ordenar por semáforo
 const order = { VERDE: 1, AMARILLO: 2, ROJO: 3 };
 chargers.sort((a, b) => order[a.semaforo] - order[b.semaforo]);
 
 function renderChargers() {
-    const container = document.getElementById('charger-list'); // ¡ID CORRECTO! 'charger-list'
-    container.innerHTML = ''; // Limpiar la lista antes de renderizar
+    // ¡Busca el contenedor con id="chargerList" AHORA (en lugar de 'charger-list')!
+    const container = document.getElementById('chargerList');
+    container.innerHTML = '';
 
     chargers.forEach(charger => {
-        const item = document.createElement('li'); // ¡ELEMENTO 'li' PARA LA LISTA!
+        // ¡Crea un <div> con clase "charger-item" AHORA (en lugar de <li>)!
+        const item = document.createElement('div');
         item.className = 'charger-item';
         item.setAttribute('data-charger-id', charger.nombre);
 
         item.innerHTML = `
-            <div class="charger-item-content">
-                <div class="status-light ${charger.semaforo}"></div>
-                <div class="charger-info">
-                    <h3>${charger.nombre}</h3>
-                    <p>${charger.ubicacion}</p>
-                    <p><strong>Conectores:</strong> ${charger.conectores.join(', ')}</p>
-                </div>
-                <button class="navigate-btn" onclick="event.stopPropagation(); navigateTo(${charger.lat}, ${charger.lng})">
-                    Ir al cargador
-                </button>
+            <div class="status-light ${charger.semaforo}"></div>
+            <div class="charger-info">
+                <h3>${charger.nombre}</h3>
+                <p>${charger.ubicacion}</p>
+                <p><strong>Conectores:</strong> ${charger.conectores.join(', ')}</p>
             </div>
+            <button class="navigate-btn" onclick="event.stopPropagation(); navigateTo(${charger.lat}, ${charger.lng})">
+                Navegar
+            </button>
         `;
 
-        // Añadir evento para mostrar modal
-        item.addEventListener('click', () => showModal(charger)); // ¡FUNCIÓN CORRECTA! 'showModal'
+        item.addEventListener('click', () => showModal(charger));
 
         container.appendChild(item);
     });
@@ -94,21 +93,15 @@ function navigateTo(lat, lng) {
 }
 
 function toggleAbout() {
-    const aboutSection = document.getElementById('about-section'); // ¡ID CORRECTO! 'about-section'
+    const aboutSection = document.getElementById('about-section');
     aboutSection.style.display = aboutSection.style.display === 'block' ? 'none' : 'block';
 }
 
-function hideAbout() {
-    const aboutSection = document.getElementById('about-section'); // ¡ID CORRECTO! 'about-section'
-    aboutSection.style.display = 'none';
-}
-
-function showModal(charger) { // ¡FUNCIÓN CORRECTA! 'showModal'
+function showModal(charger) {
     const modal = document.getElementById('charger-modal');
     const overlay = document.getElementById('modal-overlay');
     const modalContent = document.getElementById('modal-content');
 
-    // Construir el contenido del modal (incluyendo la imagen y TODOS los datos) - ¡SIMPLIFICADO Y CORREGIDO!
     modalContent.innerHTML = `
         <img src="images/${charger.imagen}" alt="Cargador VE">
         <h3>${charger.nombre}</h3>
@@ -127,7 +120,6 @@ function showModal(charger) { // ¡FUNCIÓN CORRECTA! 'showModal'
     overlay.style.display = 'block';
 }
 
-
 function closeModal() {
     document.getElementById('charger-modal').style.display = 'none';
     document.getElementById('modal-overlay').style.display = 'none';
@@ -135,15 +127,12 @@ function closeModal() {
 
 function rateCharger(chargerName, ratingType) {
     alert(`¡Gracias por calificar el cargador ${chargerName} con un voto ${ratingType === 'positive' ? 'positivo' : 'negativo'}! Tu opinión nos ayuda a mejorar.`);
-    closeModal(); // Cerrar el modal después de calificar - ¡AÑADIDO!
-    // En el futuro, aquí se podría guardar la calificación en una base de datos.
+    closeModal();
 }
 
-// Inicialización
 document.addEventListener('DOMContentLoaded', () => {
     renderChargers();
 
-     // Event listener para el icono "i" en el FOOTER - ¡NUEVO!
-     const footerAboutBtn = document.getElementById('footer-about-btn'); // ¡ID CORRECTO! 'footer-about-btn'
-     footerAboutBtn.addEventListener('click', toggleAbout); // Reutilizar la función toggleAbout - ¡MÁS LIMPIO!
+    const footerAboutBtn = document.getElementById('footer-about-btn');
+    footerAboutBtn.addEventListener('click', toggleAbout);
 });
