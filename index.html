@@ -13,10 +13,10 @@
         <button onclick="toggleAbout()">Acerca de</button>
     </header>
 
-    <div class="container" id="chargerList">
+    <div class="container" id="charger-list">
     </div>
 
-    <div class="about-section" id="aboutSection">
+    <div class="about-section" id="about-section">
         <div class="about-content">
             <h2>¿Cansado de la ANSIEDAD de carga en Oaxaca?</h2>
             <p>¡Carga Tranquila VE - Oaxaca está aquí para ayudarte!</p>
@@ -41,35 +41,44 @@
                 </li>
             </ul>
 
-            <p>En este MVP inicial, el 'Semáforo Emocional' es una <strong>SIMULACIÓN</strong> para mostrarte <strong>CÓMO FUNCIONARÁ</strong> Carga Tranquila VE - Oaxaca. En el futuro, será mucho más <strong>INTELIGENTE</strong> y <strong>PREDICTIVO</strong>, basado en datos reales para darte <strong>INFORMACIÓN CONFIABLE</strong> y la <strong>TRANQUILIDAD</strong> que necesitas.</p>
+            <div class="mvp-info-tooltip">
+                <span class="info-icon">i</span>
+                <div class="tooltip-text">
+                    <p>En este MVP inicial, el 'Semáforo Emocional' es una SIMULACIÓN para mostrarte CÓMO FUNCIONARÁ Carga Tranquila VE - Oaxaca.</p>
+                    <p>En el futuro, será mucho más INTELIGENTE y PREDICTIVO, basado en datos reales para darte INFORMACIÓN CONFIABLE y la TRANQUILIDAD que necesitas.</p>
+                </div>
+            </div>
 
-
-            <hr style="margin-top: 30px; margin-bottom: 20px; border: 0; border-top: 1px solid #ccc;">  <h3>¡Tu opinión nos importa!</h3>
-            <p>Ayúdanos a mejorar Carga Tranquila VE - Oaxaca.  Déjanos tus comentarios y sugerencias:</p>
-
+            <p>¡Tu opinión nos importa!</p>
             <div style="margin-top: 20px;">
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSekvmtN6bHJReTbQwZ9D9BQGHha4b0YG3D6U3TwJ_2AVn16dA/viewform?embedded=true" width="640" height="956" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>    </div>
+                <iframe src="YOUR_GOOGLE_FORM_LINK_HERE" width="640" height="956" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>     </div>
 
             <button class="navigate-btn cerrar-about-btn" onclick="toggleAbout()">Cerrar</button>
         </div>
     </div>
 
-    <div class="modal-overlay" id="modalOverlay" onclick="closeModal()"></div>
-    <div class="modal" id="chargerModal">
-        <div id="modalContent" class="modal-content">
-            <img src="images/${charger.imagen}" alt="Imagen del cargador ${charger.nombre}">
-            <h3>${charger.nombre}</h3>
-            <p><strong>Dirección:</strong> ${charger.direccion}</p>
-            <p><strong>Conectores:</strong> ${charger.conectores.join(', ')}</p>
-            <p><strong>Potencia:</strong> ${charger.potencia}</p>
-            <p><strong>Operador:</strong> ${charger.operador}</p>
-            <div style="text-align: center; margin-top: 15px;">
-                <button class="rating-button positive-rating" onclick="rateCharger('${charger.nombre}', 'positive')">😊 Cargador DISPONIBLE</button><br><br>
-                <button class="rating-button negative-rating" onclick="rateCharger('${charger.nombre}', 'negative')">😔 Cargador NO DISPONIBLE</button>
+    <div class="modal-overlay" id="modal-overlay" onclick="closeModal()"></div>
+    <div class="modal" id="charger-modal">
+        <div id="modal-content" class="modal-content">
+            <img src="images/charger-icon.png" alt="Imagen del cargador">
+            <h3 id="modal-title">Nombre del Cargador</h3>
+            <p id="modal-location">Ubicación del Cargador</p>
+            <div class="status-light" id="modal-status" style="display: inline-block; margin-right: 5px;"></div> <p style="display: inline-block;" id="modal-status-text">Semáforo: </p>
+            <p><strong>Conectores:</strong> <span id="modal-connectors"></span></p>
+            <p><strong>Potencia:</strong> <span id="modal-power"></span></p>
+            <div class="rating-buttons">
+                <button class="rating-button positive-rating" onclick="rateCharger('nombre-cargador', 'positive')" aria-label="Cargador Funciona"><span role="img" aria-label="Pulgar arriba">👍</span></button>
+                <button class="rating-button negative-rating" onclick="rateCharger('nombre-cargador', 'negative')" aria-label="Cargador No Funciona"><span role="img" aria-label="Pulgar abajo">👎</span></button>
             </div>
         </div>
         <button onclick="closeModal()">Cerrar</button>
     </div>
+
+    <footer>
+        <div class="footer-content">
+            <span class="footer-info-icon" id="footer-about-btn">i</span>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 
