@@ -64,16 +64,16 @@ function renderChargers() {
         item.setAttribute('data-charger-id', charger.nombre);
 
         item.innerHTML = `
-            <div class="status-light ${charger.semaforo}"></div>
-            <div class="charger-info">
-                <h3>${charger.nombre}</h3>
-                <p>${charger.ubicacion}</p>
-                <p><strong>Conectores:</strong> ${charger.conectores.join(', ')}</p>
-            </div>
-            <button class="navigate-btn" onclick="event.stopPropagation(); navigateTo(${charger.lat}, ${charger.lng})">
-                Ir al cargador
-            </button>
-        `;
+            <div class="charger-item-content">  <div class="status-light ${charger.semaforo}"></div>
+                <div class="charger-info">
+                    <h3>${charger.nombre}</h3>
+                    <p>${charger.ubicacion}</p>
+                    <p><strong>Conectores:</strong> ${charger.conectores.join(', ')}</p>
+                </div>
+                <button class="navigate-btn" onclick="event.stopPropagation(); navigateTo(${charger.lat}, ${charger.lng})">
+                    Ir al cargador
+                </button>
+            </div> `;
 
         // Añadir evento para mostrar modal
         item.addEventListener('click', () => showModal(charger)); // ¡FUNCIÓN CORRECTA! 'showModal'
@@ -112,13 +112,11 @@ function showModal(charger) { // ¡FUNCIÓN CORRECTA! 'showModal'
         <h3>${charger.nombre}</h3>
         <p>${charger.ubicacion}</p>
         <p><strong>Dirección:</strong> ${charger.direccion}</p>
-        <div class="status-light ${charger.semaforo}" style="display: inline-block; margin-right: 5px;"></div> <p style="display: inline-block;">Semáforo: ${charger.semaforo}</p>
+        <div class="modal-status-container"> <div class="status-light ${charger.semaforo} modal-status-light"></div> <p class="modal-status-text">Semáforo ${charger.semaforo}</p> </div>
         <p><strong>Conectores:</strong> ${charger.conectores.join(', ')}</p>
         <p><strong>Potencia:</strong> ${charger.potencia}</p>
         <div class="rating-buttons">
-            <button class="rating-button positive-rating" onclick="rateCharger('${charger.nombre}', 'positive')" aria-label="Cargador Funciona"><span role="img" aria-label="Pulgar arriba">👍</span></button>
-            <button class="rating-button negative-rating" onclick="rateCharger('${charger.nombre}', 'negative')" aria-label="Cargador No Funciona"><span role="img" aria-label="Pulgar abajo">👎</span></button>
-        </div>
+            <button class="rating-button positive-rating" onclick="rateCharger('${charger.nombre}', 'positive')" aria-label="Cargador Funciona"><span role="img" aria-label="Cargador Funciona">👍 Funciona</span></button> <button class="rating-button negative-rating" onclick="rateCharger('${charger.nombre}', 'negative')" aria-label="Cargador No Funciona"><span role="img" aria-label="Cargador No Funciona">👎 No Funciona</span></button> </div>
     `;
 
     modal.style.display = 'block';
@@ -148,5 +146,18 @@ document.addEventListener('DOMContentLoaded', () => {
      } else {
          console.error("Error: Icono 'i' del footer no encontrado."); // Mensaje de error si no se encuentra el icono del footer
      }
+
+     // Event listener para el icono "i" en "Acerca de" - ¡NUEVO PARA SMARTPHONES!
+     const aboutInfoIcon = document.querySelector('.info-icon'); // ¡SELECTOR CSS CORRECTO!
+     if (aboutInfoIcon) {
+        aboutInfoIcon.addEventListener('click', () => { // Añadir evento 'click'
+            const tooltipText = aboutInfoIcon.nextElementSibling; // Obtener el tooltip hermano
+            tooltipText.style.visibility = tooltipText.style.visibility === 'visible' ? 'hidden' : 'visible'; // Toggle visibility
+            tooltipText.style.opacity = tooltipText.style.opacity === '1' ? '0' : '1'; // Toggle opacity
+        });
+     } else {
+         console.error("Error: Icono 'i' de 'Acerca de' no encontrado."); // Mensaje de error si no se encuentra el icono "i" de "Acerca de"
+     }
+
 
 });
