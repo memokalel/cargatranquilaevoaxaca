@@ -55,6 +55,7 @@ header button:hover {
     align-items: center;
     transition: transform 0.2s;
     cursor: pointer;
+    margin-bottom: 15px; /* ¡AUMENTADO MARGIN-BOTTOM PARA MÁS ESPACIO VERTICAL ENTRE ITEMS! */
 }
 
 .charger-item:hover {
@@ -264,6 +265,83 @@ header button:hover {
     margin-bottom: 0;
 }
 
+/* Estilos para el Tooltip en "Acerca de" - ¡NUEVO! */
+.mvp-info-tooltip {
+    position: relative; /* Para posicionar el tooltip en relación al icono */
+    display: inline-block; /* Para que ocupe solo el ancho del icono y texto */
+    margin-top: 10px; /* Añadido margen superior para separar del texto anterior */
+}
+
+.info-icon {
+    display: inline-block;
+    width: 20px; /* Ajustar tamaño del icono */
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid #999; /* Estilo visual del icono "i" */
+    text-align: center;
+    line-height: 20px;
+    font-style: italic; /* "i" itálica para icono de información */
+    cursor: pointer;
+    font-size: 0.8em; /* Reducir ligeramente tamaño de la 'i' */
+    color: #666; /* Color más discreto */
+    background-color: white; /* Fondo blanco para el icono */
+}
+
+.tooltip-text {
+    visibility: hidden; /* Ocultar inicialmente */
+    width: 250px; /* Ancho del tooltip */
+    background-color: white;
+    color: #333;
+    text-align: left;
+    padding: 10px;
+    border-radius: 6px;
+    position: absolute; /* Posicionamiento absoluto para el tooltip */
+    z-index: 1;
+    bottom: 125%; /* Posición por encima del icono */
+    left: 50%;
+    margin-left: -125px; /* Centrar el tooltip horizontalmente */
+    opacity: 0; /* Transparencia inicial */
+    transition: opacity 0.3s, visibility 0.3s; /* Transición suave al mostrar/ocultar */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.mvp-info-tooltip:hover .tooltip-text { /* Mostrar al hacer hover en el icono */
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Estilos para el Pie de Página Persistente - ¡NUEVO! */
+footer {
+    position: fixed; /* Pie de página fijo en la parte inferior */
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #f5f5f5; /* Mismo color de fondo que el body */
+    padding: 10px 20px;
+    text-align: right; /* Alinear contenido del pie de página a la derecha */
+    border-top: 1px solid #eee; /* Línea superior para separar del contenido principal */
+    z-index: 100; /* Asegurar que esté por encima del contenido principal */
+}
+
+.footer-content {
+    /* Estilos para el contenedor interno del pie de página si es necesario */
+}
+
+.footer-info-icon {
+    display: inline-block;
+    width: 20px; /* Ajustar tamaño del icono en el pie de página */
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid #999; /* Estilo visual del icono "i" en el pie de página */
+    text-align: center;
+    line-height: 20px;
+    font-style: italic;
+    cursor: pointer;
+    font-size: 0.8em; /* Reducir ligeramente el tamaño de la "i" en el pie de página */
+    color: #666; /* Color más discreto en el pie de página */
+    background-color: #f5f5f5; /* Mismo color de fondo que el footer para que se integre bien */
+}
+
 
 /* Media query para pantallas más pequeñas (smartphones) */
 @media (max-width: 768px) {
@@ -366,5 +444,18 @@ header button:hover {
         height: auto;
         display: block;
         margin: 0 auto;
+    }
+
+    footer { /* Media Query para Footer en móviles - ¡NUEVO! */
+        padding: 8px 15px; /* Reducir padding en móviles */
+        font-size: 0.9em; /* Reducir tamaño de fuente en móviles si hay texto en el footer */
+        text-align: center; /* Centrar texto en móviles si añades más texto al footer */
+    }
+
+    .footer-info-icon { /* Media Query para Icono "i" en footer en móviles - ¡NUEVO! */
+        width: 18px; /* Reducir tamaño del icono en móviles */
+        height: 18px;
+        line-height: 18px; /* Ajustar line-height al nuevo tamaño */
+        font-size: 0.7em; /* Reducir aún más el tamaño de la "i" en móviles */
     }
 }
