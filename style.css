@@ -150,7 +150,8 @@ header button:hover {
     z-index: 1000;
     text-align: center; /* Centrar contenido del modal */
     height: auto; /* ¡ALTURA DEL MODAL AJUSTADA A 'AUTO'! (Lo añadimos antes) */
-    min-height: 350px; /* ¡ALTURA MÍNIMA DEL MODAL ESTABLECIDA A 350px! */
+    min-height: 400px; /* ¡ALTURA MÍNIMA DEL MODAL AUMENTADA A 400px! */
+    min-width: 300px; /* ¡ANCHO MÍNIMO DEL MODAL AÑADIDO A 300px! */
 }
 
 .modal-overlay {
