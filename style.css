@@ -242,12 +242,12 @@ header button:hover {
 @media (max-width: 768px) {
     header {
         flex-direction: column; /* Apilar verticalmente en pantallas pequeñas */
-        padding: 15px; /* Reducir padding del header en pantallas pequeñas */
+        padding: 10px; /* Reducir padding del header en pantallas pequeñas - ¡REDUCIDO! */
     }
 
     header h1 {
         margin-bottom: 10px; /* Añadir margen inferior al título en pantallas pequeñas */
-        font-size: 22px; /* Ajustar tamaño de fuente del título en pantallas pequeñas */
+        font-size: 20px; /* Ajustar tamaño de fuente del título en pantallas pequeñas - ¡REDUCIDO! */
     }
 
     header button {
@@ -256,13 +256,13 @@ header button:hover {
     }
 
     .container {
-        padding: 10px; /* Reducir padding del container en pantallas pequeñas */
+        padding: 15px; /* Reducir padding del container en pantallas pequeñas - ¡AUMENTADO ligeramente! */
     }
 
     .charger-item {
         flex-direction: column; /* Alinear verticalmente los elementos del cargador en pantallas pequeñas */
         align-items: stretch; /* Extender elementos para ocupar todo el ancho en pantallas pequeñas */
-        padding: 10px; /* Reducir padding de los items de cargador en pantallas pequeñas */
+        padding: 15px; /* Reducir padding de los items de cargador en pantallas pequeñas - ¡AUMENTADO ligeramente! */
     }
 
     .status-light {
@@ -278,7 +278,7 @@ header button:hover {
     }
 
     .charger-info h3 {
-        font-size: 17px; /* Ajustar tamaño de fuente del nombre del cargador en pantallas pequeñas */
+        font-size: 16px; /* Ajustar tamaño de fuente del nombre del cargador en pantallas pequeñas - ¡REDUCIDO! */
     }
 
     .charger-info p {
@@ -294,12 +294,12 @@ header button:hover {
     }
 
     .about-content {
-        padding: 15px; /* Reducir padding del contenido de "Acerca de" en pantallas pequeñas */
+        padding: 20px; /* Reducir padding del contenido de "Acerca de" en pantallas pequeñas - ¡AUMENTADO ligeramente! */
         margin: 10px auto; /* Reducir margenes del contenido de "Acerca de" en pantallas pequeñas */
     }
 
     .about-content h2 {
-        font-size: 20px; /* Ajustar tamaño de fuente del título principal de "Acerca de" en pantallas pequeñas */
+        font-size: 18px; /* Ajustar tamaño de fuente del título principal de "Acerca de" en pantallas pequeñas - ¡REDUCIDO! */
     }
 
     .about-content h3, .about-content p, .about-content ul {
