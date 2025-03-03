@@ -102,38 +102,24 @@ function hideAbout() {
 }
 
 function showModal(charger) { // ¡FUNCIÓN CORRECTA! 'showModal'
-    const modal = document.getElementById('charger-modal'); // ¡ID CORRECTO! 'charger-modal'
-    const overlay = document.getElementById('modal-overlay'); // ¡ID CORRECTO! 'modal-overlay'
-    const modalTitle = document.getElementById('modal-title'); // ¡ID CORRECTO! 'modal-title'
-    const modalLocation = document.getElementById('modal-location'); // ¡ID CORRECTO! 'modal-location'
-    const modalStatus = document.getElementById('modal-status'); // ¡ID CORRECTO! 'modal-status'
-    const modalConnectors = document.getElementById('modal-connectors'); // ¡ID CORRECTO! 'modal-connectors'
-    const modalPower = document.getElementById('modal-power'); // ¡ID CORRECTO! 'modal-power'
-    const modalContent = document.getElementById('modal-content'); // ¡ID CORRECTO! 'modal-content'
+    const modal = document.getElementById('charger-modal');
+    const overlay = document.getElementById('modal-overlay');
+    const modalContent = document.getElementById('modal-content');
 
-
-    modalTitle.textContent = charger.nombre;
-    modalLocation.textContent = charger.ubicacion;
-    modalStatus.className = `status-light ${charger.semaforo}`; // Reestablecer la clase para el color
-    modalStatus.textContent = `Semáforo: ${charger.semaforo}`; // Añadir texto "Semáforo: VERDE/AMARILLO/ROJO"
-    modalConnectors.textContent = charger.conectores.join(', ');
-    modalPower.textContent = charger.potencia;
-
-    // Construir el contenido del modal (incluyendo la imagen) - ¡CORREGIDO PARA IMAGEN GENÉRICA Y AÑADIDA DIRECCIÓN!
+    // Construir el contenido del modal (incluyendo la imagen y TODOS los datos) - ¡SIMPLIFICADO Y CORREGIDO!
     modalContent.innerHTML = `
         <img src="images/${charger.imagen}" alt="Cargador VE">
-        <h3 id="modal-title">${charger.nombre}</h3>
-        <p id="modal-location">${charger.ubicacion}</p>
-        <p id="modal-location"><strong>Dirección:</strong> ${charger.direccion}</p>
-        <div class="status-light ${charger.semaforo}" id="modal-status" style="display: inline-block; margin-right: 5px;"></div> <p style="display: inline-block;" id="modal-status-text">Semáforo: ${charger.semaforo}</p>
-        <p><strong>Conectores:</strong> <span id="modal-connectors">${charger.conectores.join(', ')}</span></p>
-        <p><strong>Potencia:</strong> <span id="modal-power">${charger.potencia}</span></p>
+        <h3>${charger.nombre}</h3>
+        <p>${charger.ubicacion}</p>
+        <p><strong>Dirección:</strong> ${charger.direccion}</p>
+        <div class="status-light ${charger.semaforo}" style="display: inline-block; margin-right: 5px;"></div> <p style="display: inline-block;">Semáforo: ${charger.semaforo}</p>
+        <p><strong>Conectores:</strong> ${charger.conectores.join(', ')}</p>
+        <p><strong>Potencia:</strong> ${charger.potencia}</p>
         <div class="rating-buttons">
             <button class="rating-button positive-rating" onclick="rateCharger('${charger.nombre}', 'positive')" aria-label="Cargador Funciona"><span role="img" aria-label="Pulgar arriba">👍</span></button>
             <button class="rating-button negative-rating" onclick="rateCharger('${charger.nombre}', 'negative')" aria-label="Cargador No Funciona"><span role="img" aria-label="Pulgar abajo">👎</span></button>
         </div>
     `;
-
 
     modal.style.display = 'block';
     overlay.style.display = 'block';
