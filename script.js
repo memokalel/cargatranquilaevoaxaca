@@ -119,11 +119,12 @@ function showModal(charger) { // ¡FUNCIÓN CORRECTA! 'showModal'
     modalConnectors.textContent = charger.conectores.join(', ');
     modalPower.textContent = charger.potencia;
 
-    // Construir el contenido del modal (incluyendo la imagen) - ¡CORREGIDO PARA IMAGEN GENÉRICA!
+    // Construir el contenido del modal (incluyendo la imagen) - ¡CORREGIDO PARA IMAGEN GENÉRICA Y AÑADIDA DIRECCIÓN!
     modalContent.innerHTML = `
         <img src="images/${charger.imagen}" alt="Cargador VE">
         <h3 id="modal-title">${charger.nombre}</h3>
         <p id="modal-location">${charger.ubicacion}</p>
+        <p id="modal-location"><strong>Dirección:</strong> ${charger.direccion}</p>
         <div class="status-light ${charger.semaforo}" id="modal-status" style="display: inline-block; margin-right: 5px;"></div> <p style="display: inline-block;" id="modal-status-text">Semáforo: ${charger.semaforo}</p>
         <p><strong>Conectores:</strong> <span id="modal-connectors">${charger.conectores.join(', ')}</span></p>
         <p><strong>Potencia:</strong> <span id="modal-power">${charger.potencia}</span></p>
@@ -153,14 +154,6 @@ function rateCharger(chargerName, ratingType) {
 // Inicialización
 document.addEventListener('DOMContentLoaded', () => {
     renderChargers();
-
-    // Event listener para el botón "Acerca de" en el HEADER - ¡MOVIDO AQUÍ PARA MAYOR CLARIDAD!
-    // const aboutBtnHeader = document.getElementById('about-btn'); // ¡ID CORRECTO! 'about-btn'
-    // if (aboutBtnHeader) {
-    //     aboutBtnHeader.addEventListener('click', toggleAbout);
-    // } else {
-    //     console.error("Error: Botón 'Acerca de' no encontrado en el header."); // Mensaje de error si no se encuentra el botón
-    // }
 
      // Event listener para el icono "i" en el FOOTER - ¡NUEVO!
      const footerAboutBtn = document.getElementById('footer-about-btn'); // ¡ID CORRECTO! 'footer-about-btn'
