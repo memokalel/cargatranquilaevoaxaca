@@ -105,8 +105,8 @@ function showChargerDetails(charger) {
         <p><strong>Operador:</strong> ${charger.operador}</p>
         <div style="text-align: center; margin-top: 15px;">
             <p style="margin-bottom: 10px;">¿Cargador incorrecto o fuera de servicio?</p>
-            <button class="rating-button positive-rating" onclick="rateCharger('${charger.nombre}', 'positive')">😊 Reportar Cargador OK</button><br><br>
-            <button class="rating-button negative-rating" onclick="rateCharger('${charger.nombre}', 'negative')">😔 Reportar Cargador NO OK</button>
+            <button class="rating-button positive-rating" onclick="rateCharger('${charger.nombre}', 'positive')">😊 Cargador DISPONIBLE</button><br><br>
+            <button class="rating-button negative-rating" onclick="rateCharger('${charger.nombre}', 'negative')">😔 Cargador NO DISPONIBLE</button>
         </div>
     `;
 
