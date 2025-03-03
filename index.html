@@ -57,6 +57,16 @@
     <div class="modal-overlay" id="modalOverlay" onclick="closeModal()"></div>
     <div class="modal" id="chargerModal">
         <div id="modalContent" class="modal-content">
+            <img src="images/${charger.imagen}" alt="Imagen del cargador ${charger.nombre}">
+            <h3>${charger.nombre}</h3>
+            <p><strong>Dirección:</strong> ${charger.direccion}</p>
+            <p><strong>Conectores:</strong> ${charger.conectores.join(', ')}</p>
+            <p><strong>Potencia:</strong> ${charger.potencia}</p>
+            <p><strong>Operador:</strong> ${charger.operador}</p>
+            <div style="text-align: center; margin-top: 15px;">
+                <button class="rating-button positive-rating" onclick="rateCharger('${charger.nombre}', 'positive')">😊 Cargador DISPONIBLE</button><br><br>
+                <button class="rating-button negative-rating" onclick="rateCharger('${charger.nombre}', 'negative')">😔 Cargador NO DISPONIBLE</button>
+            </div>
         </div>
         <button onclick="closeModal()">Cerrar</button>
     </div>
