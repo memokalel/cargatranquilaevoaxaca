@@ -229,7 +229,7 @@ header button:hover {
     color: inherit; /* Elimina el color rojo específico, usa el color de texto por defecto */
 }
 
-.about-section .about-content button.navigate-btn {
+.about-section .about-content button.navigate-btn.cerrar-about-btn { /* Selector CSS CORRECTO para "Cerrar" en "Acerca de" */
     display: block; /* Asegurar que el botón se comporte como bloque para ocupar el ancho y centrarse */
     margin: 20px auto 0 auto; /* Centrar horizontalmente: auto a izquierda y derecha, y añadir margen superior */
     padding: 10px 15px; /* Asegurar el mismo padding que otros botones navigate-btn */
