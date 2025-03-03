@@ -131,7 +131,7 @@ header button:hover {
     align-items: center; /* Centrar horizontalmente los elementos */
 }
 
-.about-content h2, .about-content h3, .about-content p, .about-content ul, .about-content iframe {
+.about-content h2, .about-content h3, .about-content p, .about-content ul, .about-content button { /* ¡AÑADIDO 'BUTTON' AL SELECTOR PARA CENTRAR BOTÓN FEEDBACK! */
     margin-top: 10px; /* Reducir margen superior de elementos de texto en "Acerca de" */
     margin-bottom: 15px; /* ¡AUMENTADO MARGIN-BOTTOM A 15px PARA MÁS ESPACIO VERTICAL EN "ACERCA DE"! */
     font-size: 16px; /* Ajustar tamaño de fuente del texto en "Acerca de" */
@@ -201,6 +201,7 @@ header button:hover {
     margin-top: 0;
     font-size: 25px; /* ¡TAMAÑO DE FUENTE DEL TÍTULO REDUCIDO A 25px! (MÁS PEQUEÑO) */
     margin-bottom: 10px; /* ¡AÑADIDO MARGIN-BOTTOM DE 10px AL TÍTULO DEL MODAL! */
+    text-align: center; /* ¡FORZAR CENTRADO DEL TEXTO DEL TÍTULO EN EL MODAL! - NUEVO */
 }
 
 .modal-content p {
@@ -210,6 +211,7 @@ header button:hover {
     max-width: 90%; /* ¡REDUCIDO ANCHO MÁXIMO DE LOS PÁRRAFOS DEL MODAL PARA EVITAR DESBORDAMIENTO EN PANTALLAS PEQUEÑAS! */
     margin-left: auto; /* Centrar párrafos horizontalmente */
     margin-right: auto; /* Centrar párrafos horizontalmente */
+    text-align: center; /* ¡FORZAR CENTRADO DEL TEXTO DE LOS PÁRRAFOS EN EL MODAL! - NUEVO */
 }
 
 .modal button {
@@ -478,5 +480,14 @@ footer {
         height: 18px;
         line-height: 18px; /* Ajustar line-height al nuevo tamaño */
         font-size: 0.7em; /* Reducir aún más el tamaño de la "i" en móviles */
+    }
+
+    .feedback-btn { /* Estilos para el botón Feedback - ¡NUEVO! */
+        margin-top: 20px; /* Espacio superior para separar del tooltip */
+        display: block; /* Para que ocupe todo el ancho disponible */
+        margin-left: auto;
+        margin-right: auto; /* Para centrar el botón horizontalmente */
+        max-width: 250px; /* Ancho máximo para el botón de feedback */
+        text-align: center; /* Centrar el texto dentro del botón */
     }
 }
