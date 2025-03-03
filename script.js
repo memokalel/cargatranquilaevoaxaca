@@ -69,4 +69,52 @@ function renderChargers() {
 <div class\="charger\-info"\>
 <h3\></span>{charger.nombre}</h3>
                     <p>${charger.ubicacion}</p>
-                    <p><strong>Conectores:</strong> ${charger.conectores.join(', ')}</p>
+                    <p><strong>Conectores:</strong> <span class="math-inline">\{charger\.conectores\.join\(', '\)\}</p\>
+</div\>
+<button class\="navigate\-btn" onclick\="event\.stopPropagation\(\); navigateTo\(</span>{charger.lat}, ${charger.lng})">
+                    Ir al cargador
+                </button>
+            </div>
+        `;
+
+        // Añadir evento para mostrar modal
+        item.addEventListener('click', () => showModal(charger)); // ¡FUNCIÓN CORRECTA! 'showModal'
+
+        container.appendChild(item);
+    });
+}
+
+function navigateTo(lat, lng) {
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+    const mapsUrl = isIOS ?
+        `http://maps.apple.com/?daddr=<span class="math-inline">\{lat\},</span>{lng}` :
+        `https://www.google.com/maps/search/?api=1&query=<span class="math-inline">\{lat\},</span>{lng}`;
+
+    window.open(mapsUrl, '_blank');
+}
+
+function toggleAbout() {
+    const aboutSection = document.getElementById('about-section'); // ¡ID CORRECTO! 'about-section'
+    aboutSection.style.display = aboutSection.style.display === 'block' ? 'none' : 'block';
+}
+
+function hideAbout() {
+    const aboutSection = document.getElementById('about-section'); // ¡ID CORRECTO! 'about-section'
+    aboutSection.style.display = 'none';
+}
+
+function showModal(charger) { // ¡FUNCIÓN CORRECTA! 'showModal'
+    const modal = document.getElementById('charger-modal');
+    const overlay = document.getElementById('modal-overlay');
+    const modalContent = document.getElementById('modal-content');
+
+    // Construir el contenido del modal (incluyendo la imagen y TODOS los datos) - ¡SIMPLIFICADO Y CORREGIDO!
+    modalContent.innerHTML = `
+        <img src="images/<span class="math-inline">\{charger\.imagen\}" alt\="Cargador VE"\>
+<h3\></span>{charger.nombre}</h3>
+        <p>${charger.ubicacion}</p>
+        <p><strong>Dirección:</strong> ${charger.direccion}</p>
+        <div class="modal-status-container"> <div class="status-light ${charger.semaforo} modal-status-light"></div> <p class="modal-status-text">Semáforo ${charger.semaforo}</p> </div>
+        <p><strong>Conectores:</strong> ${charger.conectores.join(', ')}</p>
+        <p><strong>Potencia:</strong> ${charger.potencia}</p>
+        <div class="rating-buttons">
