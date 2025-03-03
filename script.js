@@ -59,7 +59,6 @@ function renderChargers() {
         item.className = 'charger-item';
         item.setAttribute('data-charger-id', charger.nombre);
 
-        // ¡¡¡ESPACIO EXTRA ELIMINADO AQUÍ ANTES DE </div> DE charger-info!!!
         item.innerHTML = `
             <div class="status-light ${charger.semaforo}"></div>
             <div class="charger-info">
@@ -128,4 +127,4 @@ function rateCharger(chargerName, ratingType) {
 // Inicialización
 document.addEventListener('DOMContentLoaded', () => {
     renderChargers();
-}); si necesitas algo mas dime
+});
