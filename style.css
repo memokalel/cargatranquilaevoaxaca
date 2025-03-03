@@ -51,8 +51,6 @@ header button:hover {
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    display: flex;
-    align-items: center;
     transition: transform 0.2s;
     cursor: pointer;
     margin-bottom: 15px; /* ¡AUMENTADO MARGIN-BOTTOM PARA MÁS ESPACIO VERTICAL ENTRE ITEMS! */
@@ -61,6 +59,13 @@ header button:hover {
 .charger-item:hover {
     transform: translateX(5px); /* Reducir el translate en hover para pantallas pequeñas */
 }
+
+.charger-item-content { /* ¡ESTILOS PARA EL NUEVO DIV 'charger-item-content' - FLEXBOX! */
+    display: flex; /* Usar Flexbox para alinear elementos dentro de charger-item */
+    align-items: center; /* Alinear verticalmente los elementos */
+    width: 100%; /* Asegurar que el contenido ocupe todo el ancho del charger-item */
+}
+
 
 .status-light {
     width: 30px; /* Reducir tamaño del indicador de estado para pantallas pequeñas */
@@ -394,6 +399,11 @@ footer {
         margin-bottom: 6px;
     }
 
+    .charger-item-content { /* Media Query para 'charger-item-content' en móviles - ¡NUEVO! */
+        flex-direction: column; /* Apilar verticalmente en móviles */
+        align-items: center; /* Centrar elementos en móviles */
+    }
+
     .status-light {
         margin-bottom: 8px;
         margin-right: 0;
@@ -489,5 +499,22 @@ footer {
         margin-right: auto; /* Para centrar el botón horizontalmente */
         max-width: 250px; /* Ancho máximo para el botón de feedback */
         text-align: center; /* Centrar el texto dentro del botón */
+    }
+
+    .modal-status-container { /* Media Query para 'modal-status-container' en móviles - ¡NUEVO! */
+        display: flex; /* Usar flexbox en móviles */
+        align-items: center; /* Alinear verticalmente */
+        justify-content: center; /* Centrar horizontalmente */
+        margin-bottom: 10px; /* Espacio debajo del contenedor del semáforo en móviles */
+    }
+
+    .modal-status-light { /* Media Query para 'modal-status-light' en móviles - ¡NUEVO! */
+        width: 25px; /* Reducir tamaño del semáforo en el modal en móviles */
+        height: 25px;
+        margin-right: 8px; /* Reducir margen derecho en móviles */
+    }
+
+    .modal-status-text { /* Media Query para 'modal-status-text' en móviles - ¡NUEVO! */
+        font-size: 18px; /* Reducir tamaño del texto del semáforo en móviles */
     }
 }
