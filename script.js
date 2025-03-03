@@ -59,15 +59,13 @@ function renderChargers() {
         item.className = 'charger-item';
         item.setAttribute('data-charger-id', charger.nombre);
 
+        // ¡¡¡CARITAS DE EMOJI ELIMINADAS DE LA LISTA PRINCIPAL!!!
         item.innerHTML = `
             <div class="status-light ${charger.semaforo}"></div>
             <div class="charger-info">
                 <h3>${charger.nombre}</h3>
                 <p>${charger.ubicacion}</p>
-            </div>
-            <div class="rating-buttons">  <button class="rating-button positive-rating" onclick="event.stopPropagation(); rateCharger('${charger.nombre}', 'positive')">😊</button>
-                <button class="rating-button negative-rating" onclick="event.stopPropagation(); rateCharger('${charger.nombre}', 'negative')">😔</button>
-            </div>
+                <p><strong>Conectores:</strong> ${charger.conectores[0]}</p>  </div>
             <button class="navigate-btn" onclick="event.stopPropagation(); navigateTo(${charger.lat}, ${charger.lng})">
                 Navegar
             </button>
@@ -99,12 +97,18 @@ function showChargerDetails(charger) {
     const overlay = document.getElementById('modalOverlay');
     const content = document.getElementById('modalContent');
 
+    // ¡¡¡CARITAS DE EMOJI AÑADIDAS AL MODAL CON LEYENDA "REPORTAR CARGADOR"!!!
     content.innerHTML = `
         <img src="images/${charger.imagen}" alt="Imagen del cargador ${charger.nombre}">
         <h3>${charger.nombre}</h3>
         <p><strong>Dirección:</strong> ${charger.direccion}</p>
         <p><strong>Conectores:</strong> ${charger.conectores.join(', ')}</p>
         <p><strong>Operador:</strong> ${charger.operador}</p>
+        <div style="text-align: center; margin-top: 15px;">
+            <p style="margin-bottom: 10px;">¿Cargador incorrecto o fuera de servicio?</p>
+            <button class="rating-button positive-rating" onclick="rateCharger('${charger.nombre}', 'positive')">😊 Reportar Cargador OK</button><br><br>
+            <button class="rating-button negative-rating" onclick="rateCharger('${charger.nombre}', 'negative')">😔 Reportar Cargador NO OK</button>
+        </div>
     `;
 
     modal.style.display = 'block';
@@ -124,4 +128,4 @@ function rateCharger(chargerName, ratingType) {
 // Inicialización
 document.addEventListener('DOMContentLoaded', () => {
     renderChargers();
-});
+}); si necesitas algo mas dime
