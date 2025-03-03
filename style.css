@@ -148,7 +148,7 @@ header button:hover {
     box-shadow: 0 2px 10px rgba(0,0,0,0.2);
     z-index: 1000;
     text-align: center; /* Centrar contenido del modal */
-    width: 500px;       /* ¡AÑADIDO: Ancho fijo de 500 píxeles! */
+    width: 300px;       /* ¡AÑADIDO: Ancho fijo de 500 píxeles! */
     height: 400px;      /* ¡AÑADIDO: Alto fijo de 400 píxeles! */
 }
 
