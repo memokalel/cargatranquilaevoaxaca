@@ -73,7 +73,7 @@ function renderChargers() {
                 <p><strong>Conectores:</strong> ${charger.conectores.join(', ')}</p>
             </div>
             <button class="navigate-btn" onclick="event.stopPropagation(); navigateTo(${charger.lat}, ${charger.lng})">
-                Navegar
+                Ir al cargador
             </button>
         `;
 
