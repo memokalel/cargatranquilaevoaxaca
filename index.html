@@ -7,78 +7,69 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <header>
         <h1>Carga Tranquila VE - Oaxaca</h1>
-        <button onclick="toggleAbout()">Acerca de</button>
+        <button id="about-btn" onclick="toggleAbout()">Acerca de</button>
     </header>
 
-    <div class="container" id="charger-list">
+    <div class="container">
+        <ul id="charger-list">
+            </ul>
     </div>
 
-    <div class="about-section" id="about-section">
+    <div id="about-section" class="about-section">
         <div class="about-content">
-            <h2>¿Cansado de la ANSIEDAD de carga en Oaxaca?</h2>
-            <p>¡Carga Tranquila VE - Oaxaca está aquí para ayudarte!</p>
+            <h2>¿Ansiedad al cargar tu VE en Oaxaca?</h2>
+            <p><strong>Carga Tranquila VE - Oaxaca</strong> te ayuda a encontrar cargadores confiables.</p>
+            <p>Nuestro <strong>'Semáforo Emocional Predictivo'</strong> te da <strong>confianza y tranquilidad</strong> para cargar tu vehículo eléctrico en Oaxaca.</p>
 
-            <p>Sabemos lo <strong>FRUSTRANTE</strong> que es buscar cargadores para tu vehículo eléctrico en Oaxaca y no saber si serán <strong>CONFIABLES</strong> o si estarán <strong>DISPONIBLES</strong> cuando llegues. ¿Verdad que te sientes <strong>INCIERTO</strong> y <strong>ANSIOSO</strong>?</p>
-
-            <p>¡Con Carga Tranquila VE - Oaxaca, olvídate de la <strong>ANSIEDAD</strong>! Hemos creado el <strong>'Semáforo Emocional Predictivo'</strong> para darte <strong>CONFIANZA</strong> y <strong>TRANQUILIDAD</strong> al cargar en Oaxaca.</p>
-
-            <h3>¿Cómo funciona el 'Semáforo Emocional'?</h3>
+            <h3>Semáforo Emocional:</h3>
             <ul style="list-style: none; padding-left: 20px;">
                 <li>
                     <span class="status-light VERDE" style="display: inline-block; margin-right: 10px;"></span>
-                    <strong>VERDE:</strong> ¡Carga <strong>CONFIABLE</strong>! Elige estos cargadores con <strong>CONFIANZA</strong>.
+                    <strong>VERDE:</strong> ¡Carga <strong>confiable</strong>!
                 </li>
                 <li>
                     <span class="status-light AMARILLO" style="display: inline-block; margin-right: 10px;"></span>
-                    <strong>AMARILLO:</strong> Carga con <strong>PRECAUCIÓN</strong>. Pueden ser útiles, pero ten en cuenta cierta incertidumbre.
+                    <strong>AMARILLO:</strong> Carga con <strong>precaución</strong>.
                 </li>
                 <li>
                     <span class="status-light ROJO" style="display: inline-block; margin-right: 10px;"></span>
-                    <strong>ROJO:</strong> ¡Mejor <strong>EVITAR</strong>! Es posible que no funcionen o no estén disponibles.
+                    <strong>ROJO:</strong> ¡Mejor <strong>evitar</strong>!
                 </li>
             </ul>
 
             <div class="mvp-info-tooltip">
                 <span class="info-icon">i</span>
                 <div class="tooltip-text">
-                    <p>En este MVP inicial, el 'Semáforo Emocional' es una SIMULACIÓN para mostrarte CÓMO FUNCIONARÁ Carga Tranquila VE - Oaxaca.</p>
-                    <p>En el futuro, será mucho más INTELIGENTE y PREDICTIVO, basado en datos reales para darte INFORMACIÓN CONFIABLE y la TRANQUILIDAD que necesitas.</p>
+                    <p>En este MVP, el 'Semáforo Emocional' es una SIMULACIÓN. ¡Pronto será más inteligente con datos reales!</p>
                 </div>
             </div>
 
-            <p>¡Tu opinión nos importa!</p>
             <div style="margin-top: 20px;">
-                <iframe src="YOUR_GOOGLE_FORM_LINK_HERE" width="640" height="956" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>     </div>
+                <button class="feedback-btn navigate-btn" onclick="window.open('YOUR_GOOGLE_FORM_LINK_HERE', '_blank')">
+                    ¡Danos tu Feedback!
+                </button>
+            </div>
 
             <button class="navigate-btn cerrar-about-btn" onclick="toggleAbout()">Cerrar</button>
         </div>
     </div>
 
-    <div class="modal-overlay" id="modal-overlay" onclick="closeModal()"></div>
-    <div class="modal" id="charger-modal">
-        <div id="modal-content" class="modal-content">
-            <img src="images/charger-icon.png" alt="Imagen del cargador">
-            <h3 id="modal-title">Nombre del Cargador</h3>
-            <p id="modal-location">Ubicación del Cargador</p>
-            <div class="status-light" id="modal-status" style="display: inline-block; margin-right: 5px;"></div> <p style="display: inline-block;" id="modal-status-text">Semáforo: </p>
-            <p><strong>Conectores:</strong> <span id="modal-connectors"></span></p>
-            <p><strong>Potencia:</strong> <span id="modal-power"></span></p>
-            <div class="rating-buttons">
-                <button class="rating-button positive-rating" onclick="rateCharger('nombre-cargador', 'positive')" aria-label="Cargador Funciona"><span role="img" aria-label="Pulgar arriba">👍</span></button>
-                <button class="rating-button negative-rating" onclick="rateCharger('nombre-cargador', 'negative')" aria-label="Cargador No Funciona"><span role="img" aria-label="Pulgar abajo">👎</span></button>
+    <div id="charger-modal" class="modal">
+        <div class="modal-content" id="modal-content">
             </div>
-        </div>
         <button onclick="closeModal()">Cerrar</button>
     </div>
 
+    <div id="modal-overlay" class="modal-overlay"></div>
+
     <footer>
         <div class="footer-content">
-            <span class="footer-info-icon" id="footer-about-btn">i</span>
-        </div>
+            <span id="footer-about-btn" class="footer-info-icon" onclick="toggleAbout()" aria-label="Acerca de">i</span>
+            </div>
     </footer>
 
-    <script src="script.js"></script>  </body>
+    <script src="script.js"></script>
+</body>
 </html>
