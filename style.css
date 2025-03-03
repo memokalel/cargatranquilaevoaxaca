@@ -189,6 +189,8 @@ header button:hover {
     cursor: pointer;
     transition: background 0.3s;
     font-size: 16px; /* Ajustar tamaño de fuente del botón del modal */
+    float: left; /* ¡BOTÓN "CERRAR" FLOTADO A LA IZQUIERDA! */
+    clear: both; /* ¡LIMPIAR FLOTADO EN AMBAS DIRECCIONES! */
 }
 
 .modal button:hover {
