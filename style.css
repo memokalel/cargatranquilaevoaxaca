@@ -172,7 +172,7 @@ header button:hover {
     height: 100%; /* Para que flex-direction y justify-content funcionen en altura */
     padding-bottom: 20px; /* Reducimos padding-bottom a 20px (ajuste) */
     text-align: center; /* Centrar texto */
-    font-size: 21px; /* ¡TAMAÑO DE FUENTE BASE AUMENTADO A 21px PARA TODO EL MODAL-CONTENT! (15% MÁS GRANDE) */
+    font-size: 19px; /* ¡TAMAÑO DE FUENTE BASE REDUCIDO A 19px PARA TODO EL MODAL-CONTENT! (MÁS PEQUEÑO) */
 }
 
 .modal-content img {
@@ -185,12 +185,12 @@ header button:hover {
 
 .modal-content h3 {
     margin-top: 0;
-    font-size: 28px; /* ¡TAMAÑO DE FUENTE DEL TÍTULO AUMENTADO A 28px! (15% MÁS GRANDE) */
+    font-size: 25px; /* ¡TAMAÑO DE FUENTE DEL TÍTULO REDUCIDO A 25px! (MÁS PEQUEÑO) */
 }
 
 .modal-content p {
     margin-bottom: 15px;
-    font-size: 23px; /* ¡TAMAÑO DE FUENTE DE LOS PÁRRAFOS AUMENTADO A 23px! (15% MÁS GRANDE) */
+    font-size: 21px; /* ¡TAMAÑO DE FUENTE DE LOS PÁRRAFOS REDUCIDO A 21px! (MÁS PEQUEÑO) */
     color: #666; /* Mantenemos el color original */
 }
 
@@ -202,7 +202,7 @@ header button:hover {
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s;
-    font-size: 19px; /* ¡TAMAÑO DE FUENTE DEL BOTÓN DEL MODAL AUMENTADO A 19px! (15% MÁS GRANDE) */
+    font-size: 17px; /* ¡TAMAÑO DE FUENTE DEL BOTÓN DEL MODAL REDUCIDO A 17px! (MÁS PEQUEÑO) */
         /* ¡¡¡FLOAT Y CLEAR BORRADOS - VOLVEMOS AL CÓDIGO ORIGINAL!!! */
     margin-bottom: 15px; /* ¡MARGEN INFERIOR AÑADIDO A LOS BOTONES DEL MODAL! */
 }
