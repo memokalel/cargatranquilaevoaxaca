@@ -401,9 +401,13 @@ footer {
         padding: 12px;
         margin-bottom: 6px;
         /* Refuerzo EXTRA para el ancho del 100% en móviles - ¡MÁXIMO REFUERZO! */
-        width: calc(100% - 0px) !important; /* ¡¡¡ANCHO AL 100% CON CALC Y !important - MÁXIMO REFUERZO!!! */
-        max-width: none !important;
-        box-sizing: border-box !important;
+        width: calc(100% - 0px); /* ¡REMOVIDO !important DE width -  REDUCIDA "AGRESIVIDAD" DEL ESTILO! */
+        max-width: none;        /* ¡REMOVIDO !important DE max-width - REDUCIDA "AGRESIVIDAD" DEL ESTILO! */
+        box-sizing: border-box; /* ¡REMOVIDO !important DE box-sizing - REDUCIDA "AGRESIVIDAD" DEL ESTILO! */
+    }
+
+    .charger-item:hover {
+        transform: translateX(5px);
     }
 
     .charger-item-content {
