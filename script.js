@@ -64,7 +64,8 @@ function renderChargers() {
         item.setAttribute('data-charger-id', charger.nombre);
 
         item.innerHTML = `
-            <div class="charger-item-content">  <div class="status-light ${charger.semaforo}"></div>
+            <div class="charger-item-content">
+                <div class="status-light ${charger.semaforo}"></div>
                 <div class="charger-info">
                     <h3>${charger.nombre}</h3>
                     <p>${charger.ubicacion}</p>
@@ -73,7 +74,8 @@ function renderChargers() {
                 <button class="navigate-btn" onclick="event.stopPropagation(); navigateTo(${charger.lat}, ${charger.lng})">
                     Ir al cargador
                 </button>
-            </div> `;
+            </div>
+        `;
 
         // Añadir evento para mostrar modal
         item.addEventListener('click', () => showModal(charger)); // ¡FUNCIÓN CORRECTA! 'showModal'
