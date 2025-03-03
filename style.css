@@ -416,7 +416,7 @@ footer {
         align-items: stretch;
         padding: 12px;
         margin-bottom: 6px;
-        /* width: 95%;  ¡¡¡BORRADO width: 95% EN MÓVILES PARA VOLVER AL ANCHO NORMAL!!! */
+        width: 100%;  /* ¡¡¡RESTABLECIDO width: 100% EN MÓVILES PARA VOLVER AL ANCHO NORMAL!!! */
         max-width: none; /* ¡NUEVO! Eliminar max-width en móviles para que ocupe el 95% */
     }
 
