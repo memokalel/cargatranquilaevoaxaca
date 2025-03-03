@@ -61,4 +61,71 @@ function renderChargers() {
 
         // ¡¡¡CARITAS DE EMOJI ELIMINADAS DE LA LISTA PRINCIPAL!!!
         item.innerHTML = `
-            <div class="status-light <span class="math-inline">\{charger\.semaforo\}"\></div\>
+            <div class="status-light ${charger.semaforo}"></div>
+            <div class="charger-info">
+                <h3>${charger.nombre}</h3>
+                <p>${charger.ubicacion}</p>
+                <p><strong>Conectores:</strong> ${charger.conectores[0]}</p>  </div>
+            <button class="navigate-btn" onclick="event.stopPropagation(); navigateTo(${charger.lat}, ${charger.lng})">
+                Navegar
+            </button>
+        `;
+
+        // Añadir evento para mostrar modal
+        item.addEventListener('click', () => showChargerDetails(charger));
+
+        container.appendChild(item);
+    });
+}
+
+function navigateTo(lat, lng) {
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+    const mapsUrl = isIOS ?
+        `http://maps.apple.com/?daddr=${lat},${lng}` :
+        `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
+
+    window.open(mapsUrl, '_blank');
+}
+
+function toggleAbout() {
+    const about = document.getElementById('aboutSection');
+    about.style.display = about.style.display === 'block' ? 'none' : 'block';
+}
+
+function showChargerDetails(charger) {
+    const modal = document.getElementById('chargerModal');
+    const overlay = document.getElementById('modalOverlay');
+    const content = document.getElementById('modalContent');
+
+    // ¡¡¡CARITAS DE EMOJI AÑADIDAS AL MODAL CON LEYENDA "REPORTAR CARGADOR"!!!
+    content.innerHTML = `
+        <img src="images/${charger.imagen}" alt="Imagen del cargador ${charger.nombre}">
+        <h3>${charger.nombre}</h3>
+        <p><strong>Dirección:</strong> ${charger.direccion}</p>
+        <p><strong>Conectores:</strong> ${charger.conectores.join(', ')}</p>
+        <p><strong>Operador:</strong> ${charger.operador}</p>
+        <div style="text-align: center; margin-top: 15px;">
+            <p style="margin-bottom: 10px;">¿Cargador incorrecto o fuera de servicio?</p>
+            <button class="rating-button positive-rating" onclick="rateCharger('${charger.nombre}', 'positive')">😊 Reportar Cargador OK</button><br><br>
+            <button class="rating-button negative-rating" onclick="rateCharger('${charger.nombre}', 'negative')">😔 Reportar Cargador NO OK</button>
+        </div>
+    `;
+
+    modal.style.display = 'block';
+    overlay.style.display = 'block';
+}
+
+function closeModal() {
+    document.getElementById('chargerModal').style.display = 'none';
+    document.getElementById('modalOverlay').style.display = 'none';
+}
+
+function rateCharger(chargerName, ratingType) {
+    alert(`¡Gracias por calificar el cargador ${chargerName} con un voto ${ratingType === 'positive' ? 'positivo' : 'negativo'}! Tu opinión nos ayuda a mejorar.`);
+    // En el futuro, aquí se podría guardar la calificación en una base de datos.
+}
+
+// Inicialización
+document.addEventListener('DOMContentLoaded', () => {
+    renderChargers();
+}); si necesitas algo mas dime
