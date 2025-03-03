@@ -59,13 +59,13 @@ function renderChargers() {
         item.className = 'charger-item';
         item.setAttribute('data-charger-id', charger.nombre);
 
-        // ¡¡¡CARITAS DE EMOJI ELIMINADAS DE LA LISTA PRINCIPAL!!!
+        // ¡¡¡ESPACIO EXTRA ELIMINADO AQUÍ ANTES DE </div> DE charger-info!!!
         item.innerHTML = `
             <div class="status-light ${charger.semaforo}"></div>
             <div class="charger-info">
                 <h3>${charger.nombre}</h3>
                 <p>${charger.ubicacion}</p>
-                <p><strong>Conectores:</strong> ${charger.conectores[0]}</p>  </div>
+                <p><strong>Conectores:</strong> ${charger.conectores[0]}</p></div>
             <button class="navigate-btn" onclick="event.stopPropagation(); navigateTo(${charger.lat}, ${charger.lng})">
                 Navegar
             </button>
