@@ -416,8 +416,10 @@ footer {
         align-items: stretch;
         padding: 12px;
         margin-bottom: 6px;
-        width: 100% !important;  /* ¡¡¡RESTABLECIDO width: 100% EN MÓVILES Y AÑADIDO !important PARA FORZAR ANCHO COMPLETO!!! */
-        max-width: none; /* ¡NUEVO! Eliminar max-width en móviles para que ocupe el 95% */
+        /* Refuerzo EXTRA para el ancho del 100% en móviles - ¡NUEVO! */
+        width: calc(100% - 0px) !important; /* ¡¡¡ANCHO AL 100% CON CALC Y !important -  MÁXIMO REFUERZO!!! */
+        max-width: none !important; /* ¡¡¡ELIMINAMOS max-width CON !important POR SI ACASO INTERFIERE!!! */
+        box-sizing: border-box !important; /* ¡¡¡AÑADIMOS box-sizing: border-box CON !important PARA INCLUIR PADDING Y BORDER EN EL ANCHO!!! */
     }
 
     .charger-item-content { /* Media Query para 'charger-item-content' en móviles - ¡NUEVO! */
