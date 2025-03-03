@@ -238,104 +238,93 @@ header button:hover {
 }
 
 
-/* Media query para pantallas más pequeñas (smartphones) - ¡CAMBIOS IMPORTANTES AQUÍ! */
+/* Media query para pantallas más pequeñas (smartphones) */
 @media (max-width: 768px) {
     header {
-        flex-direction: column;
-        padding: 10px;
+        flex-direction: column; /* Apilar verticalmente en pantallas pequeñas */
+        padding: 8px; /* Reducir padding del header en pantallas pequeñas - ¡AÚN MÁS REDUCIDO! */
     }
 
     header h1 {
-        margin-bottom: 10px;
-        font-size: 20px;
+        margin-bottom: 8px; /* Añadir margen inferior al título en pantallas pequeñas - ¡REDUCIDO! */
+        font-size: 19px; /* Ajustar tamaño de fuente del título en pantallas pequeñas - ¡AÚN MÁS REDUCIDO! */
     }
 
     header button {
-        padding: 8px 12px;
-        font-size: 14px;
+        padding: 6px 10px; /* Reducir padding del botón en pantallas pequeñas - ¡REDUCIDO! */
+        font-size: 13px; /* Ajustar tamaño de fuente del botón en pantallas pequeñas - ¡REDUCIDO! */
     }
 
     .container {
-        padding: 15px;
+        padding: 15px; /* Reducir padding del container en pantallas pequeñas */
     }
 
     .charger-item {
-        flex-direction: column; /* Cambiado a columna VERTICAL */
-        align-items: stretch; /* Extender elementos */
-        padding: 20px; /* Aumentado padding item */
-        text-align: center; /* Centrar texto dentro del item */
+        flex-direction: column; /* Alinear verticalmente los elementos del cargador en pantallas pequeñas */
+        align-items: stretch; /* Extender elementos para ocupar todo el ancho en pantallas pequeñas */
+        padding: 12px; /* Reducir padding de los items de cargador en pantallas pequeñas - ¡REDUCIDO! */
+        margin: 8px 0; /* Reducir margen vertical de charger-item para menos espacio blanco - ¡REDUCIDO! */
     }
 
     .status-light {
-        width: 50px; /* Aumentado tamaño semáforo */
-        height: 50px;
-        margin: 0 auto 15px auto; /* Centrar horizontalmente y margen abajo */
-        margin-right: 0; /* Eliminar margen derecho */
+        margin-bottom: 8px; /* Añadir margen inferior al indicador de estado en pantallas pequeñas - ¡REDUCIDO! */
+        margin-right: 0; /* Eliminar margen derecho del indicador de estado en pantallas pequeñas */
+        width: 22px; /* Reducir tamaño del indicador de estado en pantallas pequeñas - ¡REDUCIDO! */
+        height: 22px; /* Reducir tamaño del indicador de estado en pantallas pequeñas - ¡REDUCIDO! */
     }
 
     .charger-info {
-        text-align: center; /* Centrar texto info */
-        margin-bottom: 20px; /* Aumentado margen inferior info */
+        text-align: center; /* Centrar texto del charger-info en pantallas pequeñas */
+        margin-bottom: 8px; /* Añadir margen inferior al charger-info en pantallas pequeñas - ¡REDUCIDO! */
     }
 
     .charger-info h3 {
-        font-size: 18px; /* Ligeramente aumentado tamaño nombre */
+        font-size: 15px; /* Ajustar tamaño de fuente del nombre del cargador en pantallas pequeñas - ¡AÚN MÁS REDUCIDO! */
     }
 
     .charger-info p {
-        font-size: 14px;
+        font-size: 12px; /* Ajustar tamaño de fuente de la ubicación en pantallas pequeñas - ¡REDUCIDO! */
     }
-
-    .rating-buttons {
-        display: flex;
-        flex-direction: column; /* Alineación VERTICAL de botones carita */
-        margin-left: auto;
-        margin-right: auto; /* Centrar botones carita horizontalmente */
-        margin-bottom: 20px; /* Margen abajo botones carita */
-        gap: 10px; /* Más espacio entre caritas */
-    }
-
-    .rating-button {
-        font-size: 35px; /* ¡¡¡AUMENTADO ENORMEMENTE TAMAÑO CARITAS!!! */
-        padding: 10px 20px; /* Más padding botones carita */
-    }
-
 
     .navigate-btn {
-        margin-left: 0;
-        width: 100%;
-        margin-top: 0; /* Eliminar margen superior del botón "Navegar" */
-        padding: 12px; /* Aumentado padding botón "Navegar" */
-        font-size: 16px; /* Ligeramente aumentado tamaño botón "Navegar" */
+        margin-left: 0; /* Eliminar margen izquierdo del botón "Navegar" en pantallas pequeñas */
+        width: 100%; /* Botón "Navegar" ocupa todo el ancho en pantallas pequeñas */
+        margin-top: 8px; /* Añadir margen superior al botón "Navegar" en pantallas pequeñas - ¡REDUCIDO! */
+        padding: 8px; /* Aumentar padding vertical del botón "Navegar" en pantallas pequeñas - ¡REDUCIDO! */
+        font-size: 14px; /* Ajustar tamaño de fuente del botón "Navegar" en pantallas pequeñas */
     }
 
     .about-content {
-        padding: 20px;
-        margin: 10px auto;
+        padding: 18px; /* Reducir padding del contenido de "Acerca de" en pantallas pequeñas */
+        margin: 10px auto; /* Reducir margenes del contenido de "Acerca de" en pantallas pequeñas */
     }
 
     .about-content h2 {
-        font-size: 20px;
+        font-size: 17px; /* Ajustar tamaño de fuente del título principal de "Acerca de" en pantallas pequeñas - ¡REDUCIDO! */
     }
 
     .about-content h3, .about-content p, .about-content ul {
-        font-size: 16px;
+        font-size: 14px; /* Ajustar tamaño de fuente del texto en "Acerca de" en pantallas pequeñas - ¡REDUCIDO! */
     }
 
     .modal {
-        padding: 15px;
+        padding: 12px; /* Reducir padding del modal en pantallas pequeñas - ¡REDUCIDO! */
     }
 
     .modal-content h3 {
-        font-size: 19px;
+        font-size: 18px; /* Ajustar tamaño de fuente del título del modal en pantallas pequeñas - ¡REDUCIDO! */
     }
 
     .modal-content p {
-        font-size: 14px;
+        font-size: 13px; /* Ajustar tamaño de fuente del texto del modal en pantallas pequeñas - ¡REDUCIDO! */
     }
 
     .modal button {
-        padding: 8px 15px;
-        font-size: 15px;
+        padding: 7px 12px; /* Reducir padding del botón del modal en pantallas pequeñas - ¡REDUCIDO! */
+        font-size: 14px; /* Ajustar tamaño de fuente del botón del modal en pantallas pequeñas - ¡REDUCIDO! */
+    }
+
+    .rating-buttons {
+        margin-top: 8px; /* Mover los botones debajo en pantallas pequeñas - ¡REDUCIDO! */
     }
 }
