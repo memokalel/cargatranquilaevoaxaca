@@ -13,26 +13,26 @@ header {
     position: sticky;
     top: 0;
     z-index: 100;
-    text-align: center;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    text-align: center; /* Centrar título y botón en header */
+    display: flex; /* Usar flexbox para alinear elementos en header */
+    justify-content: space-between; /* Espacio entre título y botón */
+    align-items: center; /* Alinear verticalmente */
 }
 
 header h1 {
-    margin: 0;
-    font-size: 24px;
+    margin: 0; /* Eliminar margen por defecto del H1 */
+    font-size: 24px; /* Ajustar tamaño de fuente del título */
 }
 
 header button {
     background: #2196F3;
     color: white;
     border: none;
-    padding: 10px 15px;
+    padding: 10px 15px; /* Reducir padding horizontal para pantallas pequeñas */
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s;
-    font-size: 16px;
+    font-size: 16px; /* Ajustar tamaño de fuente del botón */
 }
 
 header button:hover {
@@ -41,16 +41,8 @@ header button:hover {
 
 .container {
     padding: 20px;
-    max-width: 960px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-#charger-list {
-    list-style: none;
-    padding: 0;
-    display: inline-block;
-    text-align: left;
+    max-width: 960px; /* Ancho máximo del contenido */
+    margin: 0 auto; /* Centrar el container en pantallas grandes */
 }
 
 .charger-item {
@@ -59,31 +51,21 @@ header button:hover {
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
     transition: transform 0.2s;
     cursor: pointer;
-    margin-bottom: 15px;
-    width: 90%;
-    max-width: 600px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .charger-item:hover {
-    transform: translateX(5px);
-}
-
-.charger-item-content {
-    display: flex;
-    align-items: center;
-    width: 100%;
+    transform: translateX(5px); /* Reducir el translate en hover para pantallas pequeñas */
 }
 
 .status-light {
-    width: 30px;
+    width: 30px; /* Reducir tamaño del indicador de estado para pantallas pequeñas */
     height: 30px;
     border-radius: 50%;
-    margin-right: 15px;
+    margin-right: 15px; /* Reducir margen derecho para pantallas pequeñas */
     flex-shrink: 0;
 }
 
@@ -96,13 +78,13 @@ header button:hover {
 }
 
 .charger-info h3 {
-    margin-top: 0;
-    font-size: 20px;
+    margin-top: 0; /* Eliminar margen superior del H3 */
+    font-size: 18px; /* Ajustar tamaño de fuente del nombre del cargador */
 }
 
 .charger-info p {
-    margin-bottom: 0;
-    font-size: 16px;
+    margin-bottom: 0; /* Eliminar margen inferior de párrafos */
+    font-size: 14px; /* Ajustar tamaño de fuente de la ubicación */
     color: #666;
 }
 
@@ -110,13 +92,13 @@ header button:hover {
     background: #2196F3;
     color: white;
     border: none;
-    padding: 8px 15px;
+    padding: 8px 15px; /* Reducir padding del botón "Navegar" */
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s;
-    margin-left: 10px;
-    font-size: 14px;
-    flex-shrink: 0;
+    margin-left: 10px; /* Reducir margen izquierdo del botón "Navegar" */
+    font-size: 14px; /* Ajustar tamaño de fuente del botón "Navegar" */
+    flex-shrink: 0; /* Evitar que el botón se encoja demasiado */
 }
 
 .navigate-btn:hover {
@@ -132,35 +114,26 @@ header button:hover {
     bottom: 0;
     background: white;
     padding: 20px;
-    overflow-y: auto;
+    overflow-y: auto; /* Añadido overflow-y para scroll si el contenido es largo */
 }
 
 .about-content {
     max-width: 800px;
-    margin: 30px auto 20px auto;
-    padding: 25px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    margin: 30px auto 20px auto; /* Ajustado margen superior para separar más del header */
+    padding: 20px; /* Añadido padding al contenido de "Acerca de" para mejor espaciado */
+    border-radius: 8px; /* Añadido border-radius al contenido de "Acerca de" */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Añadido box-shadow al contenido de "Acerca de" */
 }
 
-.about-content h2, .about-content h3, .about-content p, .about-content ul, .about-content button {
-    margin-top: 10px;
-    margin-bottom: 15px;
-    font-size: 16px;
-    line-height: 1.6;
-    max-width: 100%;
-    box-sizing: border-box;
-    text-align: center;
+.about-content h2, .about-content h3, .about-content p, .about-content ul {
+    margin-top: 10px; /* Reducir margen superior de elementos de texto en "Acerca de" */
+    margin-bottom: 10px; /* Reducir margen inferior de elementos de texto en "Acerca de" */
+    font-size: 16px; /* Ajustar tamaño de fuente del texto en "Acerca de" */
+    line-height: 1.6; /*  Ligeramente aumentado el line-height para mejor espaciado vertical */
 }
 
 .about-content ul {
-    padding-left: 20px;
-    align-self: start;
-    text-align: left;
+    padding-left: 20px; /* Ajustar padding de la lista en "Acerca de" */
 }
 
 .modal {
@@ -174,9 +147,7 @@ header button:hover {
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.2);
     z-index: 1000;
-    text-align: center;
-    min-height: 400px;
-    min-width: 300px;
+    text-align: center; /* Centrar contenido del modal */
 }
 
 .modal-overlay {
@@ -190,40 +161,22 @@ header button:hover {
     z-index: 999;
 }
 
-.modal-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-    padding-bottom: 20px;
-    text-align: center;
-    font-size: 19px;
-    align-items: center;
-}
-
 .modal-content img {
-    max-width: 200px;
+    max-width: 200px; /* Ancho máximo de la imagen en el modal */
     height: auto;
     display: block;
-    margin: 0 auto 15px auto;
-    border-radius: 8px;
+    margin: 0 auto 15px auto; /* Centrar imagen y añadir margen inferior */
+    border-radius: 8px; /* Añadir borde redondeado a la imagen */
 }
 
 .modal-content h3 {
-    margin-top: 0;
-    font-size: 25px;
-    margin-bottom: 10px;
-    text-align: center;
+    margin-top: 0; /* Eliminar margen superior del H3 en el modal */
+    font-size: 20px; /* Ajustar tamaño de fuente del título del modal */
 }
 
 .modal-content p {
-    margin-bottom: 10px;
-    font-size: 21px;
-    color: #666;
-    max-width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
+    margin-bottom: 10px; /* Reducir margen inferior de párrafos en el modal */
+    font-size: 15px; /* Ajustar tamaño de fuente del texto del modal */
 }
 
 .modal button {
@@ -234,303 +187,95 @@ header button:hover {
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s;
-    font-size: 17px;
-    margin-bottom: 15px;
-    align-self: center;
+    font-size: 16px; /* Ajustar tamaño de fuente del botón del modal */
 }
 
 .modal button:hover {
     background: #0d47a1;
 }
 
-.rating-buttons {
-    display: flex;
-    margin-left: auto;
-    gap: 5px;
-    align-self: center;
-    margin-top: 10px;
-    margin-bottom: 0;
-}
-
-.rating-button {
-    background: none;
-    border: none;
-    font-size: 22px;
-    cursor: pointer;
-    padding: 2px 5px;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-    line-height: 1;
-    margin-bottom: 0;
-}
-
-.rating-button:hover {
-    background-color: #eee;
-}
-
-.rating-button:active {
-    background-color: #ddd;
-}
-
-.positive-rating {
-    color: inherit;
-}
-
-.negative-rating {
-    color: inherit;
-}
-
-.about-section .about-content button.navigate-btn.cerrar-about-btn {
-    display: block;
-    margin: 20px auto 0 auto;
-    padding: 10px 15px;
-    font-size: 16px;
-    text-align: center;
-}
-
-.charger-info p strong {
-    font-weight: bold;
-}
-
-.charger-info p:nth-child(3) {
-    font-size: 13px;
-    color: #777;
-    margin-bottom: 0;
-}
-
-.mvp-info-tooltip {
-    position: relative;
-    display: inline-block;
-    margin-top: 10px;
-}
-
-.info-icon {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    border: 1px solid #999;
-    text-align: center;
-    line-height: 20px;
-    font-style: italic;
-    cursor: pointer;
-    font-size: 0.8em;
-    color: #666;
-    background-color: white;
-}
-
-.tooltip-text {
-    visibility: hidden;
-    width: 250px;
-    background-color: white;
-    color: #333;
-    text-align: left;
-    padding: 10px;
-    border-radius: 6px;
-    position: absolute;
-    z-index: 1;
-    bottom: 125%;
-    left: 50%;
-    margin-left: -125px;
-    opacity: 0;
-    transition: opacity 0.3s, visibility 0.3s;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-}
-
-.mvp-info-tooltip:hover .tooltip-text {
-    visibility: visible;
-    opacity: 1;
-}
-
-footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: #f5f5f5;
-    padding: 10px 20px;
-    text-align: right;
-    border-top: 1px solid #eee;
-    z-index: 100;
-}
-
-.footer-info-icon {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    border: 1px solid #999;
-    text-align: center;
-    line-height: 20px;
-    font-style: italic;
-    cursor: pointer;
-    font-size: 0.8em;
-    color: #666;
-    background-color: #f5f5f5;
-}
-
-
-/* Media query para pantallas más pequeñas (smartphones) - ¡MODIFICADO Y SÚPER-ENFOCADO EN ANCHO DE TARJETAS! */
+/* Media query para pantallas más pequeñas (smartphones) */
 @media (max-width: 768px) {
     header {
-        flex-direction: column;
-        padding: 8px;
+        flex-direction: column; /* Apilar verticalmente en pantallas pequeñas */
+        padding: 15px; /* Reducir padding del header en pantallas pequeñas */
     }
 
     header h1 {
-        margin-bottom: 8px;
-        font-size: 19px;
+        margin-bottom: 10px; /* Añadir margen inferior al título en pantallas pequeñas */
+        font-size: 22px; /* Ajustar tamaño de fuente del título en pantallas pequeñas */
     }
 
     header button {
-        padding: 6px 10px;
-        font-size: 13px;
+        padding: 8px 12px; /* Reducir padding del botón en pantallas pequeñas */
+        font-size: 14px; /* Ajustar tamaño de fuente del botón en pantallas pequeñas */
     }
 
     .container {
-        padding: 15px;
-    }
-
-    #charger-list {
-        text-align: center;
+        padding: 10px; /* Reducir padding del container en pantallas pequeñas */
     }
 
     .charger-item {
-        flex-direction: column;
-        align-items: stretch; /* ¡MANTENER 'stretch' PARA EXPANDIRSE VERTICALMENTE! */
-        padding: 12px;
-        margin-bottom: 6px;
-        /* Refuerzo EXTRA para el ancho del 100% en móviles - ¡MÁXIMO REFUERZO! */
-        width: calc(100% - 0px); /* ¡REMOVIDO !important DE width -  REDUCIDA "AGRESIVIDAD" DEL ESTILO! */
-        max-width: none;        /* ¡REMOVIDO !important DE max-width - REDUCIDA "AGRESIVIDAD" DEL ESTILO! */
-        box-sizing: border-box; /* ¡REMOVIDO !important DE box-sizing - REDUCIDA "AGRESIVIDAD" DEL ESTILO! */
-    }
-
-    .charger-item:hover {
-        transform: translateX(5px);
-    }
-
-    .charger-item-content {
-        display: flex;
-        flex-direction: column; /* ¡MANTENER 'column' PARA LAYOUT VERTICAL EN MÓVILES! */
-        align-items: stretch; /* ¡CAMBIADO A 'stretch' PARA QUE EL CONTENIDO SE EXPANDA HORIZONTALMENTE! */
-        min-width: 0; /* ¡NUEVO! -  PERMITIR QUE .charger-item-content SE REDUZCA SI ES NECESARIO */
+        flex-direction: column; /* Alinear verticalmente los elementos del cargador en pantallas pequeñas */
+        align-items: stretch; /* Extender elementos para ocupar todo el ancho en pantallas pequeñas */
+        padding: 10px; /* Reducir padding de los items de cargador en pantallas pequeñas */
     }
 
     .status-light {
-        margin-bottom: 8px;
-        margin-right: 0;
-        width: 22px;
-        height: 22px;
+        margin-bottom: 10px; /* Añadir margen inferior al indicador de estado en pantallas pequeñas */
+        margin-right: 0; /* Eliminar margen derecho del indicador de estado en pantallas pequeñas */
+        width: 25px; /* Reducir tamaño del indicador de estado en pantallas pequeñas */
+        height: 25px;
     }
 
     .charger-info {
-        text-align: center;
-        margin-bottom: 8px;
-        flex-grow: 1; /* ¡MANTENER flex-grow: 1 PARA QUE .charger-info OCUPE ESPACIO! */
-        min-width: 0; /* ¡NUEVO! -  PERMITIR QUE .charger-info SE REDUZCA SI ES NECESARIO */
+        text-align: center; /* Centrar texto del charger-info en pantallas pequeñas */
+        margin-bottom: 10px; /* Añadir margen inferior al charger-info en pantallas pequeñas */
     }
 
     .charger-info h3 {
-        font-size: 15px;
-        }
+        font-size: 17px; /* Ajustar tamaño de fuente del nombre del cargador en pantallas pequeñas */
+    }
 
     .charger-info p {
-        font-size: 11px;
+        font-size: 13px; /* Ajustar tamaño de fuente de la ubicación en pantallas pequeñas */
     }
 
     .navigate-btn {
-        margin-left: 0;
-        width: 100%; /* ¡BOTÓN AL 100% DE ANCHO DENTRO DE .charger-item-content! */
-        margin-top: 8px;
-        padding: 8px;
-        font-size: 14px;
-        box-sizing: border-box; /* ¡NUEVO! -  box-sizing PARA CONTROLAR MEJOR EL ANCHO DEL BOTÓN */
-    }
-
-    .about-section {
-        padding: 20px;
-        margin: 10px auto;
+        margin-left: 0; /* Eliminar margen izquierdo del botón "Navegar" en pantallas pequeñas */
+        width: 100%; /* Botón "Navegar" ocupa todo el ancho en pantallas pequeñas */
+        margin-top: 10px; /* Añadir margen superior al botón "Navegar" en pantallas pequeñas */
+        padding: 10px; /* Aumentar padding vertical del botón "Navegar" en pantallas pequeñas */
+        font-size: 15px; /* Ajustar tamaño de fuente del botón "Navegar" en pantallas pequeñas */
     }
 
     .about-content {
-        padding: 25px;
+        padding: 15px; /* Reducir padding del contenido de "Acerca de" en pantallas pequeñas */
+        margin: 10px auto; /* Reducir margenes del contenido de "Acerca de" en pantallas pequeñas */
     }
 
     .about-content h2 {
-        font-size: 17px;
+        font-size: 20px; /* Ajustar tamaño de fuente del título principal de "Acerca de" en pantallas pequeñas */
     }
 
     .about-content h3, .about-content p, .about-content ul {
-        font-size: 14px;
+        font-size: 15px; /* Ajustar tamaño de fuente del texto en "Acerca de" en pantallas pequeñas */
     }
 
     .modal {
-        padding: 12px;
+        padding: 15px; /* Reducir padding del modal en pantallas pequeñas */
     }
 
     .modal-content h3 {
-        font-size: 18px;
+        font-size: 19px; /* Ajustar tamaño de fuente del título del modal en pantallas pequeñas */
     }
 
     .modal-content p {
-        font-size: 13px;
+        font-size: 14px; /* Ajustar tamaño de fuente del texto del modal en pantallas pequeñas */
     }
 
     .modal button {
-        padding: 7px 12px;
-        font-size: 14px;
-    }
-
-    .rating-buttons {
-        margin-top: 8px;
-    }
-
-    /* CSS añadido para el iFrame de Google Forms en "Acerca de" */
-    .about-content iframe {
-        max-width: 100%;
-        width: 100%;
-        height: auto;
-        display: block;
-        margin: 0 auto;
-    }
-
-    footer {
-        padding: 8px 15px;
-        font-size: 0.9em;
-        text-align: center;
-    }
-
-    .footer-info-icon {
-        width: 18px;
-        height: 18px;
-        line-height: 18px;
-        font-size: 0.7em;
-    }
-
-    .feedback-btn {
-        margin-top: 20px;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 250px;
-        text-align: center;
-    }
-
-    .modal-status-container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 10px;
-    }
-
-    .modal-status-light {
-        width: 25px;
-        height: 25px;
-        margin-right: 8px;
-    }
-
-    .modal-status-text {
-        font-size: 18px;
+        padding: 8px 15px; /* Reducir padding del botón del modal en pantallas pequeñas */
+        font-size: 15px; /* Ajustar tamaño de fuente del botón del modal en pantallas pequeñas */
     }
 }
