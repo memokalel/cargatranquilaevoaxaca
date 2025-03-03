@@ -79,12 +79,12 @@ header button:hover {
 
 .charger-info h3 {
     margin-top: 0; /* Eliminar margen superior del H3 */
-    font-size: 18px; /* Ajustar tamaño de fuente del nombre del cargador */
+    font-size: 20px; /* ¡TAMAÑO DE FUENTE DEL NOMBRE DEL CARGADOR AUMENTADO A 20px! */
 }
 
 .charger-info p {
     margin-bottom: 0; /* Eliminar margen inferior de párrafos */
-    font-size: 14px; /* Ajustar tamaño de fuente de la ubicación */
+    font-size: 16px; /* ¡TAMAÑO DE FUENTE DE LA UBICACIÓN AUMENTADO A 16px! */
     color: #666;
 }
 
@@ -192,7 +192,8 @@ header button:hover {
     cursor: pointer;
     transition: background 0.3s;
     font-size: 16px; /* Ajustar tamaño de fuente del botón del modal */
-    /* ¡¡¡FLOAT Y CLEAR BORRADOS - VOLVEMOS AL CÓDIGO ORIGINAL!!! */
+        /* ¡¡¡FLOAT Y CLEAR BORRADOS - VOLVEMOS AL CÓDIGO ORIGINAL!!! */
+    margin-bottom: 15px; /* ¡MARGEN INFERIOR AÑADIDO A LOS BOTONES DEL MODAL! */
 }
 
 .modal button:hover {
