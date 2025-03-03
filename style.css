@@ -242,89 +242,102 @@ header button:hover {
 @media (max-width: 768px) {
     header {
         flex-direction: column; /* Apilar verticalmente en pantallas pequeñas */
-        padding: 8px; /* Reducir padding del header en pantallas pequeñas - ¡AÚN MÁS REDUCIDO! */
+        padding: 8px;
     }
 
     header h1 {
-        margin-bottom: 8px; /* Añadir margen inferior al título en pantallas pequeñas - ¡REDUCIDO! */
-        font-size: 19px; /* Ajustar tamaño de fuente del título en pantallas pequeñas - ¡AÚN MÁS REDUCIDO! */
+        margin-bottom: 8px;
+        font-size: 19px;
     }
 
     header button {
-        padding: 6px 10px; /* Reducir padding del botón en pantallas pequeñas - ¡REDUCIDO! */
-        font-size: 13px; /* Ajustar tamaño de fuente del botón en pantallas pequeñas - ¡REDUCIDO! */
+        padding: 6px 10px;
+        font-size: 13px;
     }
 
     .container {
-        padding: 15px; /* Reducir padding del container en pantallas pequeñas */
+        padding: 15px;
     }
 
     .charger-item {
-        flex-direction: column; /* Alinear verticalmente los elementos del cargador en pantallas pequeñas */
-        align-items: stretch; /* Extender elementos para ocupar todo el ancho en pantallas pequeñas */
-        padding: 12px; /* Reducir padding de los items de cargador en pantallas pequeñas - ¡REDUCIDO! */
-        margin: 8px 0; /* Reducir margen vertical de charger-item para menos espacio blanco - ¡REDUCIDO! */
+        flex-direction: column;
+        align-items: stretch;
+        padding: 12px;
+        margin-bottom: 6px; /* Reducido margen inferior de charger-item - ¡AÚN MÁS REDUCIDO! */
     }
 
     .status-light {
-        margin-bottom: 8px; /* Añadir margen inferior al indicador de estado en pantallas pequeñas - ¡REDUCIDO! */
-        margin-right: 0; /* Eliminar margen derecho del indicador de estado en pantallas pequeñas */
-        width: 22px; /* Reducir tamaño del indicador de estado en pantallas pequeñas - ¡REDUCIDO! */
-        height: 22px; /* Reducir tamaño del indicador de estado en pantallas pequeñas - ¡REDUCIDO! */
+        margin-bottom: 8px;
+        margin-right: 0;
+        width: 22px;
+        height: 22px;
     }
 
     .charger-info {
-        text-align: center; /* Centrar texto del charger-info en pantallas pequeñas */
-        margin-bottom: 8px; /* Añadir margen inferior al charger-info en pantallas pequeñas - ¡REDUCIDO! */
+        text-align: center;
+        margin-bottom: 8px;
     }
 
     .charger-info h3 {
-        font-size: 15px; /* Ajustar tamaño de fuente del nombre del cargador en pantallas pequeñas - ¡AÚN MÁS REDUCIDO! */
+        font-size: 15px;
     }
 
     .charger-info p {
-        font-size: 12px; /* Ajustar tamaño de fuente de la ubicación en pantallas pequeñas - ¡REDUCIDO! */
+        font-size: 11px; /* Reducido tamaño de fuente de la ubicación - ¡AÚN MÁS REDUCIDO! */
     }
 
     .navigate-btn {
-        margin-left: 0; /* Eliminar margen izquierdo del botón "Navegar" en pantallas pequeñas */
-        width: 100%; /* Botón "Navegar" ocupa todo el ancho en pantallas pequeñas */
-        margin-top: 8px; /* Añadir margen superior al botón "Navegar" en pantallas pequeñas - ¡REDUCIDO! */
-        padding: 8px; /* Aumentar padding vertical del botón "Navegar" en pantallas pequeñas - ¡REDUCIDO! */
-        font-size: 14px; /* Ajustar tamaño de fuente del botón "Navegar" en pantallas pequeñas */
+        margin-left: 0;
+        width: 100%;
+        margin-top: 8px;
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .about-section {
+        padding: 20px;
+        margin: 10px auto;
     }
 
     .about-content {
-        padding: 18px; /* Reducir padding del contenido de "Acerca de" en pantallas pequeñas */
-        margin: 10px auto; /* Reducir margenes del contenido de "Acerca de" en pantallas pequeñas */
+        padding: 25px; /* Aumentado padding del about-content - ¡AUMENTADO! */
     }
 
     .about-content h2 {
-        font-size: 17px; /* Ajustar tamaño de fuente del título principal de "Acerca de" en pantallas pequeñas - ¡REDUCIDO! */
+        font-size: 17px;
     }
 
     .about-content h3, .about-content p, .about-content ul {
-        font-size: 14px; /* Ajustar tamaño de fuente del texto en "Acerca de" en pantallas pequeñas - ¡REDUCIDO! */
+        font-size: 14px;
     }
 
     .modal {
-        padding: 12px; /* Reducir padding del modal en pantallas pequeñas - ¡REDUCIDO! */
+        padding: 12px;
     }
 
     .modal-content h3 {
-        font-size: 18px; /* Ajustar tamaño de fuente del título del modal en pantallas pequeñas - ¡REDUCIDO! */
+        font-size: 18px;
     }
 
     .modal-content p {
-        font-size: 13px; /* Ajustar tamaño de fuente del texto del modal en pantallas pequeñas - ¡REDUCIDO! */
+        font-size: 13px;
     }
 
     .modal button {
-        padding: 7px 12px; /* Reducir padding del botón del modal en pantallas pequeñas - ¡REDUCIDO! */
-        font-size: 14px; /* Ajustar tamaño de fuente del botón del modal en pantallas pequeñas - ¡REDUCIDO! */
+        padding: 7px 12px;
+        font-size: 14px;
     }
 
     .rating-buttons {
-        margin-top: 8px; /* Mover los botones debajo en pantallas pequeñas - ¡REDUCIDO! */
+        margin-top: 8px;
+    }
+
+    /* CSS añadido para el iFrame de Google Forms en "Acerca de" - ¡NUEVO! */
+    .about-content iframe {
+        max-width: 100%; /* El iFrame no puede ser más ancho que su contenedor */
+        width: 100%;      /* Forzar a que ocupe el 100% del ancho disponible */
+        height: auto;     /* La altura se ajusta automáticamente al ancho para mantener la proporción */
+        display: block;    /* Asegurar que se comporte como bloque y respete el ancho */
+        margin: 0 auto;   /* Centrar horizontalmente si es necesario */
     }
 }
