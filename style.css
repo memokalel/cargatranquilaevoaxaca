@@ -237,6 +237,16 @@ header button:hover {
     text-align: center; /* Forzar el centrado del texto dentro del botón por si acaso */
 }
 
+.charger-info p strong { /* Estilos para la palabra "Conectores:" en negrita - ¡NUEVO! */
+    font-weight: bold;
+}
+
+.charger-info p:nth-child(3) { /* Estilos para el 3er párrafo dentro de .charger-info (el de Conectores) - ¡NUEVO! */
+    font-size: 13px;
+    color: #777;
+    margin-bottom: 0;
+}
+
 
 /* Media query para pantallas más pequeñas (smartphones) */
 @media (max-width: 768px) {
@@ -263,7 +273,7 @@ header button:hover {
         flex-direction: column;
         align-items: stretch;
         padding: 12px;
-        margin-bottom: 6px; /* Reducido margen inferior de charger-item - ¡AÚN MÁS REDUCIDO! */
+        margin-bottom: 6px;
     }
 
     .status-light {
@@ -283,7 +293,7 @@ header button:hover {
     }
 
     .charger-info p {
-        font-size: 11px; /* Reducido tamaño de fuente de la ubicación - ¡AÚN MÁS REDUCIDO! */
+        font-size: 11px;
     }
 
     .navigate-btn {
@@ -300,7 +310,7 @@ header button:hover {
     }
 
     .about-content {
-        padding: 25px; /* Aumentado padding del about-content - ¡AUMENTADO! */
+        padding: 25px;
     }
 
     .about-content h2 {
@@ -332,12 +342,12 @@ header button:hover {
         margin-top: 8px;
     }
 
-    /* CSS añadido para el iFrame de Google Forms en "Acerca de" - ¡NUEVO! */
+    /* CSS añadido para el iFrame de Google Forms en "Acerca de" */
     .about-content iframe {
-        max-width: 100%; /* El iFrame no puede ser más ancho que su contenedor */
-        width: 100%;      /* Forzar a que ocupe el 100% del ancho disponible */
-        height: auto;     /* La altura se ajusta automáticamente al ancho para mantener la proporción */
-        display: block;    /* Asegurar que se comporte como bloque y respete el ancho */
-        margin: 0 auto;   /* Centrar horizontalmente si es necesario */
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
     }
 }
