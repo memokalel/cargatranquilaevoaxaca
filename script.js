@@ -102,22 +102,51 @@ function showModal(charger) {
     const overlay = document.getElementById('modal-overlay');
     const modalContent = document.getElementById('modal-content');
 
+    let prediccionText = ""; // Variable para almacenar el texto de predicción
+    if (charger.semaforo === "VERDE") {
+        prediccionText = "Carga asegurada";
+    } else if (charger.semaforo === "AMARILLO") {
+        prediccionText = "Carga con precaución";
+    } else if (charger.semaforo === "ROJO") {
+        prediccionText = "Carga no recomendada";
+    }
+
     modalContent.innerHTML = `
-        <img src="images/${charger.imagen}" alt="Cargador VE">
         <h3>${charger.nombre}</h3>
-        <p>${charger.ubicacion}</p>
+        <div class="modal-status-container">
+            <div class="status-light ${charger.semaforo} modal-status-light"></div>
+            <p class="modal-status-text">Semáforo ${charger.semaforo}</p>
+        </div>
+        <p><strong>Predicción:</strong> ${prediccionText}</p>
+        <p><strong>Disponibilidad estimada:</strong> Sin esperas</p>
         <p><strong>Dirección:</strong> ${charger.direccion}</p>
-        <div class="modal-status-container"> <div class="status-light ${charger.semaforo} modal-status-light"></div> <p class="modal-status-text">Semáforo ${charger.semaforo}</p> </div>
         <p><strong>Conectores:</strong> ${charger.conectores.join(', ')}</p>
         <p><strong>Potencia:</strong> ${charger.potencia}</p>
+        <p class="disclaimer-text">Predicción basada en historial y reportes. Sujeto a cambios.</p>
+
         <div class="rating-buttons">
-            <button class="rating-button positive-rating" onclick="rateCharger('${charger.nombre}', 'positive')" aria-label="Cargador Funciona"><span role="img" aria-label="Cargador Funciona">👍 Funciona</span></button>
-            <button class="rating-button negative-rating" onclick="rateCharger('${charger.nombre}', 'negative')" aria-label="Cargador No Funciona"><span role="img" aria-label="Cargador No Funciona">👎 No Funciona</span></button>
+            <button class="rating-button positive-rating" onclick="rateCharger('${charger.nombre}', 'positive')" aria-label="Cargador Funciona">
+                <span role="img" aria-label="Cargador Funciona">👍 Funciona</span> <span class="button-text-description">(Si funciona bien)</span>
+            </button>
+            <button class="rating-button negative-rating" onclick="rateCharger('${charger.nombre}', 'negative')" aria-label="Cargador No Funciona">
+                <span role="img" aria-label="Cargador No Funciona">👎 No Funciona</span> <span class="button-text-description">(Si no funciona o falla)</span>
+            </button>
+        </div>
+
+        <div class="report-button-container">
+            <button class="report-button navigate-btn" onclick="reportCharger('${charger.nombre}')">
+                Reportar estado <span class="button-text-description">(Reportar problemas o estado actual)</span>
+            </button>
         </div>
     `;
 
     modal.style.display = 'block';
     overlay.style.display = 'block';
+}
+
+function reportCharger(chargerName) {
+    alert(`Funcionalidad "Reportar estado" para el cargador ${chargerName} ¡Próximamente! \n\nEn futuras versiones, podrás usar este botón para reportar problemas o el estado actual del cargador para ayudar a otros usuarios.`);
+    closeModal();
 }
 
 function closeModal() {
