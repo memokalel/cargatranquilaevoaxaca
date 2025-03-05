@@ -1,252 +1,248 @@
 /* Estilos Generales */
 body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
-    display: flex; /* Añadido flex para el body */
-    flex-direction: column; /* Para que header, main y footer se apilen verticalmente */
-    min-height: 100vh; /* Asegura que el body ocupe al menos toda la altura de la ventana */
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 header {
-    background-color: #0056b3;
-    color: white;
-    padding: 15px 20px;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
+  background-color: #0056b3;
+  color: white;
+  padding: 15px 20px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
 
 header h1 {
-    margin: 0;
-    font-size: 24px;
-    flex-grow: 1;
+  margin: 0;
+  font-size: 24px;
+  flex-grow: 1;
 }
 
-/* Estilo del botón de información en header */
 header button#info-btn-header {
-    background: none;
-    color: white;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    position: absolute;
-    left: 20px;
+  background: none;
+  color: white;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  position: absolute;
+  left: 20px;
 }
 
-
-/* Contenedor principal de la aplicación */
 .app-container {
-    padding: 20px;
-    flex-grow: 1; /* Permite que app-container se expanda y empuje el footer hacia abajo */
+  padding: 20px;
+  flex-grow: 1;
 }
 
-/* Lista de Cargadores */
 #charger-list {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
 }
 
 #charger-list li, #charger-list div.charger-item {
-    background-color: white;
-    margin-bottom: 10px;
-    padding: 15px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    list-style: none;
-    text-decoration: none;
-    color: inherit;
-    cursor: pointer;
-    border: none;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    transition: transform 0.2s;
+  background-color: white;
+  margin-bottom: 10px;
+  padding: 15px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
 }
 
 #charger-list li:hover, #charger-list div.charger-item:hover {
-    transform: translateX(5px);
+  transform: translateX(5px);
 }
 
-
-/* Semáforo (Status Light) */
 .status-light {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    margin-right: 15px;
-    flex-shrink: 0;
-    flex-grow: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin-right: 15px;
 }
 
 .status-light.green {
-    background-color: #4CAF50;
+  background-color: #4CAF50;
 }
 
 .status-light.yellow {
-    background-color: #FFC107;
+  background-color: #FFC107;
 }
 
 .status-light.red {
-    background-color: #F44336;
+  background-color: #F44336;
 }
 
-/* Información del Cargador */
 .charger-info {
-    flex-grow: 1;
-    margin-right: 10px;
+  flex-grow: 1;
+  margin-right: 10px;
 }
 
 .charger-info h3 {
-    margin: 0 0 5px 0;
-    font-size: 18px;
+  margin: 0 0 5px 0;
+  font-size: 18px;
 }
 
 .charger-info p {
-    margin: 0;
-    font-size: 14px;
-    color: #777;
+  margin: 0;
+  font-size: 14px;
+  color: #777;
 }
 
-/* Botón "Ir al cargador" */
 .navigate-btn {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    flex-shrink: 0;
-    flex-grow: 0;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
 }
 
-/* Footer */
 footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #ddd;
-    color: #555;
-    position: static; /* Cambiado a static para que el footer fluya en el layout flex */
-    margin-top: auto; /* Empuja el footer hacia la parte inferior */
-    width: 100%; /* Asegura que el footer ocupe todo el ancho */
+  text-align: center;
+  padding: 20px;
+  background-color: #ddd;
+  color: #555;
+  position: static;
+  margin-top: auto;
+  width: 100%;
 }
 
 footer p {
-    margin: 0;
-    font-size: 14px;
+  margin: 0;
+  font-size: 14px;
 }
 
-/* Estilos para el Pop-Up Modal (REUTILIZADOS para "Acerca de") */
+/* Estilos para Modales y Overlay */
 .modal-overlay {
-    position: fixed; /* **CRÍTICO: FIXED POSITION PARA CUBRIR TODA LA PANTALLA** */
-    top: 0; /* **CRÍTICO: TOP 0 PARA CUBRIR TODA LA PANTALLA** */
-    left: 0; /* **CRÍTICO: LEFT 0 PARA CUBRIR TODA LA PANTALLA** */
-    width: 100%; /* **CRÍTICO: 100% ANCHO PARA CUBRIR TODA LA PANTALLA** */
-    height: 100%; /* **CRÍTICO: 100% ALTO PARA CUBRIR TODA LA PANTALLA** */
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
-    z-index: 1000; /* **CRÍTICO: Z-INDEX ALTO PARA ESTAR POR ENCIMA DE TODO** */
-    display: none; /* Inicialmente oculto */
-    justify-content: center; /* Centrar horizontalmente */
-    align-items: center; /* Centrar verticalmente */
-}
-
-.modal.show {
-    display: block; /* Mostrar modal cuando tiene la clase 'show' */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: none;
+  justify-content: center;
+  align-items: center;
 }
 
 .modal-overlay.show {
-    display: flex; /* Mostrar overlay cuando tiene la clase 'show' */
+  display: flex;
 }
 
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1001;
+  display: none;
+}
+
+.modal.show {
+  display: block;
+}
 
 .modal-content {
-    /* display: none; /* **AÑADIDO display: none; PARA OCULTAR INICIALMENTE EL CONTENIDO DEL MODAL** */
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    position: relative; /* Posición relativa para el contenido del modal */
-    width: 80%; /* Ancho del modal, ajusta según necesites */
-    max-width: 500px; /* Ancho máximo para pantallas grandes */
-    max-height: 90%; /* Altura máxima del modal */
-    overflow-y: auto; /* Añade scroll si el contenido excede la altura */
-    /* display: none;  ¡¡¡ESTA LÍNEA NO DEBE ESTAR AQUÍ EN .modal, SOLO EN .modal-overlay !!! */
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+  width: 80%;
+  max-width: 500px;
+  max-height: 90%;
+  overflow-y: auto;
 }
 
 .modal-content h2 {
-    margin-top: 0;
-    margin-bottom: 15px;
-    text-align: center;
+  margin-top: 0;
+  margin-bottom: 15px;
+  text-align: center;
 }
 
-/* Semáforo en Pop-Up - CENTRADO Y GRANDE (REUTILIZADO para "Acerca de") */
-.modal-content #popup-charger-semaphore.status-light, .modal-content #about-us-semaphore.status-light {
-    width: 50px;
-    height: 50px;
-    margin: 15px auto;
-    display: block;
+.modal-content #popup-charger-semaphore.status-light,
+.modal-content #about-us-semaphore.status-light {
+  width: 50px;
+  height: 50px;
+  margin: 15px auto;
+  display: block;
 }
 
-.modal-content #popup-charger-details, .modal-content #about-us-details {
-    margin-bottom: 20px;
+.modal-content #popup-charger-details,
+.modal-content #about-us-details {
+  margin-bottom: 20px;
 }
 
-.modal-content #popup-charger-details p, .modal-content #about-us-details p {
-    margin: 5px 0;
+.modal-content #popup-charger-details p,
+.modal-content #about-us-details p {
+  margin: 5px 0;
 }
 
 .close-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 20px;
-    cursor: pointer;
-    color: #777;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  color: #777;
 }
 
 .popup-buttons {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
 }
 
-.popup-buttons button.rate-button, .popup-buttons button.report-button {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    cursor: pointer;
-    font-size: 14px;
+.popup-buttons button.rate-button,
+.popup-buttons button.report-button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
 }
 
 .popup-buttons button.rate-button.good {
-    background-color: #4CAF50;
+  background-color: #4CAF50;
 }
 
 .popup-buttons button.rate-button.bad {
-    background-color: #F44336;
+  background-color: #F44336;
 }
 
 .popup-buttons button.report-button {
-    background-color: #FFC107;
-    color: black;
+  background-color: #FFC107;
+  color: black;
 }
 
-/* Icono "i" en Footer del Pop-Up (REUTILIZADO para "Acerca de" si fuera necesario) - YA NO SE USAN, PERO SE DEJAN POR SI ACASO */
-.modal-content button#info-btn-popup-footer, .modal-content button#info-btn-about-us-footer {
-    position: static;
-    margin-top: 15px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    color: #0056b3;
-    background: none; /* Añadido background none para que no tenga fondo */
-    border: none; /* Añadido border none para que no tenga borde */
-    font-size: 24px; /* Añadido font-size para que el icono se vea correctamente */
-    cursor: pointer; /* Añadido cursor pointer para indicar que es clickable */
+/* Botón "i" en Footer del Pop-Up (no usado actualmente) */
+.modal-content button#info-btn-popup-footer,
+.modal-content button#info-btn-about-us-footer {
+  position: static;
+  margin-top: 15px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  color: #0056b3;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
 }
