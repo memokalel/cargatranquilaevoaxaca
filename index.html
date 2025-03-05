@@ -18,14 +18,10 @@
   <header>
     <div class="header-content">
       <h1>Carga Tranquila VE - Oaxaca</h1>
-      <!-- Ícono de búsqueda en el header: al pulsarlo se muestra/oculta la barra de búsqueda -->
-      <button id="toggle-search" aria-label="Buscar">
-        <i class="fas fa-search"></i>
-      </button>
     </div>
   </header>
 
-  <!-- Barra de búsqueda oculta por defecto -->
+  <!-- Barra de búsqueda oculta por defecto; se mostrará al pulsar el botón flotante -->
   <div id="search-bar-container" class="search-bar-container">
     <input type="text" id="filter-input" placeholder="Buscar, ej.: Gasolinera Centro" />
   </div>
@@ -95,6 +91,11 @@
     <button id="nav-home" class="nav-button active"><i class="fas fa-home"></i></button>
     <button id="nav-info" class="nav-button"><i class="fas fa-info-circle"></i></button>
   </nav>
+
+  <!-- Botón flotante de búsqueda en la esquina inferior derecha -->
+  <button id="floating-search" aria-label="Buscar">
+    <i class="fas fa-search"></i>
+  </button>
 
   <!-- Modal de detalle de cargador -->
   <div id="charger-popup" class="modal">
