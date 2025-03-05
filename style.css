@@ -1,31 +1,37 @@
-/* Paleta de colores sugerida:
+/* Paleta de colores sugerida (mantenemos la misma):
    - Fondo general (tranquilidad): #EAF7F3 (muy suave, verde azulado claro)
    - Encabezado y barra nav (principal): #0C8F76 (teal/verde azulado)
    - Botones principales: #34A88E (un teal un poco más claro)
-   - Semáforos siguen su color universal: verde, amarillo, rojo
+   - Semáforos: verde, amarillo, rojo
    - Resaltado de botón activo en la barra: #FFCB05 (amarillo vivo)
 */
 
 /* Estilos Generales */
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #EAF7F3; /* Fondo calmado */
+  background-color: #eaf7f3; /* Fondo calmado */
   color: #333;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
+/* Header fijo */
 header {
-  background-color: #0C8F76; /* Color principal */
+  background-color: #0c8f76; /* Color principal */
   color: white;
   padding: 10px 20px;
   text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1003;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-/* Reducir el tamaño del título */
 .header-content {
   display: flex;
   flex-direction: column;
@@ -34,23 +40,40 @@ header {
 
 .header-content h1 {
   margin: 0;
-  font-size: 20px; /* Más pequeño para ocupar menos espacio */
+  font-size: 20px;
 }
 
-#info-btn-header {
-  margin-top: 5px;
-  background: none;
-  color: white;
+/* Contenedor de filtro */
+.filter-container {
+  margin-top: 8px;
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+}
+
+.filter-container input {
+  width: 100%;
+  padding: 8px 30px 8px 10px;
   border: none;
-  font-size: 24px;
-  cursor: pointer;
+  border-radius: 5px;
+  font-size: 14px;
+  outline: none;
 }
 
+.filter-container i {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #888;
+}
+
+/* MAIN: le damos un margin-top para que no quede oculto bajo el header */
 main {
   flex-grow: 1;
+  margin-top: 90px; /* Ajusta según la altura del header */
   padding: 20px;
-  /* Agrega padding inferior para que no quede tapado por la barra fija */
-  padding-bottom: 80px;
+  padding-bottom: 80px; /* Para no tapar el contenido con la bottom-nav */
 }
 
 /* Texto descriptivo antes de la lista */
@@ -70,7 +93,7 @@ main {
   padding: 20px;
   border-radius: 8px;
   margin-bottom: 20px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .about-content ul {
@@ -98,10 +121,9 @@ main {
   justify-content: space-between;
   color: inherit;
   cursor: pointer;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s;
-  /* Altura mínima para que todas las filas tengan el mismo tamaño */
-  min-height: 80px;
+  min-height: 80px; /* Altura mínima para uniformidad */
 }
 
 .charger-item:hover {
@@ -122,15 +144,15 @@ main {
 }
 
 .status-light.green {
-  background-color: #4CAF50;
+  background-color: #4caf50;
 }
 
 .status-light.yellow {
-  background-color: #FFC107;
+  background-color: #ffc107;
 }
 
 .status-light.red {
-  background-color: #F44336;
+  background-color: #f44336;
 }
 
 /* Información del cargador en la lista */
@@ -147,7 +169,7 @@ main {
 
 /* Botón de navegación a Google Maps con ancho fijo */
 .navigate-btn {
-  background-color: #34A88E; /* Color principal de botones */
+  background-color: #34a88e; /* Color principal de botones */
   color: white;
   border: none;
   padding: 10px 15px;
@@ -166,7 +188,7 @@ main {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: #0C8F76; /* Color principal */
+  background-color: #0c8f76; /* Color principal */
   padding: 15px 0;
   z-index: 1002;
 }
@@ -180,7 +202,7 @@ main {
 }
 
 .nav-button.active {
-  color: #FFCB05; /* Amarillo para resaltar la vista activa */
+  color: #ffcb05; /* Amarillo para resaltar la vista activa */
 }
 
 /* Modal y overlay */
@@ -190,7 +212,7 @@ main {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 1000;
   display: none;
   justify-content: center;
@@ -219,7 +241,7 @@ main {
   background-color: white;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   position: relative;
   width: 90%;
   max-width: 720px;
@@ -302,7 +324,7 @@ main {
   font-size: 18px;
   cursor: pointer;
   border: none;
-  background-color: #34A88E;
+  background-color: #34a88e;
   color: white;
   border-radius: 5px;
 }
