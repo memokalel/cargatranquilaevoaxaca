@@ -7,6 +7,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const infoButtonFooter = document.getElementById('info-btn-footer');
     const infoButtonPopupFooter = chargerPopup.querySelector('#info-btn-popup-footer'); // Icono "i" en Footer del Pop-Up
 
+    // Elementos del Pop-Up "Acerca de"
+    const aboutUsPopup = document.getElementById('about-us-popup');
+    const closeAboutUsButton = aboutUsPopup.querySelector('.close-button');
+
 
     const chargers = [
         {
@@ -63,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
         chargers.forEach(charger => {
             const chargerItem = document.createElement('div'); // Cambiado a div en lugar de li
             chargerItem.className = 'charger-item';
-            chargerItem.setAttribute('data-charger-id', charger.name); // ¡CORREGIDO! Usar charger.name en lugar de charger.nombre
+            chargerItem.setAttribute('data-charger-id', charger.name);
 
             chargerItem.addEventListener('click', () => openChargerPopup(charger)); // Añadir evento click a la fila
 
@@ -83,8 +87,9 @@ document.addEventListener('DOMContentLoaded', () => {
             navigateButton.textContent = 'Ir al cargador';
              navigateButton.addEventListener('click', (event) => {
                 event.stopPropagation(); // Evita que el click en el botón se propague al li
-                // Redirigir a la navegación (simulado por ahora)
-                alert(`Navegando a ${charger.name}`);
+                // **FUNCIONALIDAD "Ir al cargador" IMPLEMENTADA: Abrir Google Maps con la dirección**
+                const addressForMaps = encodeURIComponent(charger.address); // Codificar la dirección para la URL
+                window.open(`https://www.google.com/maps/dir/?api=1&destination=${addressForMaps}`);
             });
 
 
@@ -101,14 +106,13 @@ document.addEventListener('DOMContentLoaded', () => {
     function openChargerPopup(charger) {
         // Popular los detalles del cargador en el Pop-Up
         document.getElementById('popup-charger-name').textContent = charger.name;
+        document.getElementById('popup-charger-address-value').textContent = charger.address; // Usar el span con id "popup-charger-address-value"
+        document.getElementById('popup-charger-power-value').textContent = charger.power || 'Desconocida'; // Usar el span con id "popup-charger-power-value"
+        document.getElementById('popup-charger-connectors-value').textContent = charger.connectors.join(', '); // Usar el span con id "popup-charger-connectors-value"
+
 
         const popupSemaphore = document.getElementById('popup-charger-semaphore');
         popupSemaphore.className = `status-light ${charger.status}`; // Clase para el color del semáforo en Pop-Up
-
-        document.getElementById('popup-charger-address').textContent = `Dirección: ${charger.address}`;
-        document.getElementById('popup-charger-power').textContent = `Potencia: ${charger.power || 'Desconocida'}`; // Usar 'Desconocida' si no hay potencia
-        document.getElementById('popup-charger-connectors').textContent = `Conectores: ${charger.connectors.join(', ')}`; // ¡¡¡CORREGIDO!!! .join() AHORA FUNCIONARÁ CORRECTAMENTE
-        //document.getElementById('popup-charger-connectors').textContent = `Conectores: ${charger.connectors}`; // ANTERIOR - SIN .join()
 
         const ratingStarsSpan = document.getElementById('popup-rating-stars');
         ratingStarsSpan.textContent = charger.ratingAverage ? `${charger.ratingAverage} estrellas` : 'Sin valoraciones'; //Muestra rating o "Sin valoraciones"
@@ -130,19 +134,22 @@ document.addEventListener('DOMContentLoaded', () => {
     modalOverlay.addEventListener('click', closeChargerPopup); // Cierra el modal al hacer clic fuera
 
 
-    // Funcionalidad botón "Acerca de" en Header
-    infoButtonHeader.addEventListener('click', () => {
-        alert("Sección 'Acerca de' (Simulada para MVP)"); // Reemplazar con la funcionalidad real de "Acerca de"
-    });
+    // **FUNCIONALIDAD "Acerca de" IMPLEMENTADA:  Abrir y cerrar Pop-Up "Acerca de"**
+    function openAboutUsPopup() {
+        aboutUsPopup.classList.add('show');
+        modalOverlay.classList.add('show');
+    }
 
-    // Funcionalidad botón "Acerca de" en Footer
-    infoButtonFooter.addEventListener('click', () => {
-        alert("Sección 'Acerca de' (Simulada para MVP) - Footer"); // Reemplazar con la funcionalidad real de "Acerca de"
-    });
-     // Funcionalidad botón "Acerca de" en Footer del Pop-Up
-    infoButtonPopupFooter.addEventListener('click', () => {
-        alert("Sección 'Acerca de' (Simulada para MVP) - Pop-Up Footer"); // Reemplazar con la funcionalidad real de "Acerca de"
-    });
+    function closeAboutUsPopup() {
+        aboutUsPopup.classList.remove('show');
+        modalOverlay.classList.remove('show');
+    }
+
+    infoButtonHeader.addEventListener('click', openAboutUsPopup);
+    infoButtonFooter.addEventListener('click', openAboutUsPopup);
+    infoButtonPopupFooter.addEventListener('click', openAboutUsPopup); // Icono "i" en Footer del Pop-Up
+    closeAboutUsButton.addEventListener('click', closeAboutUsPopup); // Botón de cierre en Pop-Up "Acerca de"
+
 
     // Simulación de botones de rating y reporte (POR AHORA - MVP SIMULADO)
     const rateGoodButtons = document.querySelectorAll('.popup-buttons button.rate-button.good');
