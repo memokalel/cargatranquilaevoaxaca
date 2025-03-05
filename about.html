@@ -16,24 +16,48 @@
 
   <div class="app-container">
     <section class="about-content">
-      <p>Bienvenido a <strong>Carga Tranquila VE - Oaxaca</strong>, una aplicación web diseñada para facilitar la búsqueda y evaluación de cargadores para vehículos eléctricos en Oaxaca.</p>
-      <p><strong>Funcionalidades Principales:</strong></p>
+      <h2>Carga Tranquila VE - Oaxaca: Predicción confiable, carga segura.</h2>
+      <p>Anticipa la disponibilidad de cargadores y planifica tus recargas con nuestro <strong>Semáforo Predictivo</strong>:</p>
       <ul>
-        <li><strong>Listado de Cargadores:</strong> Explora una lista completa con información básica y, al hacer clic en cualquier fila, accede a detalles ampliados (dirección, potencia, conectores, semáforo de estado, rating, fotos, etc.) sin saturar la pantalla principal.</li>
-        <li><strong>Navegación:</strong> Utiliza el botón "Ir al cargador" para obtener direcciones en Google Maps.</li>
-        <li><strong>Valoración Sencilla:</strong> Indica de manera simple si el cargador funciona bien o no mediante botones de pulgar arriba o abajo.</li>
+        <li>
+          <i class="fas fa-circle" style="color:#4CAF50;"></i>
+          <strong>VERDE:</strong> Carga disponible, dirígete con seguridad.
+        </li>
+        <li>
+          <i class="fas fa-circle" style="color:#FFC107;"></i>
+          <strong>AMARILLO:</strong> Posible demora, precaución.
+        </li>
+        <li>
+          <i class="fas fa-circle" style="color:#F44336;"></i>
+          <strong>ROJO:</strong> Cargador fuera de servicio, evitar.
+        </li>
       </ul>
-      <p><strong>Próximas Mejoras:</strong></p>
+      <h3>Funcionalidades:</h3>
       <ul>
-        <li>Integración de comentarios y valoraciones reales de usuarios.</li>
-        <li>Implementación de filtros y búsquedas avanzadas.</li>
-        <li>Mapa interactivo con marcadores y rutas optimizadas.</li>
-        <li>Información en tiempo real sobre el estado de los cargadores.</li>
+        <li>
+          <i class="fas fa-list"></i>
+          Lista completa de cargadores con información detallada.
+        </li>
+        <li>
+          <i class="fas fa-map-marker-alt"></i>
+          Navegación directa al cargador con Google Maps.
+        </li>
+        <li>
+          <i class="fas fa-thumbs-up"></i>
+          Valoración sencilla con pulgar arriba/abajo.
+        </li>
       </ul>
-      <p>Gracias por utilizar <strong>Carga Tranquila VE - Oaxaca</strong>. Nuestro objetivo es que encuentres la información que necesitas de forma clara y rápida.</p>
+      <p><em>Nota: Semáforo en simulación inicial. Ayúdanos con tu feedback.</em></p>
+      <div class="feedback-button-container">
+        <button id="feedback-button">
+          <i class="fas fa-comment-alt"></i> Envía tu feedback
+        </button>
+      </div>
     </section>
     <div class="back-button-container">
-      <button id="back-to-home"><i class="fas fa-arrow-left"></i> Volver a la lista</button>
+      <button id="back-to-home">
+        <i class="fas fa-arrow-left"></i> Volver a la lista
+      </button>
     </div>
   </div>
 
@@ -44,6 +68,10 @@
   <script>
     document.getElementById('back-to-home').addEventListener('click', () => {
       window.location.href = "index.html";
+    });
+    document.getElementById('feedback-button').addEventListener('click', () => {
+      // Aquí podrías redirigir a un formulario o enviar el feedback
+      alert("¡Gracias por tu feedback!");
     });
   </script>
 </body>
