@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
       photos: [],
       power: "6 kW",
       address: "Calle Independencia 802, Centro, 68000 Oaxaca de Juárez"
-    },
+    }
     // ... más cargadores si se requiere ...
   ];
 
@@ -108,7 +108,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const ratingStarsSpan = document.getElementById('popup-rating-stars');
     ratingStarsSpan.textContent = charger.ratingAverage ? `${charger.ratingAverage} estrellas` : 'Sin valoraciones';
     const ratingCountSpan = document.getElementById('popup-rating-count');
-    ratingCountSpan.textContent = charger.ratingCount ? `(${charger.ratingCount} valoraciones)` : '';
+    if (ratingCountSpan) {
+      ratingCountSpan.textContent = charger.ratingCount ? `(${charger.ratingCount} valoraciones)` : '';
+    }
 
     chargerPopup.classList.add('show');
     modalOverlay.classList.add('show');
@@ -122,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
   closeButton.addEventListener('click', closeChargerPopup);
   modalOverlay.addEventListener('click', closeChargerPopup);
 
-  // Al hacer clic en el botón "Acerca de" redirige a la pantalla about.html
+  // Al hacer clic en el botón "Acerca de" se redirige a about.html
   infoButtonHeader.addEventListener('click', () => {
     window.location.href = "about.html";
   });
