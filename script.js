@@ -71,10 +71,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const chargerInfo = document.createElement('div');
       chargerInfo.className = 'charger-info';
+      // Se reemplaza la descripción de conectores por el ícono y la info, igual que en el pop-up
       chargerInfo.innerHTML = `
         <h3>${charger.name}</h3>
         <p>${charger.location}</p>
-        <p><strong>Conectores:</strong> ${charger.connectors.join(', ')}</p>
+        <p><i class="fas fa-plug"></i> ${charger.connectors.join(', ')}</p>
       `;
 
       const navigateButton = document.createElement('button');
