@@ -26,10 +26,11 @@
     <div id="charger-popup" class="modal" style="display: none;">
         <div class="modal-content">
             <span class="close-button">&times;</span>
-            <h2 id="popup-charger-name">Cargador [Nombre]</h2>
-            <div id="popup-charger-semaphore" class="status-light"></div>
-             <div id="popup-charger-details">
-                <p id="popup-charger-address">Dirección: <span id="popup-charger-address-value">[Dirección]</span></p>  <p id="popup-charger-power">Potencia: <span id="popup-charger-power-value">[Potencia]</span></p> <p id="popup-charger-connectors">Conectores: <span id="popup-charger-connectors-value">[Conectores]</span></p> <div id="popup-charger-rating">
+            <h2 id="popup-charger-name">[Nombre del Cargador]</h2>  <div id="popup-charger-semaphore" class="status-light"></div> <div id="popup-charger-details">
+                <p id="popup-charger-address">Dirección: <span id="popup-charger-address-value">[Dirección]</span></p>
+                <p id="popup-charger-power">Potencia: <span id="popup-charger-power-value">[Potencia]</span></p>
+                <p id="popup-charger-connectors">Conectores: <span id="popup-charger-connectors-value">[Conectores]</span></p>
+                <div id="popup-charger-rating">
                     <p id="popup-charger-rating-average">Rating Promedio: <span id="popup-rating-stars">[Estrellas]</span> (<span id="popup-rating-count">[Valoraciones]</span>)</p>
                 </div>
                 <div id="popup-charger-photos" class="carousel-container">
@@ -44,18 +45,19 @@
          </div>
     </div>
 
-    <div id="about-us-popup" class="modal" style="display: none;">  <div class="modal-content">
+    <div id="about-us-popup" class="modal" style="display: none;">
+        <div class="modal-content">
             <span class="close-button">&times;</span>
             <h2>Acerca de Carga Tranquila VE - Oaxaca</h2>
             <p>Esta es una aplicación web (MVP - Producto Mínimo Viable) simulada para mostrar información de cargadores para vehículos eléctricos en la ciudad de Oaxaca.</p>
-            <p><strong>Funcionalidades (Simuladas en MVP):</strong></p>
+            <p><strong>Funcionalidades (Implementadas en MVP):</strong></p>
             <ul>
                 <li><strong>Listado de Cargadores:</strong> Muestra una lista de cargadores con información básica (nombre, ubicación, conectores, estado).</li>
                 <li><strong>Pop-Up de Detalle:</strong> Al hacer clic en un cargador, se abre un pop-up con información detallada (dirección, potencia, conectores, rating).</li>
                 <li><strong>Semáforos de Estado:</strong> Indica el estado de cada cargador con colores (Verde, Amarillo, Rojo).</li>
-                <li><strong>Botones de Rating y Reporte:</strong>  Botones simulados para dar feedback sobre el estado de los cargadores.</li>
                 <li><strong>Botón "Ir al cargador":</strong> (Funcionalidad real) Abre Google Maps con la dirección del cargador seleccionado.</li>
                 <li><strong>Sección "Acerca de":</strong>  (Funcionalidad real) Muestra información sobre la app.</li>
+                <li><strong>Botones de Rating y Reporte:</strong> (SIMULADOS con `alert()` en este MVP, pero listos para futura implementación real).</li>
             </ul>
             <p><strong>Próximas Funcionalidades (Fuera del alcance de este MVP):</strong></p>
             <ul>
