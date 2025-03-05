@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             name: "Cargador Plaza Oaxaca",
             location: "Plaza Oaxaca, Oaxaca",
-            connectors: "CCS, CHAdeMO",
+            connectors: ["CCS", "CHAdeMO"], // ¡¡¡CORREGIDO: AHORA ES UN ARRAY!!!
             status: "green", // Semáforo Verde
             ratingAverage: 4.5,
             ratingCount: 50,
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             name: "Cargador Gasolinera Centro",
             location: "Gasolinera Pemex Centro, Oaxaca",
-            connectors: "Tipo 2",
+            connectors: ["Tipo 2"], // ¡¡¡CORREGIDO: AHORA ES UN ARRAY!!!
             status: "green", // Semáforo Verde
             ratingAverage: 4.2,
             ratingCount: 35,
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             name: "Cargador Hotel Reforma",
             location: "Hotel Reforma, Oaxaca",
-            connectors: "CCS",
+            connectors: ["CCS"], // ¡¡¡CORREGIDO: AHORA ES UN ARRAY!!!
             status: "yellow", // Semáforo Amarillo
             ratingAverage: 3.8,
             ratingCount: 22,
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             name: "Cargador Desconocido 1", // Ejemplo de cargador ROJO
             location: "Ubicación Desconocida 1, Oaxaca",
-            connectors: "CCS",
+            connectors: ["CCS"], // ¡¡¡CORREGIDO: AHORA ES UN ARRAY!!!
             status: "red", // Semáforo Rojo
             ratingAverage: 2.5,
             ratingCount: 15,
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
         chargers.forEach(charger => {
             const chargerItem = document.createElement('div'); // Cambiado a div en lugar de li
             chargerItem.className = 'charger-item';
-            chargerItem.setAttribute('data-charger-id', charger.nombre);
+            chargerItem.setAttribute('data-charger-id', charger.name); // ¡CORREGIDO! Usar charger.name en lugar de charger.nombre
 
             chargerItem.addEventListener('click', () => openChargerPopup(charger)); // Añadir evento click a la fila
 
@@ -107,7 +107,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         document.getElementById('popup-charger-address').textContent = `Dirección: ${charger.address}`;
         document.getElementById('popup-charger-power').textContent = `Potencia: ${charger.power || 'Desconocida'}`; // Usar 'Desconocida' si no hay potencia
-        document.getElementById('popup-charger-connectors').textContent = `Conectores: ${charger.connectors}`;
+        document.getElementById('popup-charger-connectors').textContent = `Conectores: ${charger.connectors.join(', ')}`; // ¡¡¡CORREGIDO!!! .join() AHORA FUNCIONARÁ CORRECTAMENTE
+        //document.getElementById('popup-charger-connectors').textContent = `Conectores: ${charger.connectors}`; // ANTERIOR - SIN .join()
 
         const ratingStarsSpan = document.getElementById('popup-rating-stars');
         ratingStarsSpan.textContent = charger.ratingAverage ? `${charger.ratingAverage} estrellas` : 'Sin valoraciones'; //Muestra rating o "Sin valoraciones"
