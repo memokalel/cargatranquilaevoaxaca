@@ -1,5 +1,8 @@
-/* Paleta de colores sugerida (se mantiene la misma) */
-/* Fondo general: #eaf7f3, Encabezado y nav: tonos teal, botones: tonalidades teal y resaltado amarillo */
+/* Paleta de colores sugerida (mantenemos la misma):
+   - Fondo general: #eaf7f3
+   - Encabezado y nav: #0c8f76 (teal)
+   - Botones: #34a88e, resaltado: #ffcb05
+*/
 
 /* Estilos Generales */
 body {
@@ -13,7 +16,7 @@ body {
   min-height: 100vh;
 }
 
-/* Header fijo, con altura mayor (70px) */
+/* Header fijo, 70px de altura */
 header {
   background-color: #0c8f76;
   color: white;
@@ -24,7 +27,7 @@ header {
   left: 0;
   width: 100%;
   z-index: 1003;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
 .header-content {
@@ -38,68 +41,42 @@ header {
 .header-content h1 {
   margin: 0;
   font-size: 20px;
+  /* Si es necesario, ajustar con margin-left para centrar visualmente */
 }
 
-/* Ícono de búsqueda posicionado a la derecha con margen */
-#search-icon {
-  position: absolute;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  color: white;
-  font-size: 24px;
-  cursor: pointer;
-}
-
-/* Overlay de búsqueda */
-.search-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.5);
-  z-index: 1100;
-  display: none;
-  justify-content: center;
-  align-items: center;
-}
-
-.search-overlay-content {
-  background-color: white;
-  border-radius: 8px;
-  padding: 20px;
-  width: 90%;
-  max-width: 400px;
+/* Nueva barra de búsqueda integrada en la vista de lista */
+.search-bar {
   display: flex;
   align-items: center;
-  position: relative;
+  justify-content: center;
+  margin: 10px auto 20px auto;
+  max-width: 400px;
 }
 
-.search-overlay-content input {
-  flex: 1;
-  font-size: 16px;
+.search-bar input {
+  width: 80%;
   padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 5px 0 0 5px;
+  font-size: 16px;
   outline: none;
 }
 
-#close-search {
-  background: none;
-  border: none;
-  color: #333;
-  font-size: 20px;
+.search-bar button {
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-left: none;
+  background-color: #34a88e;
+  color: white;
+  border-radius: 0 5px 5px 0;
   cursor: pointer;
-  margin-left: 10px;
+  font-size: 16px;
 }
 
-/* Main: espacio para no quedar oculto por el header y la nav inferior */
+/* MAIN: espacio para no quedar oculto por header y nav inferior */
 main {
   flex-grow: 1;
-  margin-top: 80px; /* Altura del header + un poco de margen */
+  margin-top: 80px;
   padding: 20px;
   padding-bottom: 80px;
 }
@@ -112,7 +89,7 @@ main {
   text-align: center;
 }
 
-/* Vistas (list-view y about-view) */
+/* Vistas */
 .view {
   display: block;
 }
@@ -149,7 +126,7 @@ main {
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   transition: transform 0.2s;
   min-height: 80px;
 }
@@ -185,12 +162,7 @@ main {
   color: #777;
 }
 
-/* Concatenar conectores y potencia en la misma línea */
-.charger-info p:last-child {
-  /* Ejemplo: [Icono enchufe] CCS, CHAdeMO | [Icono rayo] 50 kW */
-}
-
-/* Botón de navegación a Google Maps, ancho fijo */
+/* Botón "Ir al cargador", ancho fijo */
 .navigate-btn {
   background-color: #34a88e;
   color: white;
@@ -235,7 +207,7 @@ main {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0,0,0,0.5);
   z-index: 1000;
   display: none;
   justify-content: center;
@@ -255,15 +227,15 @@ main {
 
 .modal.show { display: block; }
 
-/* Modal content más amplio */
+/* Modal content: aumentar la anchura (30% más ancho que antes) */
 .modal-content {
   background-color: white;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(0,0,0,0.2);
   position: relative;
-  width: 90%;
-  max-width: 720px;
+  width: 95%;
+  max-width: 940px;
   max-height: 90%;
   overflow-y: auto;
 }
@@ -320,7 +292,7 @@ main {
   margin-top: 10px;
 }
 
-/* Semáforo en el pop-up: centrado y doble tamaño (40px) */
+/* Semáforo en el pop-up */
 #popup-charger-semaphore {
   width: 40px;
   height: 40px;
