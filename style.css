@@ -38,6 +38,7 @@ header button#info-btn-header {
     left: 20px;
 }
 
+
 /* Contenedor principal de la aplicación */
 .app-container {
     padding: 20px;
@@ -70,6 +71,7 @@ header button#info-btn-header {
 #charger-list li:hover, #charger-list div.charger-item:hover {
     transform: translateX(5px);
 }
+
 
 /* Semáforo (Status Light) */
 .status-light {
@@ -141,38 +143,39 @@ footer p {
 
 /* Estilos para el Pop-Up Modal (REUTILIZADOS para "Acerca de") */
 .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1000;
-    display: none;
-    justify-content: center;
-    align-items: center;
+    position: fixed; /* **CRÍTICO: FIXED POSITION PARA CUBRIR TODA LA PANTALLA** */
+    top: 0; /* **CRÍTICO: TOP 0 PARA CUBRIR TODA LA PANTALLA** */
+    left: 0; /* **CRÍTICO: LEFT 0 PARA CUBRIR TODA LA PANTALLA** */
+    width: 100%; /* **CRÍTICO: 100% ANCHO PARA CUBRIR TODA LA PANTALLA** */
+    height: 100%; /* **CRÍTICO: 100% ALTO PARA CUBRIR TODA LA PANTALLA** */
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+    z-index: 1000; /* **CRÍTICO: Z-INDEX ALTO PARA ESTAR POR ENCIMA DE TODO** */
+    display: none; /* Inicialmente oculto */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
 }
 
 .modal.show {
-    display: block;
+    display: block; /* Mostrar modal cuando tiene la clase 'show' */
 }
 
 .modal-overlay.show {
-    display: flex;
+    display: flex; /* Mostrar overlay cuando tiene la clase 'show' */
 }
 
+
 .modal-content {
-    display: none;
+    display: none; /* **AÑADIDO display: none; PARA OCULTAR INICIALMENTE EL CONTENIDO DEL MODAL** */
     background-color: white;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    position: relative;
-    width: 80%;
-    max-width: 500px;
-    max-height: 90%;
-    overflow-y: auto;
-    /* display: none;  ¡¡¡ESTA LÍNEA NO DEBE ESTAR AQUÍ EN .modal, SOLO EN .modal-overlay !!! */
+    position: relative; /* Posición relativa para el contenido del modal */
+    width: 80%; /* Ancho del modal, ajusta según necesites */
+    max-width: 500px; /* Ancho máximo para pantallas grandes */
+    max-height: 90%; /* Altura máxima del modal */
+    overflow-y: auto; /* Añade scroll si el contenido excede la altura */
+    /* display: none;  ¡¡¡ESTA LÍNEA NO DEBE ESTAR AQUÍ EN .modal, SOLO EN .modal-overlay !!! */
 }
 
 .modal-content h2 {
@@ -246,90 +249,4 @@ footer p {
     border: none; /* Añadido border none para que no tenga borde */
     font-size: 24px; /* Añadido font-size para que el icono se vea correctamente */
     cursor: pointer; /* Añadido cursor pointer para indicar que es clickable */
-}
-
-/* Media query para pantallas más pequeñas (smartphones) */
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        padding: 15px;
-    }
-
-    header h1 {
-        margin-bottom: 10px;
-        font-size: 22px;
-    }
-
-    header button {
-        padding: 8px 12px;
-        font-size: 14px;
-    }
-
-    .app-container {
-        padding: 10px;
-    }
-
-    .charger-item {
-        flex-direction: column;
-        align-items: stretch;
-        padding: 10px;
-    }
-
-    .status-light {
-        margin-bottom: 10px;
-        margin-right: 0;
-        width: 25px;
-        height: 25px;
-    }
-
-    .charger-info {
-        text-align: center;
-        margin-bottom: 10px;
-    }
-
-    .charger-info h3 {
-        font-size: 17px;
-    }
-
-    .charger-info p {
-        font-size: 13px;
-    }
-
-    .navigate-btn {
-        margin-left: 0;
-        width: 100%;
-        margin-top: 10px;
-        padding: 10px;
-        font-size: 15px;
-    }
-
-    .about-content {
-        padding: 15px;
-        margin: 10px auto;
-    }
-
-    .about-content h2 {
-        font-size: 20px;
-    }
-
-    .about-content h3, .about-content p, .about-content ul {
-        font-size: 15px;
-    }
-
-    .modal {
-        padding: 15px;
-    }
-
-    .modal-content h3 {
-        font-size: 19px;
-    }
-
-    .modal-content p {
-        font-size: 14px;
-    }
-
-    .modal button {
-        padding: 8px 15px;
-        font-size: 15px;
-    }
 }
