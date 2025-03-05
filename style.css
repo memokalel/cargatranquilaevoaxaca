@@ -60,18 +60,7 @@ header {
   border-radius: 10px 10px 10px 10px;
   font-size: 16px;
   outline: none;
-}
 
-.search-bar button {
-  padding: 10px 15px;
-  border: 1px solid #ccc;
-  border-left: none;
-  background-color: #34a88e;
-  color: white;
-  border-radius: 0 5px 5px 0;
-  cursor: pointer;
-  font-size: 16px;
-}
 
 /* MAIN: espacio para no quedar oculto por header y nav inferior */
 main {
