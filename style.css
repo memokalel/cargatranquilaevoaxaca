@@ -14,27 +14,27 @@ header {
   background-color: #0056b3;
   color: white;
   padding: 15px 20px;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
 }
 
-header h1 {
+/* Encabezado de la pantalla principal */
+.header-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.header-content h1 {
   margin: 0;
   font-size: 24px;
-  flex-grow: 1;
 }
 
-header button#info-btn-header {
+#info-btn-header {
+  margin-top: 5px;
   background: none;
   color: white;
   border: none;
-  font-size: 24px;
+  font-size: 18px;
   cursor: pointer;
-  position: absolute;
-  left: 20px;
 }
 
 .app-container {
@@ -67,11 +67,17 @@ header button#info-btn-header {
   transform: translateX(5px);
 }
 
+/* Fijar dimensiones del semáforo para que no se deforme */
 .status-light {
   width: 20px;
   height: 20px;
+  min-width: 20px;
+  min-height: 20px;
+  max-width: 20px;
+  max-height: 20px;
   border-radius: 50%;
   margin-right: 15px;
+  flex-shrink: 0;
 }
 
 .status-light.green {
@@ -158,14 +164,15 @@ footer p {
   display: block;
 }
 
+/* Aumentar el ancho del pop-up para mayor comodidad */
 .modal-content {
   background-color: white;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   position: relative;
-  width: 80%;
-  max-width: 500px;
+  width: 90%;
+  max-width: 600px;
   max-height: 90%;
   overflow-y: auto;
 }
@@ -215,12 +222,46 @@ footer p {
   background-color: #f0f0f0;
 }
 
+.feedback-instruction {
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+  margin-top: 10px;
+}
+
 /* Estilos para la página Acerca de */
+.about-header {
+  background-color: #0056b3;
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.about-header h1 {
+  flex-grow: 1;
+  text-align: center;
+  margin: 0;
+  font-size: 24px;
+}
+
+/* Botón de volver en la pantalla Acerca de */
+.nav-back-button {
+  position: absolute;
+  left: 15px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
 .about-content {
   background-color: white;
   padding: 20px;
   border-radius: 8px;
-  margin-bottom: 20px;
+  margin: 20px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
@@ -228,20 +269,28 @@ footer p {
   margin: 10px 0 10px 20px;
 }
 
-.back-button-container {
-  text-align: center;
-  margin-bottom: 20px;
+.about-content li i {
+  margin-right: 8px;
+  color: #555;
 }
 
-.back-button-container button {
-  padding: 10px 20px;
-  font-size: 16px;
+/* Botón de feedback grande y centrado en la parte inferior de Acerca de */
+.feedback-button-container {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.feedback-button-container button {
+  padding: 15px 30px;
+  font-size: 18px;
   cursor: pointer;
   border: 1px solid #ccc;
   background: none;
   border-radius: 5px;
 }
 
-.back-button-container button:hover {
+.feedback-button-container button:hover {
   background-color: #f0f0f0;
 }
