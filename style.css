@@ -39,29 +39,33 @@ header {
   font-size: 20px;
 }
 
-/* Barra de búsqueda: ahora integrada, oculta por defecto */
+/* Barra de búsqueda: se posiciona fija justo debajo del header */
 .search-bar-container {
-  display: none;
-  margin: 10px auto;
-  max-width: 350px;
-  width: 90%;
+  position: fixed;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  display: none;  /* Se mostrará solo en la vista de lista o al activar el botón */
+  justify-content: center;
+  z-index: 1002;
 }
 
 .search-bar-container input {
-  width: 100%;
+  width: 90%;
+  max-width: 350px;
   padding: 8px 12px;
-  border: none;
+  border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 14px;
   outline: none;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255,255,255,0.9);
   box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
 }
 
-/* MAIN: espacio para no quedar oculto por header y nav inferior */
+/* MAIN: dejar espacio para el header y la búsqueda */
 main {
   flex-grow: 1;
-  margin-top: 80px;
+  margin-top: 100px; /* 70px del header + 30px para la búsqueda */
   padding: 20px;
   padding-bottom: 80px;
 }
@@ -185,7 +189,8 @@ main {
   color: #ffcb05;
 }
 
-/* Botón flotante de búsqueda en la esquina inferior derecha */
+/* Botón flotante de búsqueda (opcional, si se desea) */
+/* Si ya usas la barra fija, puedes omitir este botón */
 #floating-search {
   position: fixed;
   bottom: 90px;
@@ -200,13 +205,7 @@ main {
   cursor: pointer;
   z-index: 1100;
   font-size: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-#floating-search:hover {
-  background-color: #288a78;
+  display: none; /* Se puede desactivar si usamos la barra fija */
 }
 
 /* Modal y overlay */
