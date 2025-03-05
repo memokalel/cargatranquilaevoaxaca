@@ -1,21 +1,24 @@
-/* Mantenemos la paleta de colores anterior */
+/* Paleta de colores sugerida (se mantiene la misma) */
+/* Fondo general: #eaf7f3, Encabezado y nav: tonos teal, botones: tonalidades teal y resaltado amarillo */
+
+/* Estilos Generales */
 body {
   font-family: "Arial", sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #eaf7f3; /* Fondo calmado */
+  background-color: #eaf7f3;
   color: #333;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-/* Header fijo y limpio */
+/* Header fijo, con altura mayor (70px) */
 header {
-  background-color: #0c8f76; /* Color principal */
+  background-color: #0c8f76;
   color: white;
-  padding: 10px 20px;
-  text-align: center;
+  padding: 0 20px;
+  height: 70px;
   position: fixed;
   top: 0;
   left: 0;
@@ -29,25 +32,28 @@ header {
   align-items: center;
   justify-content: center;
   position: relative;
+  height: 100%;
 }
 
 .header-content h1 {
   margin: 0;
   font-size: 20px;
-  flex: 1; /* Ocupa todo el espacio, centrado */
 }
 
-/* Ícono de búsqueda en la esquina derecha */
+/* Ícono de búsqueda posicionado a la derecha con margen */
 #search-icon {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
   background: none;
   border: none;
   color: white;
-  font-size: 20px;
+  font-size: 24px;
   cursor: pointer;
-  margin-left: auto; /* Empuja el botón a la derecha */
 }
 
-/* Overlay de búsqueda (oculto por defecto) */
+/* Overlay de búsqueda */
 .search-overlay {
   position: fixed;
   top: 0;
@@ -67,9 +73,9 @@ header {
   padding: 20px;
   width: 90%;
   max-width: 400px;
-  position: relative;
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .search-overlay-content input {
@@ -81,7 +87,7 @@ header {
   outline: none;
 }
 
-.search-overlay-content button#close-search {
+#close-search {
   background: none;
   border: none;
   color: #333;
@@ -90,18 +96,20 @@ header {
   margin-left: 10px;
 }
 
+/* Main: espacio para no quedar oculto por el header y la nav inferior */
 main {
   flex-grow: 1;
-  margin-top: 70px; /* Ajusta según la altura del header */
+  margin-top: 80px; /* Altura del header + un poco de margen */
   padding: 20px;
-  padding-bottom: 80px; /* Para no tapar el contenido con la bottom-nav */
+  padding-bottom: 80px;
 }
 
-/* Texto descriptivo antes de la lista */
+/* Descripción de la lista */
 .list-description {
   margin-bottom: 10px;
   font-size: 14px;
   color: #555;
+  text-align: center;
 }
 
 /* Vistas (list-view y about-view) */
@@ -114,7 +122,7 @@ main {
   padding: 20px;
   border-radius: 8px;
   margin-bottom: 20px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .about-content ul {
@@ -140,43 +148,32 @@ main {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: inherit;
   cursor: pointer;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s;
-  min-height: 80px; /* Altura mínima para uniformidad */
+  min-height: 80px;
 }
 
 .charger-item:hover {
   transform: translateX(5px);
 }
 
-/* Semáforo en la lista (tamaño fijo) */
+/* Semáforo en la lista */
 .status-light {
   width: 20px;
   height: 20px;
   min-width: 20px;
   min-height: 20px;
-  max-width: 20px;
-  max-height: 20px;
   border-radius: 50%;
   margin-right: 15px;
   flex-shrink: 0;
 }
 
-.status-light.green {
-  background-color: #4caf50;
-}
+.status-light.green { background-color: #4caf50; }
+.status-light.yellow { background-color: #ffc107; }
+.status-light.red { background-color: #f44336; }
 
-.status-light.yellow {
-  background-color: #ffc107;
-}
-
-.status-light.red {
-  background-color: #f44336;
-}
-
-/* Información del cargador en la lista */
+/* Información del cargador */
 .charger-info h3 {
   margin: 0 0 5px 0;
   font-size: 16px;
@@ -188,13 +185,18 @@ main {
   color: #777;
 }
 
-/* Botón de navegación a Google Maps con ancho fijo */
+/* Concatenar conectores y potencia en la misma línea */
+.charger-info p:last-child {
+  /* Ejemplo: [Icono enchufe] CCS, CHAdeMO | [Icono rayo] 50 kW */
+}
+
+/* Botón de navegación a Google Maps, ancho fijo */
 .navigate-btn {
-  background-color: #34a88e; /* Color principal de botones */
+  background-color: #34a88e;
   color: white;
   border: none;
   padding: 10px 15px;
-  width: 110px; /* Ancho fijo */
+  width: 110px;
   border-radius: 5px;
   cursor: pointer;
   font-size: 14px;
@@ -209,7 +211,7 @@ main {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: #0c8f76; /* Color principal */
+  background-color: #0c8f76;
   padding: 15px 0;
   z-index: 1002;
 }
@@ -223,7 +225,7 @@ main {
 }
 
 .nav-button.active {
-  color: #ffcb05; /* Amarillo para resaltar la vista activa */
+  color: #ffcb05;
 }
 
 /* Modal y overlay */
@@ -240,9 +242,7 @@ main {
   align-items: center;
 }
 
-.modal-overlay.show {
-  display: flex;
-}
+.modal-overlay.show { display: flex; }
 
 .modal {
   position: fixed;
@@ -253,16 +253,14 @@ main {
   display: none;
 }
 
-.modal.show {
-  display: block;
-}
+.modal.show { display: block; }
 
 /* Modal content más amplio */
 .modal-content {
   background-color: white;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
   position: relative;
   width: 90%;
   max-width: 720px;
@@ -328,8 +326,6 @@ main {
   height: 40px;
   min-width: 40px;
   min-height: 40px;
-  max-width: 40px;
-  max-height: 40px;
   border-radius: 50%;
   margin: 20px auto;
 }
