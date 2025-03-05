@@ -14,40 +14,44 @@ header {
   background-color: #0056b3;
   color: white;
   padding: 15px 20px;
+  text-align: center;
 }
 
-/* Encabezado centrado en la pantalla principal */
-.header-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.header-content h1 {
-  margin: 0;
-  font-size: 24px;
-}
-
-#info-btn-header {
-  margin-top: 5px;
-  background: none;
-  color: white;
-  border: none;
-  font-size: 24px;
-  cursor: pointer;
-}
-
-.app-container {
-  padding: 20px;
+/* Main y vistas */
+main {
   flex-grow: 1;
+  padding: 20px;
 }
 
+.view {
+  display: block;
+}
+
+/* Estilos de la vista Acerca de */
+.about-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.about-content ul {
+  margin: 10px 0 10px 20px;
+}
+
+.about-content li i {
+  margin-right: 8px;
+  color: #555;
+}
+
+/* Lista de cargadores */
 #charger-list {
   list-style: none;
   padding: 0;
 }
 
-#charger-list li, #charger-list div.charger-item {
+.charger-item {
   background-color: white;
   margin-bottom: 10px;
   padding: 15px;
@@ -55,19 +59,17 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  text-decoration: none;
   color: inherit;
   cursor: pointer;
-  border: none;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   transition: transform 0.2s;
 }
 
-#charger-list li:hover, #charger-list div.charger-item:hover {
+.charger-item:hover {
   transform: translateX(5px);
 }
 
-/* Fijar dimensiones del semáforo en la lista */
+/* Semáforo en la lista (tamaño fijo para evitar deformaciones) */
 .status-light {
   width: 20px;
   height: 20px;
@@ -92,11 +94,7 @@ header {
   background-color: #F44336;
 }
 
-.charger-info {
-  flex-grow: 1;
-  margin-right: 10px;
-}
-
+/* Información del cargador en la lista */
 .charger-info h3 {
   margin: 0 0 5px 0;
   font-size: 18px;
@@ -108,6 +106,7 @@ header {
   color: #777;
 }
 
+/* Botón de navegación a Google Maps */
 .navigate-btn {
   background-color: #4CAF50;
   color: white;
@@ -118,29 +117,43 @@ header {
   font-size: 14px;
 }
 
+/* Footer */
 footer {
   text-align: center;
   padding: 20px;
   background-color: #ddd;
   color: #555;
-  position: static;
-  margin-top: auto;
-  width: 100%;
 }
 
-footer p {
-  margin: 0;
-  font-size: 14px;
+/* Barra de navegación inferior */
+.bottom-nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #0056b3;
+  padding: 10px 0;
 }
 
-/* Estilos para Modales y Overlay */
+.nav-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.nav-button.active {
+  color: #FFC107;
+}
+
+/* Modal y overlay */
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0,0,0,0.5);
   z-index: 1000;
   display: none;
   justify-content: center;
@@ -164,12 +177,12 @@ footer p {
   display: block;
 }
 
-/* Aumentar el ancho del pop-up modal a 20% más (máx. 720px) */
+/* Modal content más amplio (20% más ancho, max 720px) */
 .modal-content {
   background-color: white;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
   position: relative;
   width: 90%;
   max-width: 720px;
@@ -183,12 +196,12 @@ footer p {
   text-align: center;
 }
 
-.modal-content .detail-item {
+.detail-item {
   margin: 10px 0;
   font-size: 16px;
 }
 
-.modal-content .detail-item i {
+.detail-item i {
   margin-right: 8px;
   color: #555;
 }
@@ -229,7 +242,7 @@ footer p {
   margin-top: 10px;
 }
 
-/* Estilos para el semáforo en el pop-up: centrado y tamaño 40px (doble de 20px) */
+/* Semáforo en el pop-up: centrado y doble tamaño (40px) */
 #popup-charger-semaphore {
   width: 40px;
   height: 40px;
@@ -241,57 +254,10 @@ footer p {
   margin: 20px auto;
 }
 
-/* Estilos para la página Acerca de */
-.about-header {
-  background-color: #0056b3;
-  color: white;
-  padding: 15px 20px;
-  display: flex;
-  align-items: center;
-  position: relative;
-}
-
-.about-header h1 {
-  flex-grow: 1;
-  text-align: center;
-  margin: 0;
-  font-size: 24px;
-}
-
-/* Botón de volver en la pantalla Acerca de */
-.nav-back-button {
-  position: absolute;
-  left: 15px;
-  background: none;
-  border: none;
-  color: white;
-  font-size: 24px;
-  cursor: pointer;
-}
-
-.about-content {
-  background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-  margin: 20px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.about-content ul {
-  margin: 10px 0 10px 20px;
-}
-
-.about-content li i {
-  margin-right: 8px;
-  color: #555;
-}
-
-/* Botón de feedback grande y centrado en la parte inferior de Acerca de */
+/* Feedback button en la vista Acerca de */
 .feedback-button-container {
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
+  text-align: center;
+  margin-top: 20px;
 }
 
 .feedback-button-container button {
