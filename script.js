@@ -4,8 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalOverlay = document.getElementById('modal-overlay');
     const closeButton = chargerPopup.querySelector('.close-button');
     const infoButtonHeader = document.getElementById('info-btn-header');
-    const infoButtonFooter = document.getElementById('info-btn-footer');
-    const infoButtonPopupFooter = chargerPopup.querySelector('#info-btn-popup-footer'); // Icono "i" en Footer del Pop-Up
 
     // Elementos del Pop-Up "Acerca de"
     const aboutUsPopup = document.getElementById('about-us-popup');
@@ -69,7 +67,10 @@ document.addEventListener('DOMContentLoaded', () => {
             chargerItem.className = 'charger-item';
             chargerItem.setAttribute('data-charger-id', charger.name);
 
-            chargerItem.addEventListener('click', () => openChargerPopup(charger));
+            chargerItem.addEventListener('click', () => { // **AÑADIDO console.log AQUÍ**
+                console.log(`Hiciste click en el cargador: ${charger.name}`);
+                openChargerPopup(charger);
+            });
 
             const statusLight = document.createElement('div');
             statusLight.className = `status-light ${charger.status}`;
@@ -87,9 +88,8 @@ document.addEventListener('DOMContentLoaded', () => {
             navigateButton.textContent = 'Ir al cargador';
              navigateButton.addEventListener('click', (event) => {
                 event.stopPropagation();
-                // **FUNCIONALIDAD "Ir al cargador" IMPLEMENTADA: Abrir Google Maps con la dirección**
                 const addressForMaps = encodeURIComponent(charger.address);
-                window.open(`https://www.google.com/maps/dir/?api=1&destination=${addressForMaps}`, '_blank'); // Abre en nueva pestaña
+                window.open(`https://www.google.com/maps/dir/?api=1&destination=${addressForMaps}`, '_blank');
             });
 
 
@@ -104,7 +104,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     function openChargerPopup(charger) {
-        // Popular los detalles del cargador en el Pop-Up **CON DATOS REALES**
+        console.log(`Función openChargerPopup() ejecutada para: ${charger.name}`); // **AÑADIDO console.log AQUÍ**
+        // Popular los detalles del cargador en el Pop-Up
         document.getElementById('popup-charger-name').textContent = charger.name;
         document.getElementById('popup-charger-address-value').textContent = charger.address;
         document.getElementById('popup-charger-power-value').textContent = charger.power || 'Desconocida';
@@ -136,6 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // **FUNCIONALIDAD "Acerca de" IMPLEMENTADA:  Abrir y cerrar Pop-Up "Acerca de"**
     function openAboutUsPopup() {
+        console.log("Función openAboutUsPopup() ejecutada"); // **AÑADIDO console.log AQUÍ**
         aboutUsPopup.classList.add('show');
         modalOverlay.classList.add('show');
     }
@@ -145,9 +147,10 @@ document.addEventListener('DOMContentLoaded', () => {
         modalOverlay.classList.remove('show');
     }
 
-    infoButtonHeader.addEventListener('click', openAboutUsPopup);
-    infoButtonFooter.addEventListener('click', openAboutUsPopup);
-    infoButtonPopupFooter.addEventListener('click', openAboutUsPopup);
+    infoButtonHeader.addEventListener('click', () => { // **AÑADIDO console.log AQUÍ**
+        console.log("Botón 'Acerca de' en Header clickeado");
+        openAboutUsPopup();
+    });
     closeAboutUsButton.addEventListener('click', closeAboutUsPopup);
 
 
