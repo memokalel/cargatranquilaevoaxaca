@@ -16,19 +16,19 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             name: "Cargador Plaza Oaxaca",
             location: "Plaza Oaxaca, Oaxaca",
-            connectors: ["CCS", "CHAdeMO"], // ¡¡¡CORREGIDO: AHORA ES UN ARRAY!!!
-            status: "green", // Semáforo Verde
+            connectors: ["CCS", "CHAdeMO"],
+            status: "green",
             ratingAverage: 4.5,
             ratingCount: 50,
-            photos: [], // Ejemplo: Array de URLs de fotos
-            power: "50 kW", // Añadido potencia
-            address: "Av. Universidad S/N, Centro Histórico, 68000 Oaxaca de Juárez" //Añadido dirección detallada
+            photos: [],
+            power: "50 kW",
+            address: "Av. Universidad S/N, Centro Histórico, 68000 Oaxaca de Juárez"
         },
         {
             name: "Cargador Gasolinera Centro",
             location: "Gasolinera Pemex Centro, Oaxaca",
-            connectors: ["Tipo 2"], // ¡¡¡CORREGIDO: AHORA ES UN ARRAY!!!
-            status: "green", // Semáforo Verde
+            connectors: ["Tipo 2"],
+            status: "green",
             ratingAverage: 4.2,
             ratingCount: 35,
              photos: [],
@@ -38,8 +38,8 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             name: "Cargador Hotel Reforma",
             location: "Hotel Reforma, Oaxaca",
-            connectors: ["CCS"], // ¡¡¡CORREGIDO: AHORA ES UN ARRAY!!!
-            status: "yellow", // Semáforo Amarillo
+            connectors: ["CCS"],
+            status: "yellow",
             ratingAverage: 3.8,
             ratingCount: 22,
              photos: [],
@@ -49,8 +49,8 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             name: "Cargador Desconocido 1", // Ejemplo de cargador ROJO
             location: "Ubicación Desconocida 1, Oaxaca",
-            connectors: ["CCS"], // ¡¡¡CORREGIDO: AHORA ES UN ARRAY!!!
-            status: "red", // Semáforo Rojo
+            connectors: ["CCS"],
+            status: "red",
             ratingAverage: 2.5,
             ratingCount: 15,
             photos: [],
@@ -62,14 +62,14 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     function displayChargerList() {
-        chargerList.innerHTML = ''; // Limpiar la lista anterior
+        chargerList.innerHTML = '';
 
         chargers.forEach(charger => {
-            const chargerItem = document.createElement('div'); // Cambiado a div en lugar de li
+            const chargerItem = document.createElement('div');
             chargerItem.className = 'charger-item';
             chargerItem.setAttribute('data-charger-id', charger.name);
 
-            chargerItem.addEventListener('click', () => openChargerPopup(charger)); // Añadir evento click a la fila
+            chargerItem.addEventListener('click', () => openChargerPopup(charger));
 
             const statusLight = document.createElement('div');
             statusLight.className = `status-light ${charger.status}`;
@@ -86,10 +86,10 @@ document.addEventListener('DOMContentLoaded', () => {
             navigateButton.className = 'navigate-btn';
             navigateButton.textContent = 'Ir al cargador';
              navigateButton.addEventListener('click', (event) => {
-                event.stopPropagation(); // Evita que el click en el botón se propague al li
+                event.stopPropagation();
                 // **FUNCIONALIDAD "Ir al cargador" IMPLEMENTADA: Abrir Google Maps con la dirección**
-                const addressForMaps = encodeURIComponent(charger.address); // Codificar la dirección para la URL
-                window.open(`https://www.google.com/maps/dir/?api=1&destination=${addressForMaps}`);
+                const addressForMaps = encodeURIComponent(charger.address);
+                window.open(`https://www.google.com/maps/dir/?api=1&destination=${addressForMaps}`, '_blank'); // Abre en nueva pestaña
             });
 
 
@@ -100,38 +100,38 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    displayChargerList(); // Llama a la función para mostrar la lista de cargadores al cargar la página
+    displayChargerList();
 
 
     function openChargerPopup(charger) {
-        // Popular los detalles del cargador en el Pop-Up
+        // Popular los detalles del cargador en el Pop-Up **CON DATOS REALES**
         document.getElementById('popup-charger-name').textContent = charger.name;
-        document.getElementById('popup-charger-address-value').textContent = charger.address; // Usar el span con id "popup-charger-address-value"
-        document.getElementById('popup-charger-power-value').textContent = charger.power || 'Desconocida'; // Usar el span con id "popup-charger-power-value"
-        document.getElementById('popup-charger-connectors-value').textContent = charger.connectors.join(', '); // Usar el span con id "popup-charger-connectors-value"
+        document.getElementById('popup-charger-address-value').textContent = charger.address;
+        document.getElementById('popup-charger-power-value').textContent = charger.power || 'Desconocida';
+        document.getElementById('popup-charger-connectors-value').textContent = charger.connectors.join(', ');
 
 
         const popupSemaphore = document.getElementById('popup-charger-semaphore');
-        popupSemaphore.className = `status-light ${charger.status}`; // Clase para el color del semáforo en Pop-Up
+        popupSemaphore.className = `status-light ${charger.status}`;
 
         const ratingStarsSpan = document.getElementById('popup-rating-stars');
-        ratingStarsSpan.textContent = charger.ratingAverage ? `${charger.ratingAverage} estrellas` : 'Sin valoraciones'; //Muestra rating o "Sin valoraciones"
+        ratingStarsSpan.textContent = charger.ratingAverage ? `${charger.ratingAverage} estrellas` : 'Sin valoraciones';
         const ratingCountSpan = document.getElementById('popup-rating-count');
-        ratingCountSpan.textContent = charger.ratingCount ? `(${charger.ratingCount} valoraciones)` : ''; // Muestra el conteo si hay valoraciones
+        ratingCountSpan.textContent = charger.ratingCount ? `(${charger.ratingCount} valoraciones)` : '';
 
 
         // Mostrar el Pop-Up y el overlay
-        chargerPopup.classList.add('show'); // Añade clase 'show' para mostrar el modal
-        modalOverlay.classList.add('show'); // Añade clase 'show' para mostrar el overlay
+        chargerPopup.classList.add('show');
+        modalOverlay.classList.add('show');
     }
 
     function closeChargerPopup() {
-        chargerPopup.classList.remove('show'); // Remueve clase 'show' para ocultar el modal
-        modalOverlay.classList.remove('show'); // Remueve clase 'show' para ocultar el overlay
+        chargerPopup.classList.remove('show');
+        modalOverlay.classList.remove('show');
     }
 
     closeButton.addEventListener('click', closeChargerPopup);
-    modalOverlay.addEventListener('click', closeChargerPopup); // Cierra el modal al hacer clic fuera
+    modalOverlay.addEventListener('click', closeChargerPopup);
 
 
     // **FUNCIONALIDAD "Acerca de" IMPLEMENTADA:  Abrir y cerrar Pop-Up "Acerca de"**
@@ -147,8 +147,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     infoButtonHeader.addEventListener('click', openAboutUsPopup);
     infoButtonFooter.addEventListener('click', openAboutUsPopup);
-    infoButtonPopupFooter.addEventListener('click', openAboutUsPopup); // Icono "i" en Footer del Pop-Up
-    closeAboutUsButton.addEventListener('click', closeAboutUsPopup); // Botón de cierre en Pop-Up "Acerca de"
+    infoButtonPopupFooter.addEventListener('click', openAboutUsPopup);
+    closeAboutUsButton.addEventListener('click', closeAboutUsPopup);
 
 
     // Simulación de botones de rating y reporte (POR AHORA - MVP SIMULADO)
@@ -158,19 +158,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     rateGoodButtons.forEach(button => {
         button.addEventListener('click', () => {
-            alert("¡Gracias por indicar que funciona bien! (Funcionalidad de rating en desarrollo)");
+            alert("¡Gracias por indicar que funciona bien! (Funcionalidad de rating en desarrollo - MVP Simulado)");
         });
     });
 
     rateBadButtons.forEach(button => {
         button.addEventListener('click', () => {
-            alert("¡Gracias por indicar que no funciona bien! (Funcionalidad de rating en desarrollo)");
+            alert("¡Gracias por indicar que no funciona bien! (Funcionalidad de rating en desarrollo - MVP Simulado)");
         });
     });
 
     reportButtons.forEach(button => {
         button.addEventListener('click', () => {
-            alert("Funcionalidad 'Reportar Estado' en desarrollo");
+            alert("Funcionalidad 'Reportar Estado' en desarrollo - MVP Simulado");
         });
     });
 
