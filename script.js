@@ -5,10 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeButton = chargerPopup.querySelector('.close-button');
   const infoButtonHeader = document.getElementById('info-btn-header');
 
-  // Elementos del Pop-Up "Acerca de"
-  const aboutUsPopup = document.getElementById('about-us-popup');
-  const closeAboutUsButton = aboutUsPopup.querySelector('.close-button');
-
   const chargers = [
     {
       name: "Cargador Plaza Oaxaca",
@@ -126,42 +122,26 @@ document.addEventListener('DOMContentLoaded', () => {
   closeButton.addEventListener('click', closeChargerPopup);
   modalOverlay.addEventListener('click', closeChargerPopup);
 
-  function openAboutUsPopup() {
-    console.log("Función openAboutUsPopup() ejecutada");
-    aboutUsPopup.classList.add('show');
-    modalOverlay.classList.add('show');
-  }
-
-  function closeAboutUsPopup() {
-    aboutUsPopup.classList.remove('show');
-    modalOverlay.classList.remove('show');
-  }
-
+  // Al hacer clic en el botón "Acerca de" redirige a la pantalla about.html
   infoButtonHeader.addEventListener('click', () => {
-    console.log("Botón 'Acerca de' en Header clickeado");
-    openAboutUsPopup();
+    window.location.href = "about.html";
   });
-  closeAboutUsButton.addEventListener('click', closeAboutUsPopup);
 
+  // Botones de rating (pulgar arriba y abajo)
   const rateGoodButtons = document.querySelectorAll('.popup-buttons button.rate-button.good');
   const rateBadButtons = document.querySelectorAll('.popup-buttons button.rate-button.bad');
-  const reportButtons = document.querySelectorAll('.popup-buttons button.report-button');
 
   rateGoodButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      alert("¡Gracias por indicar que funciona bien! (Funcionalidad de rating en desarrollo - MVP Simulado)");
+    button.addEventListener('click', (event) => {
+      event.stopPropagation();
+      alert("¡Gracias por indicar que funciona bien!");
     });
   });
 
   rateBadButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      alert("¡Gracias por indicar que no funciona bien! (Funcionalidad de rating en desarrollo - MVP Simulado)");
-    });
-  });
-
-  reportButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      alert("Funcionalidad 'Reportar Estado' en desarrollo - MVP Simulado");
+    button.addEventListener('click', (event) => {
+      event.stopPropagation();
+      alert("¡Gracias por indicar que no funciona bien!");
     });
   });
 
