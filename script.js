@@ -1,10 +1,31 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // Navegación entre vistas
+  const listView = document.getElementById('list-view');
+  const aboutView = document.getElementById('about-view');
+  const navHome = document.getElementById('nav-home');
+  const navInfo = document.getElementById('nav-info');
+
+  navHome.addEventListener('click', () => {
+    listView.style.display = 'block';
+    aboutView.style.display = 'none';
+    navHome.classList.add('active');
+    navInfo.classList.remove('active');
+  });
+
+  navInfo.addEventListener('click', () => {
+    listView.style.display = 'none';
+    aboutView.style.display = 'block';
+    navInfo.classList.add('active');
+    navHome.classList.remove('active');
+  });
+
+  // Elementos para el listado y modal
   const chargerList = document.getElementById('charger-list');
   const chargerPopup = document.getElementById('charger-popup');
   const modalOverlay = document.getElementById('modal-overlay');
   const closeButton = chargerPopup.querySelector('.close-button');
-  const infoButtonHeader = document.getElementById('info-btn-header');
 
+  // Datos de ejemplo de cargadores
   const chargers = [
     {
       name: "Cargador Plaza Oaxaca",
@@ -62,7 +83,6 @@ document.addEventListener('DOMContentLoaded', () => {
       chargerItem.setAttribute('data-charger-id', charger.name);
 
       chargerItem.addEventListener('click', () => {
-        console.log(`Hiciste click en el cargador: ${charger.name}`);
         openChargerPopup(charger);
       });
 
@@ -71,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const chargerInfo = document.createElement('div');
       chargerInfo.className = 'charger-info';
-      // Se reemplaza la descripción de conectores por el ícono y la info, igual que en el pop-up
+      // Se muestra el ícono de enchufe junto a la información de conectores
       chargerInfo.innerHTML = `
         <h3>${charger.name}</h3>
         <p>${charger.location}</p>
@@ -97,7 +117,6 @@ document.addEventListener('DOMContentLoaded', () => {
   displayChargerList();
 
   function openChargerPopup(charger) {
-    console.log(`Función openChargerPopup() ejecutada para: ${charger.name}`);
     document.getElementById('popup-charger-name').textContent = charger.name;
     document.getElementById('popup-charger-address-value').textContent = charger.address;
     document.getElementById('popup-charger-power-value').textContent = charger.power || 'Desconocida';
@@ -125,12 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
   closeButton.addEventListener('click', closeChargerPopup);
   modalOverlay.addEventListener('click', closeChargerPopup);
 
-  // Al hacer clic en el botón "Acerca de" se redirige a about.html
-  infoButtonHeader.addEventListener('click', () => {
-    window.location.href = "about.html";
-  });
-
-  // Botones de rating (pulgar arriba y abajo)
+  // Eventos para los botones de rating
   const rateGoodButtons = document.querySelectorAll('.popup-buttons button.rate-button.good');
   const rateBadButtons = document.querySelectorAll('.popup-buttons button.rate-button.bad');
 
@@ -147,4 +161,12 @@ document.addEventListener('DOMContentLoaded', () => {
       alert("¡Gracias por indicar que no funciona bien!");
     });
   });
+
+  // Evento para el botón de feedback en la vista Acerca de
+  const feedbackButton = document.getElementById('feedback-button');
+  if (feedbackButton) {
+    feedbackButton.addEventListener('click', () => {
+      window.open("https://forms.gle/wg5kTEsLYEExFVfS6", "_blank");
+    });
+  }
 });
