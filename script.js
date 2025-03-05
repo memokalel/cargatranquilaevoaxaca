@@ -4,15 +4,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const aboutView = document.getElementById('about-view');
   const navHome = document.getElementById('nav-home');
   const navInfo = document.getElementById('nav-info');
-  const searchBarContainer = document.getElementById('search-bar-container');
 
   navHome.addEventListener('click', () => {
     listView.style.display = 'block';
     aboutView.style.display = 'none';
     navHome.classList.add('active');
     navInfo.classList.remove('active');
-    // Mostrar la barra de búsqueda en la vista de lista
-    searchBarContainer.style.display = 'flex';
   });
 
   navInfo.addEventListener('click', () => {
@@ -20,8 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
     aboutView.style.display = 'block';
     navInfo.classList.add('active');
     navHome.classList.remove('active');
-    // Ocultar la barra de búsqueda en la vista "Acerca de"
-    searchBarContainer.style.display = 'none';
   });
 
   // Elementos para el listado y modal
@@ -98,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const chargerInfo = document.createElement('div');
       chargerInfo.className = 'charger-info';
-      // Concatenar conectores y potencia en una misma línea
+      // Concatenamos la información de conectores y potencia en una misma línea
       chargerInfo.innerHTML = `
         <h3>${charger.name}</h3>
         <p>${charger.location}</p>
@@ -183,6 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Filtrado en la barra de búsqueda integrada
   const filterInput = document.getElementById('filter-input');
+  const searchBtn = document.getElementById('search-btn');
 
   filterInput.addEventListener('input', (e) => {
     const text = e.target.value.toLowerCase();
@@ -191,5 +187,10 @@ document.addEventListener('DOMContentLoaded', () => {
       return fullText.includes(text);
     });
     displayChargerList();
+  });
+
+  // Opcional: Si se hace clic en el botón de búsqueda, se enfoca el input
+  searchBtn.addEventListener('click', () => {
+    filterInput.focus();
   });
 });

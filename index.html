@@ -2,8 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <!-- Meta viewport ajustado para evitar zoom -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Carga Tranquila VE - Oaxaca</title>
   <link rel="stylesheet" href="style.css" />
   <link
@@ -15,17 +14,12 @@
   />
 </head>
 <body>
-  <!-- Header fijo con nombre centrado -->
+  <!-- Header fijo con app name centrado -->
   <header>
     <div class="header-content">
       <h1>Carga Tranquila VE - Oaxaca</h1>
     </div>
   </header>
-
-  <!-- Barra de búsqueda fija justo debajo del header (oculta en la vista Acerca de) -->
-  <div id="search-bar-container" class="search-bar-container">
-    <input type="text" id="filter-input" placeholder="Buscar, ej.: Gasolinera Centro" />
-  </div>
 
   <main>
     <!-- Vista de Lista -->
@@ -35,6 +29,11 @@
         <p>
           Explora los cargadores disponibles y selecciona uno para ver más detalles o planificar tu ruta con tranquilidad.
         </p>
+      </div>
+      <!-- Nueva barra de búsqueda integrada, con diseño cálido -->
+      <div class="search-bar">
+        <input type="text" id="filter-input" placeholder="Buscar cargadores por nombre o ubicación...">
+        <button id="search-btn"><i class="fas fa-search"></i></button>
       </div>
       <ul id="charger-list">
         <!-- Se generará dinámicamente -->
@@ -92,10 +91,6 @@
     <button id="nav-home" class="nav-button active"><i class="fas fa-home"></i></button>
     <button id="nav-info" class="nav-button"><i class="fas fa-info-circle"></i></button>
   </nav>
-
-  <!-- Botón flotante de búsqueda (opcional, si se desea alternativo al input fijo) -->
-  <!-- Si prefieres que la barra de búsqueda se muestre sólo cuando se presione el botón,
-       puedes comentar o quitar la barra fija; en este ejemplo, la dejamos fija debajo del header en la vista lista. -->
 
   <!-- Modal de detalle de cargador -->
   <div id="charger-popup" class="modal">
