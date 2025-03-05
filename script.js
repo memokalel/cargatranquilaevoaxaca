@@ -98,6 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <p><i class="fas fa-plug"></i> ${charger.connectors.join(', ')}</p>
       `;
 
+      // Botón con ancho fijo para ser consistente
       const navigateButton = document.createElement('button');
       navigateButton.className = 'navigate-btn';
       navigateButton.textContent = 'Ir al cargador';
