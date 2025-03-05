@@ -5,67 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carga Tranquila VE - Oaxaca</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <header>
+        <button id="info-btn-header" aria-label="Acerca de"><i class="fas fa-info-circle"></i></button>
         <h1>Carga Tranquila VE - Oaxaca</h1>
-        <button id="about-btn" onclick="toggleAbout()">Carga sin Estrés</button>
     </header>
 
-    <div class="container" id="chargerList">  </div>
-
-    <div id="about-section" class="about-section">
-        <div class="about-content">
-            <h2>Mantén el control de la carga de tu EV</h2>
-            <p><strong>'Con nuestro sistema predictivo, conoce la disponibilidad real de cada cargador y llega con la tranquilidad de una recarga asegurada.</p>
-
-            <h3>¿Como funciona?:</h3>
-            <ul style="list-style: none; padding-left: 20px;">
-                <li>
-                    <span class="status-light VERDE" style="display: inline-block; margin-right: 10px;"></span>
-                    <strong>VERDE - Confianza Total:</strong> Carga <strong>sin preocupaciones</strong>. ¡Cargador altamente confiable y disponible!
-                </li>
-                <li>
-                    <span class="status-light AMARILLO" style="display: inline-block; margin-right: 10px;"></span>
-                    <strong>AMARILLO - Precaución:</strong> Carga con <strong>cierta reserva</strong>.  Podría haber intermitencias.
-                </li>
-                <li>
-                    <span class="status-light ROJO" style="display: inline-block; margin-right: 10px;"></span>
-                    <strong>ROJO - Evitar:</strong> <strong>No recomendado</strong>.  Historial de fallas o reportes negativos.
-                </li>
+    <div class="app-container">
+        <ul id="charger-list">
             </ul>
-
-            <div class="mvp-info-tooltip">
-                <span class="info-icon">i</span>
-                <div class="tooltip-text">
-                    <p>En este MVP, el 'Semáforo Emocional' es una SIMULACIÓN. ¡Pronto será más inteligente con datos reales y feedback de la comunidad!</p>
-                </div>
-            </div>
-
-            <div style="margin-top: 20px;">
-                <button class="feedback-btn navigate-btn" onclick="window.open('https://forms.gle/FV1HabTjE4J5DjuT8', '_blank')">
-                    ¡Ayúdanos a mejorar con tu Feedback!
-                </button>
-            </div>
-
-            <button class="navigate-btn cerrar-about-btn" onclick="toggleAbout()">Cerrar</button>
-        </div>
     </div>
-
-    <div id="charger-modal" class="modal">
-        <div class="modal-content" id="modal-content">
-        </div>
-        <button onclick="closeModal()">Cerrar</button>
-    </div>
-
-    <div id="modal-overlay" class="modal-overlay"></div>
 
     <footer>
-        <div class="footer-content">
-            <span id="footer-about-btn" class="footer-info-icon" onclick="toggleAbout()" aria-label="Acerca de">i</span>
-        </div>
+        <button id="info-btn-footer" aria-label="Acerca de"><i class="fas fa-info-circle"></i></button>
+        <p>© 2024 Carga Tranquila VE - Oaxaca</p>
     </footer>
 
+    <div id="charger-popup" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 id="popup-charger-name">Cargador [Nombre]</h2>
+            <div id="popup-charger-semaphore" class="status-light"></div>
+             <div id="popup-charger-details">
+                <p id="popup-charger-address">Dirección: [Dirección]</p>
+                <p id="popup-charger-power">Potencia: [Potencia]</p>
+                <p id="popup-charger-connectors">Conectores: [Conectores]</p>
+                <div id="popup-charger-rating">
+                    <p id="popup-charger-rating-average">Rating Promedio: <span id="popup-rating-stars">[Estrellas]</span> (<span id="popup-rating-count">[Valoraciones]</span>)</p>
+                </div>
+                <div id="popup-charger-photos" class="carousel-container">
+                    </div>
+            </div>
+            <div class="popup-buttons">
+                <button class="rate-button good">Funciona Bien</button>
+                <button class="rate-button bad">No Funciona Bien</button>
+                <button class="report-button">Reportar Estado</button>
+            </div>
+             <button id="info-btn-popup-footer" aria-label="Acerca de"><i class="fas fa-info-circle"></i></button>
+         </div>
+    </div>
+    <div id="modal-overlay" class="modal-overlay" style="display: none;"></div>
     <script src="script.js"></script>
 </body>
 </html>
