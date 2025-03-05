@@ -143,24 +143,24 @@ footer p {
 
 /* Estilos para el Pop-Up Modal (REUTILIZADOS para "Acerca de") */
 .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1000;
-    display: none;
-    justify-content: center;
-    align-items: center;
+    position: fixed; /* **CRÍTICO: FIXED POSITION PARA CUBRIR TODA LA PANTALLA** */
+    top: 0; /* **CRÍTICO: TOP 0 PARA CUBRIR TODA LA PANTALLA** */
+    left: 0; /* **CRÍTICO: LEFT 0 PARA CUBRIR TODA LA PANTALLA** */
+    width: 100%; /* **CRÍTICO: 100% ANCHO PARA CUBRIR TODA LA PANTALLA** */
+    height: 100%; /* **CRÍTICO: 100% ALTO PARA CUBRIR TODA LA PANTALLA** */
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+    z-index: 1000; /* **CRÍTICO: Z-INDEX ALTO PARA ESTAR POR ENCIMA DE TODO** */
+    display: none; /* Inicialmente oculto */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
 }
 
 .modal.show {
-    display: block;
+    display: block; /* Mostrar modal cuando tiene la clase 'show' */
 }
 
 .modal-overlay.show {
-    display: flex;
+    display: flex; /* Mostrar overlay cuando tiene la clase 'show' */
 }
 
 
@@ -169,11 +169,12 @@ footer p {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    position: relative;
-    width: 80%;
-    max-width: 500px;
-    max-height: 90%;
-    overflow-y: auto;
+    position: relative; /* Posición relativa para el contenido del modal */
+    width: 80%; /* Ancho del modal, ajusta según necesites */
+    max-width: 500px; /* Ancho máximo para pantallas grandes */
+    max-height: 90%; /* Altura máxima del modal */
+    overflow-y: auto; /* Añade scroll si el contenido excede la altura */
+    /* display: none;  ¡¡¡ESTA LÍNEA NO DEBE ESTAR AQUÍ EN .modal, SOLO EN .modal-overlay !!! */
 }
 
 .modal-content h2 {
