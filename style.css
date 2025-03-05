@@ -1,283 +1,246 @@
+/* Estilos Generales */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f5f5f5;
+    background-color: #f4f4f4;
     color: #333;
 }
 
 header {
-    background: white;
-    padding: 20px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    text-align: center; /* Centrar título y botón en header */
-    display: flex; /* Usar flexbox para alinear elementos en header */
-    justify-content: space-between; /* Espacio entre título y botón */
-    align-items: center; /* Alinear verticalmente */
+    background-color: #0056b3;
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    display: flex; /* Añadido flex para alinear el botón info */
+    align-items: center; /* Añadido para alinear verticalmente */
+    justify-content: center; /* Centrar el título */
+    position: relative; /* Para posicionar el botón info absolute */
 }
 
 header h1 {
-    margin: 0; /* Eliminar margen por defecto del H1 */
-    font-size: 24px; /* Ajustar tamaño de fuente del título */
+    margin: 0;
+    font-size: 24px;
+    flex-grow: 1; /* Para que el título se expanda y empuje el botón al extremo */
 }
 
-header button {
-    background: #2196F3;
+/* Estilo del botón de información en header y footer */
+header button#info-btn-header, footer button#info-btn-footer, .modal-content button#info-btn-popup-footer {
+    background: none;
     color: white;
     border: none;
-    padding: 10px 15px; /* Reducir padding horizontal para pantallas pequeñas */
-    border-radius: 5px;
+    font-size: 24px;
     cursor: pointer;
-    transition: background 0.3s;
-    font-size: 16px; /* Ajustar tamaño de fuente del botón */
+     position: absolute; /* Posicionamiento absoluto */
+    left: 20px; /* Izquierda */
+
+}
+footer button#info-btn-footer, .modal-content button#info-btn-popup-footer {
+     position: static; /* Posicionamiento static para el footer */
+     margin-left: 20px; /* Margen para separarlo del borde izquierdo en el footer */
+     left: auto; /* Reset left para el footer */
+
 }
 
-header button:hover {
-    background: #0d47a1;
-}
-
-.container {
+/* Contenedor principal de la aplicación */
+.app-container {
     padding: 20px;
-    max-width: 960px; /* Ancho máximo del contenido */
-    margin: 0 auto; /* Centrar el container en pantallas grandes */
 }
 
-.charger-item {
-    background: white;
-    margin: 10px 0;
+/* Lista de Cargadores */
+#charger-list {
+    list-style: none;
+    padding: 0;
+}
+
+#charger-list li, #charger-list div.charger-item { /* Aplica estilos a li y div.charger-item */
+    background-color: white;
+    margin-bottom: 10px;
     padding: 15px;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    display: flex;
-    align-items: center;
-    transition: transform 0.2s;
-    cursor: pointer;
+    display: flex; /* Usa flexbox para alinear elementos en la fila */
+    align-items: center; /* Centrar verticalmente los elementos */
+    justify-content: space-between; /* Espacio entre elementos */
+    list-style: none; /* Elimina viñetas si accidentalmente se usa li */
+    text-decoration: none; /* Elimina subrayado si accidentalmente se usa como link */
+    color: inherit; /* Hereda color del texto si accidentalmente se usa como link */
+    cursor: pointer; /* Indica que es clickable */
+    border: none; /* Elimina bordes por defecto */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Añade sombra suave */
+    transition: transform 0.2s; /* Añade transición suave para hover */
 }
 
-.charger-item:hover {
+#charger-list li:hover, #charger-list div.charger-item:hover { /* Hover para li y div.charger-item */
     transform: translateX(5px); /* Reducir el translate en hover para pantallas pequeñas */
 }
 
+
+/* Semáforo (Status Light) */
 .status-light {
-    width: 30px; /* Reducir tamaño del indicador de estado para pantallas pequeñas */
-    height: 30px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
-    margin-right: 15px; /* Reducir margen derecho para pantallas pequeñas */
-    flex-shrink: 0;
+    margin-right: 15px;
+     flex-shrink: 0; /* Evita que el semáforo se encoja */
+     flex-grow: 0; /* Evita que el semáforo se expanda */
 }
 
-.VERDE { background: #4CAF50; }
-.AMARILLO { background: #FFEB3B; }
-.ROJO { background: #F44336; }
+.status-light.green {
+    background-color: #4CAF50; /* Verde */
+}
 
+.status-light.yellow {
+    background-color: #FFC107; /* Amarillo */
+}
+
+.status-light.red {
+    background-color: #F44336; /* Rojo */
+}
+
+/* Información del Cargador */
 .charger-info {
-    flex-grow: 1;
+    flex-grow: 1; /* Permite que la información del cargador ocupe el espacio restante */
+    margin-right: 10px; /* Separación del botón "Ir al cargador" */
 }
 
 .charger-info h3 {
-    margin-top: 0; /* Eliminar margen superior del H3 */
-    font-size: 18px; /* Ajustar tamaño de fuente del nombre del cargador */
+    margin: 0 0 5px 0;
+    font-size: 18px;
 }
 
 .charger-info p {
-    margin-bottom: 0; /* Eliminar margen inferior de párrafos */
-    font-size: 14px; /* Ajustar tamaño de fuente de la ubicación */
-    color: #666;
+    margin: 0;
+    font-size: 14px;
+    color: #777;
 }
 
+/* Botón "Ir al cargador" */
 .navigate-btn {
-    background: #2196F3;
+    background-color: #4CAF50; /* Verde */
     color: white;
     border: none;
-    padding: 8px 15px; /* Reducir padding del botón "Navegar" */
+    padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
-    transition: background 0.3s;
-    margin-left: 10px; /* Reducir margen izquierdo del botón "Navegar" */
-    font-size: 14px; /* Ajustar tamaño de fuente del botón "Navegar" */
-    flex-shrink: 0; /* Evitar que el botón se encoja demasiado */
+    font-size: 14px;
+     flex-shrink: 0; /* Evita que el botón se encoja */
+     flex-grow: 0; /* Evita que el botón se expanda */
 }
 
-.navigate-btn:hover {
-    background: #0d47a1;
-}
-
-.about-section {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: white;
+/* Footer */
+footer {
+    text-align: center;
     padding: 20px;
-    overflow-y: auto; /* Añadido overflow-y para scroll si el contenido es largo */
+    background-color: #ddd;
+    color: #555;
+    position: relative; /* Para posicionar el botón info absolute */
 }
 
-.about-content {
-    max-width: 800px;
-    margin: 30px auto 20px auto; /* Ajustado margen superior para separar más del header */
-    padding: 20px; /* Añadido padding al contenido de "Acerca de" para mejor espaciado */
-    border-radius: 8px; /* Añadido border-radius al contenido de "Acerca de" */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Añadido box-shadow al contenido de "Acerca de" */
+footer p {
+    margin: 0;
+    font-size: 14px;
 }
 
-.about-content h2, .about-content h3, .about-content p, .about-content ul {
-    margin-top: 10px; /* Reducir margen superior de elementos de texto en "Acerca de" */
-    margin-bottom: 10px; /* Reducir margen inferior de elementos de texto en "Acerca de" */
-    font-size: 16px; /* Ajustar tamaño de fuente del texto en "Acerca de" */
-    line-height: 1.6; /*  Ligeramente aumentado el line-height para mejor espaciado vertical */
-}
-
-.about-content ul {
-    padding-left: 20px; /* Ajustar padding de la lista en "Acerca de" */
-}
-
-.modal {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-    z-index: 1000;
-    text-align: center; /* Centrar contenido del modal */
-    width: 300px;       /* ¡AÑADIDO: Ancho fijo de 500 píxeles! */
-    height: 400px;      /* ¡AÑADIDO: Alto fijo de 400 píxeles! */
-}
-
+/* Estilos para el Pop-Up Modal */
 .modal-overlay {
-    display: none;
-    position: fixed;
+    position: fixed; /* Posición fixed para cubrir toda la ventana */
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0,0,0,0.5);
-    z-index: 999;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+    z-index: 1000; /* Asegura que esté por encima de todo */
+    display: none; /* Inicialmente oculto */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
 }
 
-.modal-content img {
-    max-width: 200px; /* Ancho máximo de la imagen en el modal */
-    height: auto;
-    display: block;
-    margin: 0 auto 15px auto; /* Centrar imagen y añadir margen inferior */
-    border-radius: 8px; /* Añadir borde redondeado a la imagen */
+.modal.show {
+    display: block; /* Mostrar modal cuando tiene la clase 'show' */
 }
 
-.modal-content h3 {
-    margin-top: 0; /* Eliminar margen superior del H3 en el modal */
-    font-size: 20px; /* Ajustar tamaño de fuente del título del modal */
+.modal-overlay.show {
+    display: flex; /* Mostrar overlay cuando tiene la clase 'show' */
 }
 
-.modal-content p {
-    margin-bottom: 10px; /* Reducir margen inferior de párrafos en el modal */
-    font-size: 15px; /* Ajustar tamaño de fuente del texto del modal */
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    position: relative; /* Para posicionar el botón de cierre */
+    width: 80%; /* Ancho del modal, ajusta según necesites */
+    max-width: 500px; /* Ancho máximo para pantallas grandes */
+     max-height: 90%; /* Altura máxima del modal */
+    overflow-y: auto; /* Añade scroll si el contenido excede la altura */
 }
 
-.modal button {
-    background: #2196F3;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
+.modal-content h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Semáforo en Pop-Up - CENTRADO Y GRANDE */
+.modal-content #popup-charger-semaphore.status-light {
+    width: 50px; /* Aumenta el tamaño en el Pop-Up */
+    height: 50px; /* Aumenta el tamaño en el Pop-Up */
+    margin: 15px auto; /* Centra horizontalmente y añade margen vertical */
+    display: block; /* Para que margin: auto funcione para centrar horizontalmente */
+}
+
+.modal-content #popup-charger-details {
+    margin-bottom: 20px;
+}
+
+.modal-content #popup-charger-details p {
+    margin: 5px 0;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
     cursor: pointer;
-    transition: background 0.3s;
-    font-size: 16px; /* Ajustar tamaño de fuente del botón del modal */
+    color: #777;
 }
 
-.modal button:hover {
-    background: #0d47a1;
+.popup-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
 }
 
-/* Media query para pantallas más pequeñas (smartphones) */
-@media (max-width: 768px) {
-    header {
-        flex-direction: column; /* Apilar verticalmente en pantallas pequeñas */
-        padding: 15px; /* Reducir padding del header en pantallas pequeñas */
-    }
+.popup-buttons button.rate-button, .popup-buttons button.report-button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+}
 
-    header h1 {
-        margin-bottom: 10px; /* Añadir margen inferior al título en pantallas pequeñas */
-        font-size: 22px; /* Ajustar tamaño de fuente del título en pantallas pequeñas */
-    }
+.popup-buttons button.rate-button.good {
+    background-color: #4CAF50; /* Verde para "Funciona Bien" */
+}
 
-    header button {
-        padding: 8px 12px; /* Reducir padding del botón en pantallas pequeñas */
-        font-size: 14px; /* Ajustar tamaño de fuente del botón en pantallas pequeñas */
-    }
+.popup-buttons button.rate-button.bad {
+    background-color: #F44336; /* Rojo para "No Funciona Bien" */
+}
 
-    .container {
-        padding: 10px; /* Reducir padding del container en pantallas pequeñas */
-    }
+.popup-buttons button.report-button {
+    background-color: #FFC107; /* Amarillo para "Reportar Estado" */
+    color: black; /* Cambia el color del texto para mejor contraste */
+}
+/* Icono "i" en Footer del Pop-Up */
+.modal-content button#info-btn-popup-footer {
+    position: static; /* Posicionamiento static para el footer del popup */
+    margin-top: 15px; /* Margen superior para separarlo de los botones */
+    display: block; /* Para que ocupe toda la línea y se centre con margin auto */
+    margin-left: auto;
+    margin-right: auto;
+    color: #0056b3; /* Color azul para destacar el icono en el footer del popup */
 
-    .charger-item {
-        flex-direction: column; /* Alinear verticalmente los elementos del cargador en pantallas pequeñas */
-        align-items: stretch; /* Extender elementos para ocupar todo el ancho en pantallas pequeñas */
-        padding: 10px; /* Reducir padding de los items de cargador en pantallas pequeñas */
-    }
-
-    .status-light {
-        margin-bottom: 10px; /* Añadir margen inferior al indicador de estado en pantallas pequeñas */
-        margin-right: 0; /* Eliminar margen derecho del indicador de estado en pantallas pequeñas */
-        width: 25px; /* Reducir tamaño del indicador de estado en pantallas pequeñas */
-        height: 25px;
-    }
-
-    .charger-info {
-        text-align: center; /* Centrar texto del charger-info en pantallas pequeñas */
-        margin-bottom: 10px; /* Añadir margen inferior al charger-info en pantallas pequeñas */
-    }
-
-    .charger-info h3 {
-        font-size: 17px; /* Ajustar tamaño de fuente del nombre del cargador en pantallas pequeñas */
-    }
-
-    .charger-info p {
-        font-size: 13px; /* Ajustar tamaño de fuente de la ubicación en pantallas pequeñas */
-    }
-
-    .navigate-btn {
-        margin-left: 0; /* Eliminar margen izquierdo del botón "Navegar" en pantallas pequeñas */
-        width: 100%; /* Botón "Navegar" ocupa todo el ancho en pantallas pequeñas */
-        margin-top: 10px; /* Añadir margen superior al botón "Navegar" en pantallas pequeñas */
-        padding: 10px; /* Aumentar padding vertical del botón "Navegar" en pantallas pequeñas */
-        font-size: 15px; /* Ajustar tamaño de fuente del botón "Navegar" en pantallas pequeñas */
-    }
-
-    .about-content {
-        padding: 15px; /* Reducir padding del contenido de "Acerca de" en pantallas pequeñas */
-        margin: 10px auto; /* Reducir margenes del contenido de "Acerca de" en pantallas pequeñas */
-    }
-
-    .about-content h2 {
-        font-size: 20px; /* Ajustar tamaño de fuente del título principal de "Acerca de" en pantallas pequeñas */
-    }
-
-    .about-content h3, .about-content p, .about-content ul {
-        font-size: 15px; /* Ajustar tamaño de fuente del texto en "Acerca de" en pantallas pequeñas */
-    }
-
-    .modal {
-        padding: 15px; /* Reducir padding del modal en pantallas pequeñas */
-    }
-
-    .modal-content h3 {
-        font-size: 19px; /* Ajustar tamaño de fuente del título del modal en pantallas pequeñas */
-    }
-
-    .modal-content p {
-        font-size: 14px; /* Ajustar tamaño de fuente del texto del modal en pantallas pequeñas */
-    }
-
-    .modal button {
-        padding: 8px 15px; /* Reducir padding del botón del modal en pantallas pequeñas */
-        font-size: 15px; /* Ajustar tamaño de fuente del botón del modal en pantallas pequeñas */
-    }
 }
