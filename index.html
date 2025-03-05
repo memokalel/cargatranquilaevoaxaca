@@ -5,15 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Carga Tranquila VE - Oaxaca</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
+  <link rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
         integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" 
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
   <header>
-    <!-- Al hacer clic se redirige a about.html -->
-    <button id="info-btn-header" aria-label="Acerca de"><i class="fas fa-info-circle"></i></button>
-    <h1>Carga Tranquila VE - Oaxaca</h1>
+    <div class="header-content">
+      <h1>Carga Tranquila VE - Oaxaca</h1>
+      <!-- Botón de información movido debajo del título -->
+      <button id="info-btn-header" aria-label="Acerca de">
+        <i class="fas fa-info-circle"></i> Información
+      </button>
+    </div>
   </header>
 
   <div class="app-container">
@@ -31,17 +36,22 @@
     <div class="modal-content">
       <span class="close-button">&times;</span>
       <h2 id="popup-charger-name">[Nombre del Cargador]</h2>
+      <!-- Semáforo centrado y de mayor tamaño en el pop-up -->
       <div id="popup-charger-semaphore" class="status-light"></div>
       <div id="popup-charger-details">
-        <p class="detail-item"><i class="fas fa-map-marker-alt"></i> <strong>Dirección:</strong> <span id="popup-charger-address-value">[Dirección]</span></p>
-        <p class="detail-item"><i class="fas fa-bolt"></i> <strong>Potencia:</strong> <span id="popup-charger-power-value">[Potencia]</span></p>
-        <p class="detail-item"><i class="fas fa-plug"></i> <strong>Conectores:</strong> <span id="popup-charger-connectors-value">[Conectores]</span></p>
-        <p class="detail-item"><strong>Rating:</strong> <span id="popup-rating-stars">[Estrellas]</span> (<span id="popup-rating-count">[Valoraciones]</span>)</p>
+        <!-- Se omiten las descripciones; los íconos comunican la información -->
+        <p class="detail-item"><i class="fas fa-map-marker-alt"></i> <span id="popup-charger-address-value">[Dirección]</span></p>
+        <p class="detail-item"><i class="fas fa-bolt"></i> <span id="popup-charger-power-value">[Potencia]</span></p>
+        <p class="detail-item"><i class="fas fa-plug"></i> <span id="popup-charger-connectors-value">[Conectores]</span></p>
+        <p class="detail-item"><i class="fas fa-star"></i> <span id="popup-rating-stars">[Estrellas]</span>
+          <span id="popup-rating-count">[Valoraciones]</span></p>
       </div>
       <div class="popup-buttons">
         <button class="rate-button good"><i class="fas fa-thumbs-up"></i></button>
         <button class="rate-button bad"><i class="fas fa-thumbs-down"></i></button>
       </div>
+      <!-- Instrucción para el feedback de rating -->
+      <p class="feedback-instruction">"Selecciona 👍 o 👎 para indicar si el cargador funciona bien. Tu feedback nos ayuda a mejorar."</p>
     </div>
   </div>
 
