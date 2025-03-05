@@ -12,7 +12,7 @@
 </head>
 <body>
   <header class="about-header">
-    <!-- Botón de volver a la lista en la esquina superior izquierda -->
+    <!-- Botón de volver en la esquina superior izquierda -->
     <button id="back-to-home" class="nav-back-button">
       <i class="fas fa-arrow-left"></i>
     </button>
@@ -72,8 +72,7 @@
       window.location.href = "index.html";
     });
     document.getElementById('feedback-button').addEventListener('click', () => {
-      // Aquí podrías redirigir a un formulario de feedback real
-      alert("¡Gracias por tu feedback!");
+      window.open("https://forms.gle/wg5kTEsLYEExFVfS6", "_blank");
     });
   </script>
 </body>
