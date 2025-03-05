@@ -5,17 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Carga Tranquila VE - Oaxaca</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" 
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
   <header>
+    <!-- Al hacer clic se redirige a about.html -->
     <button id="info-btn-header" aria-label="Acerca de"><i class="fas fa-info-circle"></i></button>
     <h1>Carga Tranquila VE - Oaxaca</h1>
   </header>
 
   <div class="app-container">
     <ul id="charger-list">
-      <!-- La lista se genera dinámicamente -->
+      <!-- La lista de cargadores se genera dinámicamente -->
     </ul>
   </div>
 
@@ -23,55 +26,22 @@
     <p>© 2024 Carga Tranquila VE - Oaxaca</p>
   </footer>
 
-  <!-- Modal de detalles del cargador -->
+  <!-- Modal para los detalles del cargador -->
   <div id="charger-popup" class="modal">
     <div class="modal-content">
       <span class="close-button">&times;</span>
       <h2 id="popup-charger-name">[Nombre del Cargador]</h2>
       <div id="popup-charger-semaphore" class="status-light"></div>
       <div id="popup-charger-details">
-        <p id="popup-charger-address">Dirección: <span id="popup-charger-address-value">[Dirección]</span></p>
-        <p id="popup-charger-power">Potencia: <span id="popup-charger-power-value">[Potencia]</span></p>
-        <p id="popup-charger-connectors">Conectores: <span id="popup-charger-connectors-value">[Conectores]</span></p>
-        <div id="popup-charger-rating">
-          <p id="popup-charger-rating-average">Rating Promedio: <span id="popup-rating-stars">[Estrellas]</span> (<span id="popup-rating-count">[Valoraciones]</span>)</p>
-        </div>
-        <div id="popup-charger-photos" class="carousel-container">
-          <!-- Fotos del cargador, si existen -->
-        </div>
+        <p class="detail-item"><i class="fas fa-map-marker-alt"></i> <strong>Dirección:</strong> <span id="popup-charger-address-value">[Dirección]</span></p>
+        <p class="detail-item"><i class="fas fa-bolt"></i> <strong>Potencia:</strong> <span id="popup-charger-power-value">[Potencia]</span></p>
+        <p class="detail-item"><i class="fas fa-plug"></i> <strong>Conectores:</strong> <span id="popup-charger-connectors-value">[Conectores]</span></p>
+        <p class="detail-item"><strong>Rating:</strong> <span id="popup-rating-stars">[Estrellas]</span> (<span id="popup-rating-count">[Valoraciones]</span>)</p>
       </div>
       <div class="popup-buttons">
-        <button class="rate-button good">Funciona Bien</button>
-        <button class="rate-button bad">No Funciona Bien</button>
-        <button class="report-button">Reportar Estado</button>
+        <button class="rate-button good"><i class="fas fa-thumbs-up"></i></button>
+        <button class="rate-button bad"><i class="fas fa-thumbs-down"></i></button>
       </div>
-    </div>
-  </div>
-
-  <!-- Modal "Acerca de" -->
-  <div id="about-us-popup" class="modal">
-    <div class="modal-content">
-      <span class="close-button">&times;</span>
-      <h2>Acerca de Carga Tranquila VE - Oaxaca</h2>
-      <p>Esta es una aplicación web (MVP - Producto Mínimo Viable) simulada para mostrar información de cargadores para vehículos eléctricos en la ciudad de Oaxaca.</p>
-      <p><strong>Funcionalidades (Implementadas en MVP):</strong></p>
-      <ul>
-        <li><strong>Listado de Cargadores:</strong> Muestra una lista de cargadores con información básica.</li>
-        <li><strong>Pop-Up de Detalle:</strong> Al hacer clic en un cargador, se abre un pop-up con información detallada.</li>
-        <li><strong>Semáforos de Estado:</strong> Indica el estado de cada cargador con colores (Verde, Amarillo, Rojo).</li>
-        <li><strong>Botón "Ir al cargador":</strong> Abre Google Maps con la dirección del cargador seleccionado.</li>
-        <li><strong>Sección "Acerca de":</strong> Muestra información sobre la app.</li>
-        <li><strong>Botones de Rating y Reporte:</strong> (Simulados con `alert()` en este MVP).</li>
-      </ul>
-      <p><strong>Próximas Funcionalidades:</strong></p>
-      <ul>
-        <li>Mapa interactivo con marcadores.</li>
-        <li>Sistema de valoración y comentarios de usuarios real.</li>
-        <li>Integración con APIs de estado de cargadores en tiempo real.</li>
-        <li>Filtros de búsqueda y ordenamiento de cargadores.</li>
-        <li>Página "Acerca de" más completa.</li>
-      </ul>
-      <p>© 2024 Carga Tranquila VE - Oaxaca</p>
     </div>
   </div>
 
