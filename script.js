@@ -146,5 +146,4 @@ document.addEventListener('DOMContentLoaded', () => {
       alert("¡Gracias por indicar que no funciona bien!");
     });
   });
-
 });
