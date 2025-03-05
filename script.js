@@ -74,10 +74,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // ... más cargadores si se requiere ...
   ];
 
+  // Manejamos una copia de la lista original para filtrar
+  let filteredChargers = [...chargers];
+
   function displayChargerList() {
     chargerList.innerHTML = '';
 
-    chargers.forEach(charger => {
+    filteredChargers.forEach(charger => {
       const chargerItem = document.createElement('div');
       chargerItem.className = 'charger-item';
       chargerItem.setAttribute('data-charger-id', charger.name);
@@ -115,7 +118,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  displayChargerList();
+  // Filtrado sencillo por nombre o ubicación
+  const filterInput = document.getElementById('filter-input');
+  filterInput.addEventListener('input', (e) => {
+    const text = e.target.value.toLowerCase();
+    filteredChargers = chargers.filter((charger) => {
+      const fullText = (charger.name + ' ' + charger.location).toLowerCase();
+      return fullText.includes(text);
+    });
+    displayChargerList();
+  });
 
   function openChargerPopup(charger) {
     document.getElementById('popup-charger-name').textContent = charger.name;
@@ -170,4 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
       window.open("https://forms.gle/wg5kTEsLYEExFVfS6", "_blank");
     });
   }
+
+  // Inicializar la lista al cargar
+  displayChargerList();
 });
