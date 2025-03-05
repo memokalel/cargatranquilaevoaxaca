@@ -74,9 +74,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // ... más cargadores si se requiere ...
   ];
 
-  // Manejamos una copia de la lista original para filtrar
   let filteredChargers = [...chargers];
 
+  // Función para renderizar la lista
   function displayChargerList() {
     chargerList.innerHTML = '';
 
@@ -118,17 +118,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Filtrado sencillo por nombre o ubicación
-  const filterInput = document.getElementById('filter-input');
-  filterInput.addEventListener('input', (e) => {
-    const text = e.target.value.toLowerCase();
-    filteredChargers = chargers.filter((charger) => {
-      const fullText = (charger.name + ' ' + charger.location).toLowerCase();
-      return fullText.includes(text);
-    });
-    displayChargerList();
-  });
+  // Inicializar la lista
+  displayChargerList();
 
+  // Pop-Up Modal
   function openChargerPopup(charger) {
     document.getElementById('popup-charger-name').textContent = charger.name;
     document.getElementById('popup-charger-address-value').textContent = charger.address;
@@ -157,7 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
   closeButton.addEventListener('click', closeChargerPopup);
   modalOverlay.addEventListener('click', closeChargerPopup);
 
-  // Eventos para los botones de rating
+  // Botones de rating
   const rateGoodButtons = document.querySelectorAll('.popup-buttons button.rate-button.good');
   const rateBadButtons = document.querySelectorAll('.popup-buttons button.rate-button.bad');
 
@@ -175,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Evento para el botón de feedback en la vista Acerca de
+  // Botón de feedback en la vista Acerca de
   const feedbackButton = document.getElementById('feedback-button');
   if (feedbackButton) {
     feedbackButton.addEventListener('click', () => {
@@ -183,6 +176,34 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Inicializar la lista al cargar
-  displayChargerList();
+  // -- LÓGICA DE BÚSQUEDA CON OVERLAY --
+  const searchIcon = document.getElementById('search-icon');
+  const searchOverlay = document.getElementById('search-overlay');
+  const closeSearch = document.getElementById('close-search');
+  const filterInput = document.getElementById('filter-input');
+
+  // Abrir overlay al hacer clic en la lupa
+  searchIcon.addEventListener('click', () => {
+    searchOverlay.style.display = 'flex'; // Muestra el overlay
+    filterInput.value = ''; // Limpia el input
+    filterInput.focus(); // Enfoca el input
+  });
+
+  // Cerrar overlay al hacer clic en la X
+  closeSearch.addEventListener('click', () => {
+    searchOverlay.style.display = 'none';
+    // Regresamos la lista a su estado original
+    filteredChargers = [...chargers];
+    displayChargerList();
+  });
+
+  // Filtrar mientras se escribe
+  filterInput.addEventListener('input', (e) => {
+    const text = e.target.value.toLowerCase();
+    filteredChargers = chargers.filter((charger) => {
+      const fullText = (charger.name + ' ' + charger.location).toLowerCase();
+      return fullText.includes(text);
+    });
+    displayChargerList();
+  });
 });
