@@ -67,7 +67,7 @@ header {
   transform: translateX(5px);
 }
 
-/* Fijar dimensiones del semáforo para que no se deforme */
+/* Fijar dimensiones del semáforo en la lista */
 .status-light {
   width: 20px;
   height: 20px;
@@ -164,7 +164,7 @@ footer p {
   display: block;
 }
 
-/* Aumentar el ancho del pop-up para mayor comodidad */
+/* Aumentar el ancho del pop-up modal a 20% más (máx. 720px) */
 .modal-content {
   background-color: white;
   padding: 20px;
@@ -172,7 +172,7 @@ footer p {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   position: relative;
   width: 90%;
-  max-width: 600px;
+  max-width: 720px;
   max-height: 90%;
   overflow-y: auto;
 }
@@ -227,6 +227,18 @@ footer p {
   font-size: 14px;
   color: #555;
   margin-top: 10px;
+}
+
+/* Estilos para el semáforo en el pop-up: centrado y tamaño 40px (doble de 20px) */
+#popup-charger-semaphore {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
+  max-width: 40px;
+  max-height: 40px;
+  border-radius: 50%;
+  margin: 20px auto;
 }
 
 /* Estilos para la página Acerca de */
@@ -286,11 +298,12 @@ footer p {
   padding: 15px 30px;
   font-size: 18px;
   cursor: pointer;
-  border: 1px solid #ccc;
-  background: none;
+  border: none;
+  background-color: #0056b3;
+  color: white;
   border-radius: 5px;
 }
 
 .feedback-button-container button:hover {
-  background-color: #f0f0f0;
+  background-color: #004494;
 }
