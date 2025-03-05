@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const navHome = document.getElementById('nav-home');
   const navInfo = document.getElementById('nav-info');
   const searchBarContainer = document.getElementById('search-bar-container');
-  const floatingSearchBtn = document.getElementById('floating-search');
 
   navHome.addEventListener('click', () => {
     listView.style.display = 'block';
@@ -13,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     navHome.classList.add('active');
     navInfo.classList.remove('active');
     // Mostrar la barra de búsqueda en la vista de lista
-    searchBarContainer.style.display = 'block';
+    searchBarContainer.style.display = 'flex';
   });
 
   navInfo.addEventListener('click', () => {
@@ -23,18 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
     navHome.classList.remove('active');
     // Ocultar la barra de búsqueda en la vista "Acerca de"
     searchBarContainer.style.display = 'none';
-  });
-
-  // Toggle de la barra de búsqueda al pulsar el botón flotante
-  floatingSearchBtn.addEventListener('click', () => {
-    if (listView.style.display !== 'none') {
-      if (searchBarContainer.style.display === 'block') {
-        searchBarContainer.style.display = 'none';
-      } else {
-        searchBarContainer.style.display = 'block';
-        document.getElementById('filter-input').focus();
-      }
-    }
   });
 
   // Elementos para el listado y modal
@@ -111,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const chargerInfo = document.createElement('div');
       chargerInfo.className = 'charger-info';
-      // Concatenamos conectores y potencia en una misma línea
+      // Concatenar conectores y potencia en una misma línea
       chargerInfo.innerHTML = `
         <h3>${charger.name}</h3>
         <p>${charger.location}</p>
