@@ -4,12 +4,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const aboutView = document.getElementById('about-view');
   const navHome = document.getElementById('nav-home');
   const navInfo = document.getElementById('nav-info');
+  const searchBarContainer = document.getElementById('search-bar-container');
 
   navHome.addEventListener('click', () => {
     listView.style.display = 'block';
     aboutView.style.display = 'none';
     navHome.classList.add('active');
     navInfo.classList.remove('active');
+    // Mostrar la barra de búsqueda en la vista de lista
+    searchBarContainer.style.display = 'block';
   });
 
   navInfo.addEventListener('click', () => {
@@ -17,6 +20,22 @@ document.addEventListener('DOMContentLoaded', () => {
     aboutView.style.display = 'block';
     navInfo.classList.add('active');
     navHome.classList.remove('active');
+    // Ocultar la barra de búsqueda al cambiar a la vista "Acerca de"
+    searchBarContainer.style.display = 'none';
+  });
+
+  // Toggle de la barra de búsqueda: al pulsar el ícono en el header
+  const toggleSearchBtn = document.getElementById('toggle-search');
+  toggleSearchBtn.addEventListener('click', () => {
+    // Si estamos en la vista de lista, se alterna la visibilidad
+    if (listView.style.display !== 'none') {
+      if (searchBarContainer.style.display === 'block') {
+        searchBarContainer.style.display = 'none';
+      } else {
+        searchBarContainer.style.display = 'block';
+        document.getElementById('filter-input').focus();
+      }
+    }
   });
 
   // Elementos para el listado y modal
@@ -93,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const chargerInfo = document.createElement('div');
       chargerInfo.className = 'charger-info';
-      // Concatenamos conectores y potencia en una línea, separados por una barra vertical
+      // Concatenamos la información de conectores y potencia en una misma línea
       chargerInfo.innerHTML = `
         <h3>${charger.name}</h3>
         <p>${charger.location}</p>
@@ -176,7 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Filtrado en la barra de búsqueda integrada
+  // Filtrado en la barra de búsqueda
   const filterInput = document.getElementById('filter-input');
 
   filterInput.addEventListener('input', (e) => {
