@@ -1,4 +1,6 @@
-/* Paleta de colores (se mantiene la misma) */
+/* Paleta de colores sugerida (se mantiene la misma):
+   Fondo: #eaf7f3, Encabezado y nav: #0c8f76, Botones: #34a88e, activo: #ffcb05
+*/
 
 /* Estilos Generales */
 body {
@@ -37,21 +39,23 @@ header {
 .header-content h1 {
   margin: 0;
   font-size: 20px;
+  /* Si fuera necesario ajustar horizontalmente, se puede usar padding o margin */
 }
 
-/* Barra de búsqueda integrada, más rectangular y centrada */
-.search-bar {
-  margin: 75px auto 10px auto; /* Ajuste para quedar justo debajo del header y antes de la descripción */
+/* Barra de búsqueda oculta por defecto; se muestra al pulsar el ícono */
+.search-bar-container {
+  display: none;
+  margin: 10px auto 10px auto;
   max-width: 350px;
   width: 90%;
 }
 
-.search-bar input {
+.search-bar-container input {
   width: 100%;
   padding: 8px 12px;
-  border: 1px solid #ccc;
+  border: none;
   border-radius: 5px;
-  font-size: 14px; /* Fuente más pequeña */
+  font-size: 14px;
   outline: none;
   background-color: rgba(255, 255, 255, 0.9);
   box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
@@ -60,7 +64,7 @@ header {
 /* MAIN: espacio para no quedar oculto por el header y la nav inferior */
 main {
   flex-grow: 1;
-  margin-top: 20px;
+  margin-top: 80px; /* Deja espacio para el header */
   padding: 20px;
   padding-bottom: 80px;
 }
@@ -211,7 +215,7 @@ main {
 
 .modal.show { display: block; }
 
-/* Modal content más ancho: ahora máximo 940px y centrado */
+/* Modal content más ancho y centrado */
 .modal-content {
   background-color: white;
   padding: 20px;
