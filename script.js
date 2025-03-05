@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const chargerInfo = document.createElement('div');
       chargerInfo.className = 'charger-info';
-      // Concatenamos la información de conectores y potencia en una misma línea
+      // Se concatena la información de conectores y potencia en una línea
       chargerInfo.innerHTML = `
         <h3>${charger.name}</h3>
         <p>${charger.location}</p>
@@ -176,9 +176,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Filtrado en la barra de búsqueda integrada
+  // Lógica de búsqueda en la barra integrada (sin botón extra)
   const filterInput = document.getElementById('filter-input');
-  const searchBtn = document.getElementById('search-btn');
 
   filterInput.addEventListener('input', (e) => {
     const text = e.target.value.toLowerCase();
@@ -187,10 +186,5 @@ document.addEventListener('DOMContentLoaded', () => {
       return fullText.includes(text);
     });
     displayChargerList();
-  });
-
-  // Opcional: Si se hace clic en el botón de búsqueda, se enfoca el input
-  searchBtn.addEventListener('click', () => {
-    filterInput.focus();
   });
 });
