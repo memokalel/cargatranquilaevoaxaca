@@ -1,338 +1,335 @@
 /* Estilos Generales */
 body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
-    display: flex; /* Añadido flex para el body */
-    flex-direction: column; /* Para que header, main y footer se apilen verticalmente */
-    min-height: 100vh; /* Asegura que el body ocupe al menos toda la altura de la ventana */
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex; /* Añadido flex para el body */
+    flex-direction: column; /* Para que header, main y footer se apilen verticalmente */
+    min-height: 100vh; /* Asegura que el body ocupe al menos toda la altura de la ventana */
 }
 
 header {
-    background-color: #0056b3;
-    color: white;
-    padding: 15px 20px;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
+    background-color: #0056b3;
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
 }
 
 header h1 {
-    margin: 0;
-    font-size: 24px;
-    flex-grow: 1;
+    margin: 0;
+    font-size: 24px;
+    flex-grow: 1;
 }
 
 /* Estilo del botón de información en header */
 header button#info-btn-header {
-    background: none;
-    color: white;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    position: absolute;
-    left: 20px;
+    background: none;
+    color: white;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    position: absolute;
+    left: 20px;
 }
-
 
 /* Contenedor principal de la aplicación */
 .app-container {
-    padding: 20px;
-    flex-grow: 1; /* Permite que app-container se expanda y empuje el footer hacia abajo */
+    padding: 20px;
+    flex-grow: 1; /* Permite que app-container se expanda y empuje el footer hacia abajo */
 }
 
 /* Lista de Cargadores */
 #charger-list {
-    list-style: none;
-    padding: 0;
+    list-style: none;
+    padding: 0;
 }
 
 #charger-list li, #charger-list div.charger-item {
-    background-color: white;
-    margin-bottom: 10px;
-    padding: 15px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    list-style: none;
-    text-decoration: none;
-    color: inherit;
-    cursor: pointer;
-    border: none;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    transition: transform 0.2s;
+    background-color: white;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
 }
 
 #charger-list li:hover, #charger-list div.charger-item:hover {
-    transform: translateX(5px);
+    transform: translateX(5px);
 }
-
 
 /* Semáforo (Status Light) */
 .status-light {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    margin-right: 15px;
-    flex-shrink: 0;
-    flex-grow: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 15px;
+    flex-shrink: 0;
+    flex-grow: 0;
 }
 
 .status-light.green {
-    background-color: #4CAF50;
+    background-color: #4CAF50;
 }
 
 .status-light.yellow {
-    background-color: #FFC107;
+    background-color: #FFC107;
 }
 
 .status-light.red {
-    background-color: #F44336;
+    background-color: #F44336;
 }
 
 /* Información del Cargador */
 .charger-info {
-    flex-grow: 1;
-    margin-right: 10px;
+    flex-grow: 1;
+    margin-right: 10px;
 }
 
 .charger-info h3 {
-    margin: 0 0 5px 0;
-    font-size: 18px;
+    margin: 0 0 5px 0;
+    font-size: 18px;
 }
 
 .charger-info p {
-    margin: 0;
-    font-size: 14px;
-    color: #777;
+    margin: 0;
+    font-size: 14px;
+    color: #777;
 }
 
 /* Botón "Ir al cargador" */
 .navigate-btn {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    flex-shrink: 0;
-    flex-grow: 0;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    flex-shrink: 0;
+    flex-grow: 0;
 }
 
 /* Footer */
 footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #ddd;
-    color: #555;
-    position: static; /* Cambiado a static para que el footer fluya en el layout flex */
-    margin-top: auto; /* Empuja el footer hacia la parte inferior */
-    width: 100%; /* Asegura que el footer ocupe todo el ancho */
+    text-align: center;
+    padding: 20px;
+    background-color: #ddd;
+    color: #555;
+    position: static; /* Cambiado a static para que el footer fluya en el layout flex */
+    margin-top: auto; /* Empuja el footer hacia la parte inferior */
+    width: 100%; /* Asegura que el footer ocupe todo el ancho */
 }
 
 footer p {
-    margin: 0;
-    font-size: 14px;
+    margin: 0;
+    font-size: 14px;
 }
 
 /* Estilos para el Pop-Up Modal (REUTILIZADOS para "Acerca de") */
 .modal-overlay {
-    position: fixed; /* **CRÍTICO: FIXED POSITION PARA CUBRIR TODA LA PANTALLA** */
-    top: 0; /* **CRÍTICO: TOP 0 PARA CUBRIR TODA LA PANTALLA** */
-    left: 0; /* **CRÍTICO: LEFT 0 PARA CUBRIR TODA LA PANTALLA** */
-    width: 100%; /* **CRÍTICO: 100% ANCHO PARA CUBRIR TODA LA PANTALLA** */
-    height: 100%; /* **CRÍTICO: 100% ALTO PARA CUBRIR TODA LA PANTALLA** */
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
-    z-index: 1000; /* **CRÍTICO: Z-INDEX ALTO PARA ESTAR POR ENCIMA DE TODO** */
-    display: none; /* Inicialmente oculto */
-    justify-content: center; /* Centrar horizontalmente */
-    align-items: center; /* Centrar verticalmente */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: none;
+    justify-content: center;
+    align-items: center;
 }
 
 .modal.show {
-    display: block; /* Mostrar modal cuando tiene la clase 'show' */
+    display: block;
 }
 
 .modal-overlay.show {
-    display: flex; /* Mostrar overlay cuando tiene la clase 'show' */
+    display: flex;
 }
 
-
 .modal-content {
-    display: none; /* **AÑADIDO display: none; PARA OCULTAR INICIALMENTE EL CONTENIDO DEL MODAL** */
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    position: relative; /* Posición relativa para el contenido del modal */
-    width: 80%; /* Ancho del modal, ajusta según necesites */
-    max-width: 500px; /* Ancho máximo para pantallas grandes */
-    max-height: 90%; /* Altura máxima del modal */
-    overflow-y: auto; /* Añade scroll si el contenido excede la altura */
-    /* display: none;  ¡¡¡ESTA LÍNEA NO DEBE ESTAR AQUÍ EN .modal, SOLO EN .modal-overlay !!! */
+    display: none;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+    width: 80%;
+    max-width: 500px;
+    max-height: 90%;
+    overflow-y: auto;
+    /* display: none;  ¡¡¡ESTA LÍNEA NO DEBE ESTAR AQUÍ EN .modal, SOLO EN .modal-overlay !!! */
 }
 
 .modal-content h2 {
-    margin-top: 0;
-    margin-bottom: 15px;
-    text-align: center;
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-align: center;
 }
 
 /* Semáforo en Pop-Up - CENTRADO Y GRANDE (REUTILIZADO para "Acerca de") */
 .modal-content #popup-charger-semaphore.status-light, .modal-content #about-us-semaphore.status-light {
-    width: 50px;
-    height: 50px;
-    margin: 15px auto;
-    display: block;
+    width: 50px;
+    height: 50px;
+    margin: 15px auto;
+    display: block;
 }
 
 .modal-content #popup-charger-details, .modal-content #about-us-details {
-    margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .modal-content #popup-charger-details p, .modal-content #about-us-details p {
-    margin: 5px 0;
+    margin: 5px 0;
 }
 
 .close-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 20px;
-    cursor: pointer;
-    color: #777;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #777;
 }
 
 .popup-buttons {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
 }
 
 .popup-buttons button.rate-button, .popup-buttons button.report-button {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    cursor: pointer;
-    font-size: 14px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
 }
 
 .popup-buttons button.rate-button.good {
-    background-color: #4CAF50;
+    background-color: #4CAF50;
 }
 
 .popup-buttons button.rate-button.bad {
-    background-color: #F44336;
+    background-color: #F44336;
 }
 
 .popup-buttons button.report-button {
-    background-color: #FFC107;
-    color: black;
+    background-color: #FFC107;
+    color: black;
 }
 
 /* Icono "i" en Footer del Pop-Up (REUTILIZADO para "Acerca de" si fuera necesario) - YA NO SE USAN, PERO SE DEJAN POR SI ACASO */
 .modal-content button#info-btn-popup-footer, .modal-content button#info-btn-about-us-footer {
-    position: static;
-    margin-top: 15px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    color: #0056b3;
-    background: none; /* Añadido background none para que no tenga fondo */
-    border: none; /* Añadido border none para que no tenga borde */
-    font-size: 24px; /* Añadido font-size para que el icono se vea correctamente */
-    cursor: pointer; /* Añadido cursor pointer para indicar que es clickable */
+    position: static;
+    margin-top: 15px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    color: #0056b3;
+    background: none; /* Añadido background none para que no tenga fondo */
+    border: none; /* Añadido border none para que no tenga borde */
+    font-size: 24px; /* Añadido font-size para que el icono se vea correctamente */
+    cursor: pointer; /* Añadido cursor pointer para indicar que es clickable */
 }
 
 /* Media query para pantallas más pequeñas (smartphones) */
 @media (max-width: 768px) {
-    header {
-        flex-direction: column; /* Apilar verticalmente en pantallas pequeñas */
-        padding: 15px; /* Reducir padding del header en pantallas pequeñas */
-    }
+    header {
+        flex-direction: column;
+        padding: 15px;
+    }
 
-    header h1 {
-        margin-bottom: 10px; /* Añadir margen inferior al título en pantallas pequeñas */
-        font-size: 22px; /* Ajustar tamaño de fuente del título en pantallas pequeñas */
-    }
+    header h1 {
+        margin-bottom: 10px;
+        font-size: 22px;
+    }
 
-    header button {
-        padding: 8px 12px; /* Reducir padding del botón en pantallas pequeñas */
-        font-size: 14px; /* Ajustar tamaño de fuente del botón en pantallas pequeñas */
-    }
+    header button {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
 
-    .container {
-        padding: 10px; /* Reducir padding del container en pantallas pequeñas */
-    }
+    .app-container {
+        padding: 10px;
+    }
 
-    .charger-item {
-        flex-direction: column; /* Alinear verticalmente los elementos del cargador en pantallas pequeñas */
-        align-items: stretch; /* Extender elementos para ocupar todo el ancho en pantallas pequeñas */
-        padding: 10px; /* Reducir padding de los items de cargador en pantallas pequeñas */
-    }
+    .charger-item {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 10px;
+    }
 
-    .status-light {
-        margin-bottom: 10px; /* Añadir margen inferior al indicador de estado en pantallas pequeñas */
-        margin-right: 0; /* Eliminar margen derecho del indicador de estado en pantallas pequeñas */
-        width: 25px; /* Reducir tamaño del indicador de estado en pantallas pequeñas */
-        height: 25px;
-    }
+    .status-light {
+        margin-bottom: 10px;
+        margin-right: 0;
+        width: 25px;
+        height: 25px;
+    }
 
-    .charger-info {
-        text-align: center; /* Centrar texto del charger-info en pantallas pequeñas */
-        margin-bottom: 10px; /* Añadir margen inferior al charger-info en pantallas pequeñas */
-    }
+    .charger-info {
+        text-align: center;
+        margin-bottom: 10px;
+    }
 
-    .charger-info h3 {
-        font-size: 17px; /* Ajustar tamaño de fuente del nombre del cargador en pantallas pequeñas */
-    }
+    .charger-info h3 {
+        font-size: 17px;
+    }
 
-    .charger-info p {
-        font-size: 13px; /* Ajustar tamaño de fuente de la ubicación en pantallas pequeñas */
-    }
+    .charger-info p {
+        font-size: 13px;
+    }
 
-    .navigate-btn {
-        margin-left: 0; /* Eliminar margen izquierdo del botón "Navegar" en pantallas pequeñas */
-        width: 100%; /* Botón "Navegar" ocupa todo el ancho en pantallas pequeñas */
-        margin-top: 10px; /* Añadir margen superior al botón "Navegar" en pantallas pequeñas */
-        padding: 10px; /* Aumentar padding vertical del botón "Navegar" en pantallas pequeñas */
-        font-size: 15px; /* Ajustar tamaño de fuente del botón "Navegar" en pantallas pequeñas */
-    }
+    .navigate-btn {
+        margin-left: 0;
+        width: 100%;
+        margin-top: 10px;
+        padding: 10px;
+        font-size: 15px;
+    }
 
-    .about-content {
-        padding: 15px; /* Reducir padding del contenido de "Acerca de" en pantallas pequeñas */
-        margin: 10px auto; /* Reducir margenes del contenido de "Acerca de" en pantallas pequeñas */
-    }
+    .about-content {
+        padding: 15px;
+        margin: 10px auto;
+    }
 
-    .about-content h2 {
-        font-size: 20px; /* Ajustar tamaño de fuente del título principal de "Acerca de" en pantallas pequeñas */
-    }
+    .about-content h2 {
+        font-size: 20px;
+    }
 
-    .about-content h3, .about-content p, .about-content ul {
-        font-size: 15px; /* Ajustar tamaño de fuente del texto en "Acerca de" en pantallas pequeñas */
-    }
+    .about-content h3, .about-content p, .about-content ul {
+        font-size: 15px;
+    }
 
-    .modal {
-        padding: 15px; /* Reducir padding del modal en pantallas pequeñas */
-    }
+    .modal {
+        padding: 15px;
+    }
 
-    .modal-content h3 {
-        font-size: 19px; /* Ajustar tamaño de fuente del título del modal en pantallas pequeñas */
-    }
+    .modal-content h3 {
+        font-size: 19px;
+    }
 
-    .modal-content p {
-        font-size: 14px; /* Ajustar tamaño de fuente del texto del modal en pantallas pequeñas */
-    }
+    .modal-content p {
+        font-size: 14px;
+    }
 
-    .modal button {
-        padding: 8px 15px; /* Reducir padding del botón del modal en pantallas pequeñas */
-        font-size: 15px; /* Ajustar tamaño de fuente del botón del modal en pantallas pequeñas */
-    }
+    .modal button {
+        padding: 8px 15px;
+        font-size: 15px;
+    }
 }
