@@ -165,6 +165,7 @@ footer p {
 
 
 .modal-content {
+    display: none; /* **AÑADIDO display: none; PARA OCULTAR INICIALMENTE EL CONTENIDO DEL MODAL** */
     background-color: white;
     padding: 20px;
     border-radius: 10px;
@@ -174,7 +175,7 @@ footer p {
     max-width: 500px; /* Ancho máximo para pantallas grandes */
     max-height: 90%; /* Altura máxima del modal */
     overflow-y: auto; /* Añade scroll si el contenido excede la altura */
-    /* display: none;  ¡¡¡ESTA LÍNEA NO DEBE ESTAR AQUÍ EN .modal, SOLO EN .modal-overlay !!! */
+    /* display: none;  ¡¡¡ESTA LÍNEA NO DEBE ESTAR AQUÍ EN .modal, SOLO EN .modal-overlay !!! */
 }
 
 .modal-content h2 {
