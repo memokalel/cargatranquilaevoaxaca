@@ -2,7 +2,8 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!-- Meta viewport ajustado para evitar zoom -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Carga Tranquila VE - Oaxaca</title>
   <link rel="stylesheet" href="style.css" />
   <link
@@ -21,7 +22,7 @@
     </div>
   </header>
 
-  <!-- Barra de búsqueda oculta por defecto; se mostrará al pulsar el botón flotante -->
+  <!-- Barra de búsqueda fija justo debajo del header (oculta en la vista Acerca de) -->
   <div id="search-bar-container" class="search-bar-container">
     <input type="text" id="filter-input" placeholder="Buscar, ej.: Gasolinera Centro" />
   </div>
@@ -92,10 +93,9 @@
     <button id="nav-info" class="nav-button"><i class="fas fa-info-circle"></i></button>
   </nav>
 
-  <!-- Botón flotante de búsqueda en la esquina inferior derecha -->
-  <button id="floating-search" aria-label="Buscar">
-    <i class="fas fa-search"></i>
-  </button>
+  <!-- Botón flotante de búsqueda (opcional, si se desea alternativo al input fijo) -->
+  <!-- Si prefieres que la barra de búsqueda se muestre sólo cuando se presione el botón,
+       puedes comentar o quitar la barra fija; en este ejemplo, la dejamos fija debajo del header en la vista lista. -->
 
   <!-- Modal de detalle de cargador -->
   <div id="charger-popup" class="modal">
