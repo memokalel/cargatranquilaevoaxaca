@@ -141,112 +141,161 @@ footer p {
     font-size: 14px;
 }
 
-/* Estilos para el Pop-Up Modal (REUTILIZADOS para "Acerca de") */
-.modal-overlay {
-    position: fixed; /* **CRÍTICO: FIXED POSITION PARA CUBRIR TODA LA PANTALLA** */
-    top: 0; /* **CRÍTICO: TOP 0 PARA CUBRIR TODA LA PANTALLA** */
-    left: 0; /* **CRÍTICO: LEFT 0 PARA CUBRIR TODA LA PANTALLA** */
-    width: 100%; /* **CRÍTICO: 100% ANCHO PARA CUBRIR TODA LA PANTALLA** */
-    height: 100%; /* **CRÍTICO: 100% ALTO PARA CUBRIR TODA LA PANTALLA** */
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
-    z-index: 1000; /* **CRÍTICO: Z-INDEX ALTO PARA ESTAR POR ENCIMA DE TODO** */
-    display: none; /* Inicialmente oculto */
-    justify-content: center; /* Centrar horizontalmente */
-    align-items: center; /* Centrar verticalmente */
-}
-
-.modal.show {
-    display: block; /* Mostrar modal cuando tiene la clase 'show' */
-}
-
-.modal-overlay.show {
-    display: flex; /* Mostrar overlay cuando tiene la clase 'show' */
-}
-
-
-.modal-content {
-    display: none; /* **AÑADIDO display: none; PARA OCULTAR INICIALMENTE EL CONTENIDO DEL MODAL** */
-    background-color: white;
+/* Estilos para el Pop-Up Modal (REUTILIZADOS para "Acerca de") - **CÓDIGO  DE  TU  CSS  FUNCIONAL  ANTERIOR  INCORPORADO  AQUÍ** */
+.about-section { /* <<-- ¡IMPORTANTE:  SI  ESTÁS  USANDO  `.about-section`  COMO  MODAL  "ACERCA  DE",  REEMPLAZA  TAMBIÉN  ESTA  SECCIÓN  CON  ESTE  CÓDIGO!  SI  NO  LO  ESTÁS  USANDO  COMO  MODAL,  PUEDES  OMITIR  ESTA  PARTE  O  ADAPTARLA  SI  ES  NECESARIO* */
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: white;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    position: relative; /* Posición relativa para el contenido del modal */
-    width: 80%; /* Ancho del modal, ajusta según necesites */
-    max-width: 500px; /* Ancho máximo para pantallas grandes */
-    max-height: 90%; /* Altura máxima del modal */
-    overflow-y: auto; /* Añade scroll si el contenido excede la altura */
-    /* display: none;  ¡¡¡ESTA LÍNEA NO DEBE ESTAR AQUÍ EN .modal, SOLO EN .modal-overlay !!! */
+    overflow-y: auto; /* Añadido overflow-y para scroll si el contenido es largo */
 }
 
-.modal-content h2 {
-    margin-top: 0;
-    margin-bottom: 15px;
-    text-align: center;
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    z-index: 1000;
+    text-align: center; /* Centrar contenido del modal */
+    width: 300px;
+    height: 400px;
 }
 
-/* Semáforo en Pop-Up - CENTRADO Y GRANDE (REUTILIZADO para "Acerca de") */
-.modal-content #popup-charger-semaphore.status-light, .modal-content #about-us-semaphore.status-light {
-    width: 50px;
-    height: 50px;
-    margin: 15px auto;
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+}
+
+.modal-content img {
+    max-width: 200px; /* Ancho máximo de la imagen en el modal */
+    height: auto;
     display: block;
+    margin: 0 auto 15px auto; /* Centrar imagen y añadir margen inferior */
+    border-radius: 8px; /* Añadir borde redondeado a la imagen */
 }
 
-.modal-content #popup-charger-details, .modal-content #about-us-details {
-    margin-bottom: 20px;
+.modal-content h3 {
+    margin-top: 0; /* Eliminar margen superior del H3 en el modal */
+    font-size: 20px; /* Ajustar tamaño de fuente del título del modal */
 }
 
-.modal-content #popup-charger-details p, .modal-content #about-us-details p {
-    margin: 5px 0;
+.modal-content p {
+    margin-bottom: 10px; /* Reducir margen inferior de párrafos en el modal */
+    font-size: 15px; /* Ajustar tamaño de fuente del texto del modal */
 }
 
-.close-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 20px;
-    cursor: pointer;
-    color: #777;
-}
-
-.popup-buttons {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
-}
-
-.popup-buttons button.rate-button, .popup-buttons button.report-button {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
+.modal button {
+    background: #2196F3;
     color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
     cursor: pointer;
-    font-size: 14px;
+    transition: background 0.3s;
+    font-size: 16px; /* Ajustar tamaño de fuente del botón del modal */
 }
 
-.popup-buttons button.rate-button.good {
-    background-color: #4CAF50;
+.modal button:hover {
+    background: #0d47a1;
 }
 
-.popup-buttons button.rate-button.bad {
-    background-color: #F44336;
-}
+/* Media query para pantallas más pequeñas (smartphones) */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; /* Apilar verticalmente en pantallas pequeñas */
+        padding: 15px; /* Reducir padding del header en pantallas pequeñas */
+    }
 
-.popup-buttons button.report-button {
-    background-color: #FFC107;
-    color: black;
-}
+    header h1 {
+        margin-bottom: 10px; /* Añadir margen inferior al título en pantallas pequeñas */
+        font-size: 22px; /* Ajustar tamaño de fuente del título en pantallas pequeñas */
+    }
 
-/* Icono "i" en Footer del Pop-Up (REUTILIZADO para "Acerca de" si fuera necesario) - YA NO SE USAN, PERO SE DEJAN POR SI ACASO */
-.modal-content button#info-btn-popup-footer, .modal-content button#info-btn-about-us-footer {
-    position: static;
-    margin-top: 15px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    color: #0056b3;
-    background: none; /* Añadido background none para que no tenga fondo */
-    border: none; /* Añadido border none para que no tenga borde */
-    font-size: 24px; /* Añadido font-size para que el icono se vea correctamente */
-    cursor: pointer; /* Añadido cursor pointer para indicar que es clickable */
+    header button {
+        padding: 8px 12px; /* Reducir padding del botón en pantallas pequeñas */
+        font-size: 14px; /* Ajustar tamaño de fuente del botón en pantallas pequeñas */
+    }
+
+    .container {
+        padding: 10px; /* Reducir padding del container en pantallas pequeñas */
+    }
+
+    .charger-item {
+        flex-direction: column; /* Alinear verticalmente los elementos del cargador en pantallas pequeñas */
+        align-items: stretch; /* Extender elementos para ocupar todo el ancho en pantallas pequeñas */
+        padding: 10px; /* Reducir padding de los items de cargador en pantallas pequeñas */
+    }
+
+    .status-light {
+        margin-bottom: 10px; /* Añadir margen inferior al indicador de estado en pantallas pequeñas */
+        margin-right: 0; /* Eliminar margen derecho del indicador de estado en pantallas pequeñas */
+        width: 25px; /* Reducir tamaño del indicador de estado en pantallas pequeñas */
+        height: 25px;
+    }
+
+    .charger-info {
+        text-align: center; /* Centrar texto del charger-info en pantallas pequeñas */
+        margin-bottom: 10px; /* Añadir margen inferior al charger-info en pantallas pequeñas */
+    }
+
+    .charger-info h3 {
+        font-size: 17px; /* Ajustar tamaño de fuente del nombre del cargador en pantallas pequeñas */
+    }
+
+    .charger-info p {
+        font-size: 13px; /* Ajustar tamaño de fuente de la ubicación en pantallas pequeñas */
+    }
+
+    .navigate-btn {
+        margin-left: 0; /* Eliminar margen izquierdo del botón "Navegar" en pantallas pequeñas */
+        width: 100%; /* Botón "Navegar" ocupa todo el ancho en pantallas pequeñas */
+        margin-top: 10px; /* Añadir margen superior al botón "Navegar" en pantallas pequeñas */
+        padding: 10px; /* Aumentar padding vertical del botón "Navegar" en pantallas pequeñas */
+        font-size: 15px; /* Ajustar tamaño de fuente del botón "Navegar" en pantallas pequeñas */
+    }
+
+    .about-content {
+        padding: 15px; /* Reducir padding del contenido de "Acerca de" en pantallas pequeñas */
+        margin: 10px auto; /* Reducir margenes del contenido de "Acerca de" en pantallas pequeñas */
+    }
+
+    .about-content h2 {
+        font-size: 20px; /* Ajustar tamaño de fuente del título principal de "Acerca de" en pantallas pequeñas */
+    }
+
+    .about-content h3, .about-content p, .about-content ul {
+        font-size: 15px; /* Ajustar tamaño de fuente del texto en "Acerca de" en pantallas pequeñas */
+    }
+
+    .modal {
+        padding: 15px; /* Reducir padding del modal en pantallas pequeñas */
+    }
+
+    .modal-content h3 {
+        font-size: 19px; /* Ajustar tamaño de fuente del título del modal en pantallas pequeñas */
+    }
+
+    .modal-content p {
+        font-size: 14px; /* Ajustar tamaño de fuente del texto del modal en pantallas pequeñas */
+    }
+
+    .modal button {
+        padding: 8px 15px; /* Reducir padding del botón del modal en pantallas pequeñas */
+        font-size: 15px; /* Ajustar tamaño de fuente del botón del modal en pantallas pequeñas */
+    }
 }
