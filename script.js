@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const chargerInfo = document.createElement('div');
       chargerInfo.className = 'charger-info';
-      // Se muestra el ícono de enchufe junto a la información de conectores
+      // Se muestra el ícono de enchufe junto a la info de conectores (vista rápida)
       chargerInfo.innerHTML = `
         <h3>${charger.name}</h3>
         <p>${charger.location}</p>
