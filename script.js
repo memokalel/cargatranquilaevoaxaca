@@ -76,7 +76,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let filteredChargers = [...chargers];
 
-  // Función para renderizar la lista
   function displayChargerList() {
     chargerList.innerHTML = '';
 
@@ -94,14 +93,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const chargerInfo = document.createElement('div');
       chargerInfo.className = 'charger-info';
-      // Se muestra el ícono de enchufe junto a la info de conectores (vista rápida)
+      // Se concatena la información de conectores y potencia en una misma línea
       chargerInfo.innerHTML = `
         <h3>${charger.name}</h3>
         <p>${charger.location}</p>
-        <p><i class="fas fa-plug"></i> ${charger.connectors.join(', ')}</p>
+        <p>
+          <i class="fas fa-plug"></i> ${charger.connectors.join(', ')}
+          <span class="separator">|</span>
+          <i class="fas fa-bolt"></i> ${charger.power}
+        </p>
       `;
 
-      // Botón con ancho fijo para ser consistente
       const navigateButton = document.createElement('button');
       navigateButton.className = 'navigate-btn';
       navigateButton.textContent = 'Ir al cargador';
@@ -118,10 +120,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Inicializar la lista
   displayChargerList();
 
-  // Pop-Up Modal
   function openChargerPopup(charger) {
     document.getElementById('popup-charger-name').textContent = charger.name;
     document.getElementById('popup-charger-address-value').textContent = charger.address;
@@ -176,31 +176,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // -- LÓGICA DE BÚSQUEDA CON OVERLAY --
+  // Lógica de búsqueda con overlay
   const searchIcon = document.getElementById('search-icon');
   const searchOverlay = document.getElementById('search-overlay');
   const closeSearch = document.getElementById('close-search');
   const filterInput = document.getElementById('filter-input');
 
-  // Abrir overlay al hacer clic en la lupa
   searchIcon.addEventListener('click', () => {
-    searchOverlay.style.display = 'flex'; // Muestra el overlay
-    filterInput.value = ''; // Limpia el input
-    filterInput.focus(); // Enfoca el input
+    searchOverlay.style.display = 'flex';
+    filterInput.value = '';
+    filterInput.focus();
   });
 
-  // Cerrar overlay al hacer clic en la X
   closeSearch.addEventListener('click', () => {
     searchOverlay.style.display = 'none';
-    // Regresamos la lista a su estado original
     filteredChargers = [...chargers];
     displayChargerList();
   });
 
-  // Filtrar mientras se escribe
   filterInput.addEventListener('input', (e) => {
     const text = e.target.value.toLowerCase();
-    filteredChargers = chargers.filter((charger) => {
+    filteredChargers = chargers.filter(charger => {
       const fullText = (charger.name + ' ' + charger.location).toLowerCase();
       return fullText.includes(text);
     });
