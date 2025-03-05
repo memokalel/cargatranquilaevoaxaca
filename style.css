@@ -141,7 +141,7 @@ footer p {
     font-size: 14px;
 }
 
-/* Estilos para el Pop-Up Modal */
+/* Estilos para el Pop-Up Modal (REUTILIZADOS para "Acerca de") */
 .modal-overlay {
     position: fixed; /* Posición fixed para cubrir toda la ventana */
     top: 0;
@@ -182,19 +182,19 @@ footer p {
     text-align: center;
 }
 
-/* Semáforo en Pop-Up - CENTRADO Y GRANDE */
-.modal-content #popup-charger-semaphore.status-light {
+/* Semáforo en Pop-Up - CENTRADO Y GRANDE (REUTILIZADO para "Acerca de" si fuera necesario) */
+.modal-content #popup-charger-semaphore.status-light, .modal-content #about-us-semaphore.status-light { /* Añadido selector para "Acerca de" */
     width: 50px; /* Aumenta el tamaño en el Pop-Up */
     height: 50px; /* Aumenta el tamaño en el Pop-Up */
     margin: 15px auto; /* Centra horizontalmente y añade margen vertical */
     display: block; /* Para que margin: auto funcione para centrar horizontalmente */
 }
 
-.modal-content #popup-charger-details {
+.modal-content #popup-charger-details, .modal-content #about-us-details { /* Añadido selector para "Acerca de" */
     margin-bottom: 20px;
 }
 
-.modal-content #popup-charger-details p {
+.modal-content #popup-charger-details p, .modal-content #about-us-details p { /* Añadido selector para "Acerca de" */
     margin: 5px 0;
 }
 
@@ -234,8 +234,9 @@ footer p {
     background-color: #FFC107; /* Amarillo para "Reportar Estado" */
     color: black; /* Cambia el color del texto para mejor contraste */
 }
-/* Icono "i" en Footer del Pop-Up */
-.modal-content button#info-btn-popup-footer {
+
+/* Icono "i" en Footer del Pop-Up (REUTILIZADO para "Acerca de" si fuera necesario) */
+.modal-content button#info-btn-popup-footer, .modal-content button#info-btn-about-us-footer { /* Añadido selector para "Acerca de" */
     position: static; /* Posicionamiento static para el footer del popup */
     margin-top: 15px; /* Margen superior para separarlo de los botones */
     display: block; /* Para que ocupe toda la línea y se centre con margin auto */
