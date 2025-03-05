@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acerca de - Carga Tranquila VE - Oaxaca</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <header>
+    <h1>Acerca de Carga Tranquila VE - Oaxaca</h1>
+  </header>
+
+  <div class="app-container">
+    <section class="about-content">
+      <p>Bienvenido a <strong>Carga Tranquila VE - Oaxaca</strong>, una aplicación web diseñada para facilitar la búsqueda y evaluación de cargadores para vehículos eléctricos en Oaxaca.</p>
+      <p><strong>Funcionalidades Principales:</strong></p>
+      <ul>
+        <li><strong>Listado de Cargadores:</strong> Explora una lista completa con información básica y, al hacer clic en cualquier fila, accede a detalles ampliados (dirección, potencia, conectores, semáforo de estado, rating, fotos, etc.) sin saturar la pantalla principal.</li>
+        <li><strong>Navegación:</strong> Utiliza el botón "Ir al cargador" para obtener direcciones en Google Maps.</li>
+        <li><strong>Valoración Sencilla:</strong> Indica de manera simple si el cargador funciona bien o no mediante botones de pulgar arriba o abajo.</li>
+      </ul>
+      <p><strong>Próximas Mejoras:</strong></p>
+      <ul>
+        <li>Integración de comentarios y valoraciones reales de usuarios.</li>
+        <li>Implementación de filtros y búsquedas avanzadas.</li>
+        <li>Mapa interactivo con marcadores y rutas optimizadas.</li>
+        <li>Información en tiempo real sobre el estado de los cargadores.</li>
+      </ul>
+      <p>Gracias por utilizar <strong>Carga Tranquila VE - Oaxaca</strong>. Nuestro objetivo es que encuentres la información que necesitas de forma clara y rápida.</p>
+    </section>
+    <div class="back-button-container">
+      <button id="back-to-home"><i class="fas fa-arrow-left"></i> Volver a la lista</button>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2024 Carga Tranquila VE - Oaxaca</p>
+  </footer>
+
+  <script>
+    document.getElementById('back-to-home').addEventListener('click', () => {
+      window.location.href = "index.html";
+    });
+  </script>
+</body>
+</html>
