@@ -1,8 +1,4 @@
-/* Paleta de colores sugerida (mantenemos la misma):
-   - Fondo general: #eaf7f3
-   - Encabezado y nav: #0c8f76 (teal)
-   - Botones: #34a88e, resaltado: #ffcb05
-*/
+/* Paleta de colores (se mantiene la misma) */
 
 /* Estilos Generales */
 body {
@@ -34,49 +30,38 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
   height: 100%;
+  position: relative;
 }
 
 .header-content h1 {
   margin: 0;
   font-size: 20px;
-  /* Si es necesario, ajustar con margin-left para centrar visualmente */
 }
 
-/* Nueva barra de búsqueda integrada en la vista de lista */
+/* Barra de búsqueda integrada, sin botón */
 .search-bar {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 10px auto 20px auto;
+  margin: 80px auto 20px auto; /* 80px para dejar espacio debajo del header */
   max-width: 400px;
+  width: 90%;
 }
 
 .search-bar input {
-  width: 80%;
-  padding: 10px;
+  width: 100%;
+  padding: 12px 15px;
   border: 1px solid #ccc;
-  border-radius: 5px 0 0 5px;
+  border-radius: 25px;
   font-size: 16px;
   outline: none;
+  /* Fondo con efecto sutil, se puede ajustar */
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
 }
 
-.search-bar button {
-  padding: 10px 15px;
-  border: 1px solid #ccc;
-  border-left: none;
-  background-color: #34a88e;
-  color: white;
-  border-radius: 0 5px 5px 0;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-/* MAIN: espacio para no quedar oculto por header y nav inferior */
+/* MAIN: espacio para no quedar oculto por el header y la nav inferior */
 main {
   flex-grow: 1;
-  margin-top: 80px;
+  margin-top: 20px;
   padding: 20px;
   padding-bottom: 80px;
 }
@@ -227,7 +212,7 @@ main {
 
 .modal.show { display: block; }
 
-/* Modal content: aumentar la anchura (30% más ancho que antes) */
+/* Modal content más ancho (30% más) */
 .modal-content {
   background-color: white;
   padding: 20px;
@@ -238,6 +223,7 @@ main {
   max-width: 940px;
   max-height: 90%;
   overflow-y: auto;
+  margin: 0 auto; /* Centrado */
 }
 
 .modal-content h2 {
@@ -292,7 +278,7 @@ main {
   margin-top: 10px;
 }
 
-/* Semáforo en el pop-up */
+/* Semáforo en el pop-up: centrado y doble tamaño (40px) */
 #popup-charger-semaphore {
   width: 40px;
   height: 40px;
