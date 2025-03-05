@@ -14,20 +14,30 @@
   />
 </head>
 <body>
-  <!-- Header fijo con barra de filtrado -->
+  <!-- Header fijo y limpio, sin barra de búsqueda -->
   <header>
     <div class="header-content">
       <h1>Carga Tranquila VE - Oaxaca</h1>
-      <div class="filter-container">
-        <input
-          type="text"
-          id="filter-input"
-          placeholder="Filtra cargadores por nombre o ubicación..."
-        />
+      <!-- Ícono de lupa en la parte superior derecha -->
+      <button id="search-icon" aria-label="Buscar">
         <i class="fas fa-search"></i>
-      </div>
+      </button>
     </div>
   </header>
+
+  <!-- Overlay de búsqueda (inicialmente oculto) -->
+  <div id="search-overlay" class="search-overlay">
+    <div class="search-overlay-content">
+      <input
+        type="text"
+        id="filter-input"
+        placeholder="Filtra cargadores por nombre o ubicación..."
+      />
+      <button id="close-search" aria-label="Cerrar búsqueda">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+  </div>
 
   <main>
     <!-- Vista de Lista -->
