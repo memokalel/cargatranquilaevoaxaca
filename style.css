@@ -13,14 +13,37 @@ body {
 header {
   background-color: #0056b3;
   color: white;
-  padding: 15px 20px;
+  padding: 10px 20px;
   text-align: center;
 }
 
-/* Main y vistas */
+/* Reducir el tamaño del título */
+.header-content h1 {
+  margin: 0;
+  font-size: 20px;
+}
+
+/* Encabezado centrado */
+.header-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#info-btn-header {
+  margin-top: 5px;
+  background: none;
+  color: white;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
 main {
   flex-grow: 1;
   padding: 20px;
+  /* Agrega padding inferior para que no quede tapado por la barra fija */
+  padding-bottom: 80px;
 }
 
 .view {
@@ -69,7 +92,7 @@ main {
   transform: translateX(5px);
 }
 
-/* Semáforo en la lista (tamaño fijo para evitar deformaciones) */
+/* Semáforo en la lista (tamaño fijo) */
 .status-light {
   width: 20px;
   height: 20px;
@@ -97,12 +120,12 @@ main {
 /* Información del cargador en la lista */
 .charger-info h3 {
   margin: 0 0 5px 0;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .charger-info p {
   margin: 0;
-  font-size: 14px;
+  font-size: 12px;
   color: #777;
 }
 
@@ -125,20 +148,25 @@ footer {
   color: #555;
 }
 
-/* Barra de navegación inferior */
+/* Barra de navegación inferior fija */
 .bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
   background-color: #0056b3;
-  padding: 10px 0;
+  padding: 15px 0;
+  z-index: 1002;
 }
 
 .nav-button {
   background: none;
   border: none;
   color: white;
-  font-size: 24px;
+  font-size: 28px;
   cursor: pointer;
 }
 
@@ -177,7 +205,7 @@ footer {
   display: block;
 }
 
-/* Modal content más amplio (20% más ancho, max 720px) */
+/* Modal content más amplio */
 .modal-content {
   background-color: white;
   padding: 20px;
@@ -254,7 +282,7 @@ footer {
   margin: 20px auto;
 }
 
-/* Feedback button en la vista Acerca de */
+/* Botón de feedback en la vista Acerca de */
 .feedback-button-container {
   text-align: center;
   margin-top: 20px;
