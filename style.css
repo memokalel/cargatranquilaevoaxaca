@@ -1,6 +1,4 @@
-/* Paleta de colores sugerida (se mantiene la misma):
-   Fondo: #eaf7f3, Encabezado y nav: #0c8f76, Botones: #34a88e, activo: #ffcb05
-*/
+/* Paleta de colores: Fondo #eaf7f3, Encabezado y nav: #0c8f76, Botones: #34a88e, activo: #ffcb05 */
 
 /* Estilos Generales */
 body {
@@ -39,13 +37,12 @@ header {
 .header-content h1 {
   margin: 0;
   font-size: 20px;
-  /* Si fuera necesario ajustar horizontalmente, se puede usar padding o margin */
 }
 
-/* Barra de búsqueda oculta por defecto; se muestra al pulsar el ícono */
+/* Barra de búsqueda: ahora integrada, oculta por defecto */
 .search-bar-container {
   display: none;
-  margin: 10px auto 10px auto;
+  margin: 10px auto;
   max-width: 350px;
   width: 90%;
 }
@@ -61,10 +58,10 @@ header {
   box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
 }
 
-/* MAIN: espacio para no quedar oculto por el header y la nav inferior */
+/* MAIN: espacio para no quedar oculto por header y nav inferior */
 main {
   flex-grow: 1;
-  margin-top: 80px; /* Deja espacio para el header */
+  margin-top: 80px;
   padding: 20px;
   padding-bottom: 80px;
 }
@@ -186,6 +183,30 @@ main {
 
 .nav-button.active {
   color: #ffcb05;
+}
+
+/* Botón flotante de búsqueda en la esquina inferior derecha */
+#floating-search {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  background-color: #34a88e;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  cursor: pointer;
+  z-index: 1100;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#floating-search:hover {
+  background-color: #288a78;
 }
 
 /* Modal y overlay */
