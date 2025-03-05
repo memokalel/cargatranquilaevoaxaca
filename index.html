@@ -14,12 +14,17 @@
   />
 </head>
 <body>
-  <!-- Header fijo con app name centrado -->
+  <!-- Header fijo con nombre centrado -->
   <header>
     <div class="header-content">
       <h1>Carga Tranquila VE - Oaxaca</h1>
     </div>
   </header>
+
+  <!-- Barra de búsqueda integrada, sin botón, justo debajo del header -->
+  <div class="search-bar">
+    <input type="text" id="filter-input" placeholder="Buscar cargadores por nombre o ubicación..." />
+  </div>
 
   <main>
     <!-- Vista de Lista -->
@@ -29,11 +34,6 @@
         <p>
           Explora los cargadores disponibles y selecciona uno para ver más detalles o planificar tu ruta con tranquilidad.
         </p>
-      </div>
-      <!-- Nueva barra de búsqueda integrada, con diseño cálido -->
-      <div class="search-bar">
-        <input type="text" id="filter-input" placeholder="Buscar cargadores por nombre o ubicación...">
-        <button id="search-btn"><i class="fas fa-search"></i></button>
       </div>
       <ul id="charger-list">
         <!-- Se generará dinámicamente -->
