@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const chargerInfo = document.createElement('div');
       chargerInfo.className = 'charger-info';
-      // Se concatena la información de conectores y potencia en una línea
+      // Concatenamos conectores y potencia en una línea, separados por una barra vertical
       chargerInfo.innerHTML = `
         <h3>${charger.name}</h3>
         <p>${charger.location}</p>
@@ -176,7 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Lógica de búsqueda en la barra integrada (sin botón extra)
+  // Filtrado en la barra de búsqueda integrada
   const filterInput = document.getElementById('filter-input');
 
   filterInput.addEventListener('input', (e) => {
