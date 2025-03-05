@@ -1,167 +1,170 @@
-// Datos simulados de cargadores
-const chargers = [
-    {
-        nombre: "Cargador Plaza Oaxaca",
-        ubicacion: "Plaza Oaxaca, Oaxaca",
-        direccion: "Av. Universidad S/N, Centro Histórico, 68000 Oaxaca de Juárez",
-        semaforo: "VERDE",
-        conectores: ["CCS", "CHAdeMO"],
-        operador: "Electrolinera XYZ",
-        lat: 17.0636,
-        lng: -96.7251,
-        imagen: "charger-icon.png",
-        potencia: "20kW"
-    },
-    {
-        nombre: "Cargador Gasolinera Centro",
-        ubicacion: "Gasolinera Pemex Centro, Oaxaca",
-        direccion: "Calle Macedonio Alcalá 507, Centro, 68000 Oaxaca de Juárez",
-        semaforo: "AMARILLO",
-        conectores: ["Tipo 2"],
-        operador: "Pemex",
-        lat: 17.0612,
-        lng: -96.7283,
-        imagen: "charger-icon.png",
-        potencia: "7kW"
-    },
-    {
-        nombre: "Cargador Hotel Reforma",
-        ubicacion: "Hotel Reforma, Oaxaca",
-        direccion: "Av. Independencia 1003, Centro, 68000 Oaxaca de Juárez",
-        semaforo: "ROJO",
-        conectores: ["CCS"],
-        operador: "Hotel Reforma",
-        lat: 17.0588,
-        lng: -96.7315,
-        imagen: "charger-icon.png",
-        potencia: "11kW"
-    },
-    {
-        nombre: "Cargador Desconocido 1",
-        ubicacion: "Calle Independencia, Oaxaca",
-        direccion: "Calle Independencia 802, Centro, 68000 Oaxaca de Juárez",
-        semaforo: "ROJO",
-        conectores: ["Desconocido"],
-        operador: "Desconocido",
-        lat: 17.0564,
-        lng: -96.7347,
-        imagen: "charger-icon.png",
-        potencia: "6kW"
-    }
-];
-
-// Ordenar por semáforo
-const order = { VERDE: 1, AMARILLO: 2, ROJO: 3 };
-chargers.sort((a, b) => order[a.semaforo] - order[b.semaforo]);
-
-function renderChargers() {
-    // ¡Busca el contenedor con id="chargerList" AHORA (en lugar de 'charger-list')!
-    const container = document.getElementById('chargerList');
-    container.innerHTML = '';
-
-    chargers.forEach(charger => {
-        // ¡Crea un <div> con clase "charger-item" AHORA (en lugar de <li>)!
-        const item = document.createElement('div');
-        item.className = 'charger-item';
-        item.setAttribute('data-charger-id', charger.nombre);
-
-        item.innerHTML = `
-            <div class="status-light ${charger.semaforo}"></div>
-            <div class="charger-info">
-                <h3>${charger.nombre}</h3>
-                <p>${charger.ubicacion}</p>
-                <p><strong>Conectores:</strong> ${charger.conectores.join(', ')}</p>
-            </div>
-            <button class="navigate-btn" onclick="event.stopPropagation(); navigateTo(${charger.lat}, ${charger.lng})">
-                Ir al cargador
-            </button>
-        `;
-
-        item.addEventListener('click', () => showModal(charger));
-
-        container.appendChild(item);
-    });
-}
-
-function navigateTo(lat, lng) {
-    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-    const mapsUrl = isIOS ?
-        `http://maps.apple.com/?daddr=${lat},${lng}` :
-        `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
-
-    window.open(mapsUrl, '_blank');
-}
-
-function toggleAbout() {
-    const aboutSection = document.getElementById('about-section');
-    aboutSection.style.display = aboutSection.style.display === 'block' ? 'none' : 'block';
-}
-
-function showModal(charger) {
-    const modal = document.getElementById('charger-modal');
-    const overlay = document.getElementById('modal-overlay');
-    const modalContent = document.getElementById('modal-content');
-
-    let prediccionText = ""; // Variable para almacenar el texto de predicción
-    if (charger.semaforo === "VERDE") {
-        prediccionText = "Carga asegurada";
-    } else if (charger.semaforo === "AMARILLO") {
-        prediccionText = "Carga con precaución";
-    } else if (charger.semaforo === "ROJO") {
-        prediccionText = "Carga no recomendada";
-    }
-
-    modalContent.innerHTML = `
-        <h3>${charger.nombre}</h3>
-        <div class="modal-status-container">
-            <div class="status-light ${charger.semaforo} modal-status-light"></div>
-            <p class="modal-status-text">Semáforo ${charger.semaforo}</p>
-        </div>
-        <p><strong>Predicción:</strong> ${prediccionText}</p>
-        <p><strong>Disponibilidad estimada:</strong> Sin esperas</p>
-        <p><strong>Dirección:</strong> ${charger.direccion}</p>
-        <p><strong>Conectores:</strong> ${charger.conectores.join(', ')}</p>
-        <p><strong>Potencia:</strong> ${charger.potencia}</p>
-        <p class="disclaimer-text">Predicción basada en historial y reportes. Sujeto a cambios.</p>
-
-        <div class="rating-buttons">
-            <button class="rating-button positive-rating" onclick="rateCharger('${charger.nombre}', 'positive')" aria-label="Cargador Funciona">
-                <span role="img" aria-label="Cargador Funciona">👍 Funciona</span> <span class="button-text-description">(Si funciona bien)</span>
-            </button>
-            <button class="rating-button negative-rating" onclick="rateCharger('${charger.nombre}', 'negative')" aria-label="Cargador No Funciona">
-                <span role="img" aria-label="Cargador No Funciona">👎 No Funciona</span> <span class="button-text-description">(Si no funciona o falla)</span>
-            </button>
-        </div>
-
-        <div class="report-button-container">
-            <button class="report-button navigate-btn" onclick="reportCharger('${charger.nombre}')">
-                Reportar estado <span class="button-text-description">(Reportar problemas o estado actual)</span>
-            </button>
-        </div>
-    `;
-
-    modal.style.display = 'block';
-    overlay.style.display = 'block';
-}
-
-function reportCharger(chargerName) {
-    alert(`Funcionalidad "Reportar estado" para el cargador ${chargerName} ¡Próximamente! \n\nEn futuras versiones, podrás usar este botón para reportar problemas o el estado actual del cargador para ayudar a otros usuarios.`);
-    closeModal();
-}
-
-function closeModal() {
-    document.getElementById('charger-modal').style.display = 'none';
-    document.getElementById('modal-overlay').style.display = 'none';
-}
-
-function rateCharger(chargerName, ratingType) {
-    alert(`¡Gracias por calificar el cargador ${chargerName} con un voto ${ratingType === 'positive' ? 'positivo' : 'negativo'}! Tu opinión nos ayuda a mejorar.`);
-    closeModal();
-}
-
 document.addEventListener('DOMContentLoaded', () => {
-    renderChargers();
+    const chargerList = document.getElementById('charger-list');
+    const chargerPopup = document.getElementById('charger-popup');
+    const modalOverlay = document.getElementById('modal-overlay');
+    const closeButton = chargerPopup.querySelector('.close-button');
+    const infoButtonHeader = document.getElementById('info-btn-header');
+    const infoButtonFooter = document.getElementById('info-btn-footer');
+    const infoButtonPopupFooter = chargerPopup.querySelector('#info-btn-popup-footer'); // Icono "i" en Footer del Pop-Up
 
-    const footerAboutBtn = document.getElementById('footer-about-btn');
-    footerAboutBtn.addEventListener('click', toggleAbout);
+
+    const chargers = [
+        {
+            name: "Cargador Plaza Oaxaca",
+            location: "Plaza Oaxaca, Oaxaca",
+            connectors: "CCS, CHAdeMO",
+            status: "green", // Semáforo Verde
+            ratingAverage: 4.5,
+            ratingCount: 50,
+            photos: [], // Ejemplo: Array de URLs de fotos
+            power: "50 kW", // Añadido potencia
+            address: "Av. Universidad S/N, Centro Histórico, 68000 Oaxaca de Juárez" //Añadido dirección detallada
+        },
+        {
+            name: "Cargador Gasolinera Centro",
+            location: "Gasolinera Pemex Centro, Oaxaca",
+            connectors: "Tipo 2",
+            status: "green", // Semáforo Verde
+            ratingAverage: 4.2,
+            ratingCount: 35,
+             photos: [],
+             power: "7 kW",
+             address: "Calle Macedonio Alcalá 507, Centro, 68000 Oaxaca de Juárez"
+        },
+        {
+            name: "Cargador Hotel Reforma",
+            location: "Hotel Reforma, Oaxaca",
+            connectors: "CCS",
+            status: "yellow", // Semáforo Amarillo
+            ratingAverage: 3.8,
+            ratingCount: 22,
+             photos: [],
+             power: "11 kW",
+             address: "Av. Independencia 1003, Centro, 68000 Oaxaca de Juárez"
+        },
+        {
+            name: "Cargador Desconocido 1", // Ejemplo de cargador ROJO
+            location: "Ubicación Desconocida 1, Oaxaca",
+            connectors: "CCS",
+            status: "red", // Semáforo Rojo
+            ratingAverage: 2.5,
+            ratingCount: 15,
+            photos: [],
+            power: "6 kW",
+            address: "Calle Independencia 802, Centro, 68000 Oaxaca de Juárez"
+        },
+
+        // ... más cargadores aquí ...
+    ];
+
+    function displayChargerList() {
+        chargerList.innerHTML = ''; // Limpiar la lista anterior
+
+        chargers.forEach(charger => {
+            const chargerItem = document.createElement('div'); // Cambiado a div en lugar de li
+            chargerItem.className = 'charger-item';
+            chargerItem.setAttribute('data-charger-id', charger.nombre);
+
+            chargerItem.addEventListener('click', () => openChargerPopup(charger)); // Añadir evento click a la fila
+
+            const statusLight = document.createElement('div');
+            statusLight.className = `status-light ${charger.status}`;
+
+            const chargerInfo = document.createElement('div');
+            chargerInfo.className = 'charger-info';
+            chargerInfo.innerHTML = `
+                <h3>${charger.name}</h3>
+                <p>${charger.location}</p>
+                <p><strong>Conectores:</strong> ${charger.connectors.join(', ')}</p>
+            `;
+
+            const navigateButton = document.createElement('button');
+            navigateButton.className = 'navigate-btn';
+            navigateButton.textContent = 'Ir al cargador';
+             navigateButton.addEventListener('click', (event) => {
+                event.stopPropagation(); // Evita que el click en el botón se propague al li
+                // Redirigir a la navegación (simulado por ahora)
+                alert(`Navegando a ${charger.name}`);
+            });
+
+
+            chargerItem.appendChild(statusLight);
+            chargerItem.appendChild(chargerInfo);
+            chargerItem.appendChild(navigateButton);
+            chargerList.appendChild(chargerItem);
+        });
+    }
+
+    displayChargerList(); // Llama a la función para mostrar la lista de cargadores al cargar la página
+
+
+    function openChargerPopup(charger) {
+        // Popular los detalles del cargador en el Pop-Up
+        document.getElementById('popup-charger-name').textContent = charger.name;
+
+        const popupSemaphore = document.getElementById('popup-charger-semaphore');
+        popupSemaphore.className = `status-light ${charger.status}`; // Clase para el color del semáforo en Pop-Up
+
+        document.getElementById('popup-charger-address').textContent = `Dirección: ${charger.address}`;
+        document.getElementById('popup-charger-power').textContent = `Potencia: ${charger.power || 'Desconocida'}`; // Usar 'Desconocida' si no hay potencia
+        document.getElementById('popup-charger-connectors').textContent = `Conectores: ${charger.connectors}`;
+
+        const ratingStarsSpan = document.getElementById('popup-rating-stars');
+        ratingStarsSpan.textContent = charger.ratingAverage ? `${charger.ratingAverage} estrellas` : 'Sin valoraciones'; //Muestra rating o "Sin valoraciones"
+        const ratingCountSpan = document.getElementById('popup-rating-count');
+        ratingCountSpan.textContent = charger.ratingCount ? `(${charger.ratingCount} valoraciones)` : ''; // Muestra el conteo si hay valoraciones
+
+
+        // Mostrar el Pop-Up y el overlay
+        chargerPopup.classList.add('show'); // Añade clase 'show' para mostrar el modal
+        modalOverlay.classList.add('show'); // Añade clase 'show' para mostrar el overlay
+    }
+
+    function closeChargerPopup() {
+        chargerPopup.classList.remove('show'); // Remueve clase 'show' para ocultar el modal
+        modalOverlay.classList.remove('show'); // Remueve clase 'show' para ocultar el overlay
+    }
+
+    closeButton.addEventListener('click', closeChargerPopup);
+    modalOverlay.addEventListener('click', closeChargerPopup); // Cierra el modal al hacer clic fuera
+
+
+    // Funcionalidad botón "Acerca de" en Header
+    infoButtonHeader.addEventListener('click', () => {
+        alert("Sección 'Acerca de' (Simulada para MVP)"); // Reemplazar con la funcionalidad real de "Acerca de"
+    });
+
+    // Funcionalidad botón "Acerca de" en Footer
+    infoButtonFooter.addEventListener('click', () => {
+        alert("Sección 'Acerca de' (Simulada para MVP) - Footer"); // Reemplazar con la funcionalidad real de "Acerca de"
+    });
+     // Funcionalidad botón "Acerca de" en Footer del Pop-Up
+    infoButtonPopupFooter.addEventListener('click', () => {
+        alert("Sección 'Acerca de' (Simulada para MVP) - Pop-Up Footer"); // Reemplazar con la funcionalidad real de "Acerca de"
+    });
+
+    // Simulación de botones de rating y reporte (POR AHORA - MVP SIMULADO)
+    const rateGoodButtons = document.querySelectorAll('.popup-buttons button.rate-button.good');
+    const rateBadButtons = document.querySelectorAll('.popup-buttons button.rate-button.bad');
+    const reportButtons = document.querySelectorAll('.popup-buttons button.report-button');
+
+    rateGoodButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            alert("¡Gracias por indicar que funciona bien! (Funcionalidad de rating en desarrollo)");
+        });
+    });
+
+    rateBadButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            alert("¡Gracias por indicar que no funciona bien! (Funcionalidad de rating en desarrollo)");
+        });
+    });
+
+    reportButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            alert("Funcionalidad 'Reportar Estado' en desarrollo");
+        });
+    });
+
+
 });
