@@ -176,22 +176,14 @@ footer p {
   text-align: center;
 }
 
-.modal-content #popup-charger-semaphore.status-light,
-.modal-content #about-us-semaphore.status-light {
-  width: 50px;
-  height: 50px;
-  margin: 15px auto;
-  display: block;
+.modal-content .detail-item {
+  margin: 10px 0;
+  font-size: 16px;
 }
 
-.modal-content #popup-charger-details,
-.modal-content #about-us-details {
-  margin-bottom: 20px;
-}
-
-.modal-content #popup-charger-details p,
-.modal-content #about-us-details p {
-  margin: 5px 0;
+.modal-content .detail-item i {
+  margin-right: 8px;
+  color: #555;
 }
 
 .close-button {
@@ -209,40 +201,47 @@ footer p {
   margin-top: 20px;
 }
 
-.popup-buttons button.rate-button,
-.popup-buttons button.report-button {
+.popup-buttons button.rate-button {
   padding: 10px 15px;
-  border: none;
+  border: 1px solid #ccc;
   border-radius: 5px;
-  color: white;
-  cursor: pointer;
-  font-size: 14px;
-}
-
-.popup-buttons button.rate-button.good {
-  background-color: #4CAF50;
-}
-
-.popup-buttons button.rate-button.bad {
-  background-color: #F44336;
-}
-
-.popup-buttons button.report-button {
-  background-color: #FFC107;
-  color: black;
-}
-
-/* Botón "i" en Footer del Pop-Up (no usado actualmente) */
-.modal-content button#info-btn-popup-footer,
-.modal-content button#info-btn-about-us-footer {
-  position: static;
-  margin-top: 15px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  color: #0056b3;
   background: none;
-  border: none;
-  font-size: 24px;
+  color: #333;
   cursor: pointer;
+  font-size: 16px;
+}
+
+.popup-buttons button.rate-button:hover {
+  background-color: #f0f0f0;
+}
+
+/* Estilos para la página Acerca de */
+.about-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.about-content ul {
+  margin: 10px 0 10px 20px;
+}
+
+.back-button-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.back-button-container button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  background: none;
+  border-radius: 5px;
+}
+
+.back-button-container button:hover {
+  background-color: #f0f0f0;
 }
