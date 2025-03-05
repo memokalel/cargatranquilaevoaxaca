@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const chargerInfo = document.createElement('div');
       chargerInfo.className = 'charger-info';
-      // Se concatena la información de conectores y potencia en una misma línea
+      // Concatenamos la información de conectores y potencia en una misma línea
       chargerInfo.innerHTML = `
         <h3>${charger.name}</h3>
         <p>${charger.location}</p>
@@ -176,23 +176,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Lógica de búsqueda con overlay
-  const searchIcon = document.getElementById('search-icon');
-  const searchOverlay = document.getElementById('search-overlay');
-  const closeSearch = document.getElementById('close-search');
+  // Filtrado en la barra de búsqueda integrada
   const filterInput = document.getElementById('filter-input');
-
-  searchIcon.addEventListener('click', () => {
-    searchOverlay.style.display = 'flex';
-    filterInput.value = '';
-    filterInput.focus();
-  });
-
-  closeSearch.addEventListener('click', () => {
-    searchOverlay.style.display = 'none';
-    filteredChargers = [...chargers];
-    displayChargerList();
-  });
+  const searchBtn = document.getElementById('search-btn');
 
   filterInput.addEventListener('input', (e) => {
     const text = e.target.value.toLowerCase();
@@ -201,5 +187,10 @@ document.addEventListener('DOMContentLoaded', () => {
       return fullText.includes(text);
     });
     displayChargerList();
+  });
+
+  // Opcional: Si se hace clic en el botón de búsqueda, se enfoca el input
+  searchBtn.addEventListener('click', () => {
+    filterInput.focus();
   });
 });
