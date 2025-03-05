@@ -5,13 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Acerca de - Carga Tranquila VE - Oaxaca</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+  <link rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" 
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-  <header>
-    <h1>Acerca de Carga Tranquila VE - Oaxaca</h1>
+  <header class="about-header">
+    <!-- Botón de volver a la lista en la esquina superior izquierda -->
+    <button id="back-to-home" class="nav-back-button">
+      <i class="fas fa-arrow-left"></i>
+    </button>
+    <h1>Acerca de</h1>
   </header>
 
   <div class="app-container">
@@ -48,29 +53,26 @@
         </li>
       </ul>
       <p><em>Nota: Semáforo en simulación inicial. Ayúdanos con tu feedback.</em></p>
-      <div class="feedback-button-container">
-        <button id="feedback-button">
-          <i class="fas fa-comment-alt"></i> Envía tu feedback
-        </button>
-      </div>
     </section>
-    <div class="back-button-container">
-      <button id="back-to-home">
-        <i class="fas fa-arrow-left"></i> Volver a la lista
-      </button>
-    </div>
   </div>
 
   <footer>
     <p>© 2024 Carga Tranquila VE - Oaxaca</p>
   </footer>
 
+  <!-- Botón de feedback grande y centrado en la parte inferior -->
+  <div class="feedback-button-container">
+    <button id="feedback-button">
+      <i class="fas fa-comment-alt"></i> Envía tu feedback
+    </button>
+  </div>
+
   <script>
     document.getElementById('back-to-home').addEventListener('click', () => {
       window.location.href = "index.html";
     });
     document.getElementById('feedback-button').addEventListener('click', () => {
-      // Aquí podrías redirigir a un formulario o enviar el feedback
+      // Aquí podrías redirigir a un formulario de feedback real
       alert("¡Gracias por tu feedback!");
     });
   </script>
