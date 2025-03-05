@@ -12,34 +12,75 @@
 </head>
 <body>
   <header>
-    <div class="header-content">
-      <h1>Carga Tranquila VE - Oaxaca</h1>
-      <!-- Botón "i" sin texto y centrado -->
-      <button id="info-btn-header" aria-label="Acerca de">
-        <i class="fas fa-info-circle"></i>
-      </button>
-    </div>
+    <h1>Carga Tranquila VE - Oaxaca</h1>
   </header>
 
-  <div class="app-container">
-    <ul id="charger-list">
-      <!-- La lista de cargadores se genera dinámicamente -->
-    </ul>
-  </div>
+  <main>
+    <!-- Vista de Lista -->
+    <section id="list-view" class="view">
+      <ul id="charger-list">
+        <!-- Se generará dinámicamente -->
+      </ul>
+    </section>
 
-  <footer>
-    <p>© 2024 Carga Tranquila VE - Oaxaca</p>
-  </footer>
+    <!-- Vista de Información (Acerca de) -->
+    <section id="about-view" class="view" style="display: none;">
+      <div class="about-content">
+        <h2>Carga Tranquila VE - Oaxaca: Predicción confiable, carga segura.</h2>
+        <p>Anticipa la disponibilidad de cargadores y planifica tus recargas con nuestro <strong>Semáforo Predictivo</strong>:</p>
+        <ul>
+          <li>
+            <i class="fas fa-circle" style="color:#4CAF50;"></i>
+            <strong>VERDE:</strong> Carga disponible, dirígete con seguridad.
+          </li>
+          <li>
+            <i class="fas fa-circle" style="color:#FFC107;"></i>
+            <strong>AMARILLO:</strong> Posible demora, precaución.
+          </li>
+          <li>
+            <i class="fas fa-circle" style="color:#F44336;"></i>
+            <strong>ROJO:</strong> Cargador fuera de servicio, evitar.
+          </li>
+        </ul>
+        <h3>Funcionalidades:</h3>
+        <ul>
+          <li>
+            <i class="fas fa-list"></i>
+            Lista completa de cargadores con información detallada.
+          </li>
+          <li>
+            <i class="fas fa-map-marker-alt"></i>
+            Navegación directa al cargador con Google Maps.
+          </li>
+          <li>
+            <i class="fas fa-thumbs-up"></i>
+            Valoración sencilla con pulgar arriba/abajo.
+          </li>
+        </ul>
+        <p><em>Nota: Semáforo en simulación inicial. Ayúdanos con tu feedback.</em></p>
+        <div class="feedback-button-container">
+          <button id="feedback-button">
+            <i class="fas fa-comment-alt"></i> Envía tu feedback
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
 
-  <!-- Modal para los detalles del cargador -->
+  <!-- Barra de navegación inferior -->
+  <nav class="bottom-nav">
+    <button id="nav-home" class="nav-button active"><i class="fas fa-home"></i></button>
+    <button id="nav-info" class="nav-button"><i class="fas fa-info-circle"></i></button>
+  </nav>
+
+  <!-- Modal de detalle de cargador -->
   <div id="charger-popup" class="modal">
     <div class="modal-content">
       <span class="close-button">&times;</span>
       <h2 id="popup-charger-name">[Nombre del Cargador]</h2>
-      <!-- Semáforo centrado y de mayor tamaño en el pop-up -->
+      <!-- Semáforo centrado, doble tamaño (40px) -->
       <div id="popup-charger-semaphore" class="status-light"></div>
       <div id="popup-charger-details">
-        <!-- Íconos representativos sin descripciones adicionales -->
         <p class="detail-item"><i class="fas fa-map-marker-alt"></i> <span id="popup-charger-address-value">[Dirección]</span></p>
         <p class="detail-item"><i class="fas fa-bolt"></i> <span id="popup-charger-power-value">[Potencia]</span></p>
         <p class="detail-item"><i class="fas fa-plug"></i> <span id="popup-charger-connectors-value">[Conectores]</span></p>
@@ -49,12 +90,11 @@
         <button class="rate-button good"><i class="fas fa-thumbs-up"></i></button>
         <button class="rate-button bad"><i class="fas fa-thumbs-down"></i></button>
       </div>
-      <!-- Instrucción para el feedback de rating -->
       <p class="feedback-instruction">"Selecciona 👍 o 👎 para indicar si el cargador funciona bien. Tu feedback nos ayuda a mejorar."</p>
     </div>
   </div>
 
-  <!-- Overlay para modales -->
+  <!-- Overlay del modal -->
   <div id="modal-overlay" class="modal-overlay"></div>
 
   <script src="script.js"></script>
