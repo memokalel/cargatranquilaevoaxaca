@@ -2,14 +2,17 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <!-- Meta viewport ajustado para evitar zoom excesivo -->
+  <!-- Evitamos zoom agresivo -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Carga Tranquila VE - Oaxaca</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" 
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
-        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" 
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
 </head>
 <body>
   <!-- Header fijo con app name centrado -->
@@ -115,24 +118,30 @@
           <span id="popup-rating-count">[Valoraciones]</span>
         </p>
       </div>
-      <!-- Secciones extra con información adicional -->
-      <div class="extra-info">
-        <h3>Costo y Horario</h3>
-        <p><strong>Costo:</strong> <span id="popup-costo"></span></p>
-        <p><strong>Horario:</strong> <span id="popup-horario"></span></p>
+
+      <!-- Acordeón con secciones para la info extra -->
+      <div class="accordion-section">
+        <div class="accordion-header">Costo y Horario <i class="fas fa-chevron-down"></i></div>
+        <div class="accordion-content">
+          <p><strong>Costo:</strong> <span id="popup-costo"></span></p>
+          <p><strong>Horario:</strong> <span id="popup-horario"></span></p>
+        </div>
       </div>
-      <div class="extra-info">
-        <h3>Último Reporte</h3>
-        <p><span id="popup-ultimo"></span></p>
+
+      <div class="accordion-section">
+        <div class="accordion-header">Tiempo Estimado de Carga <i class="fas fa-chevron-down"></i></div>
+        <div class="accordion-content">
+          <p id="popup-tiempo"></p>
+        </div>
       </div>
-      <div class="extra-info">
-        <h3>Tiempo Estimado de Carga</h3>
-        <p><span id="popup-tiempo"></span></p>
+
+      <div class="accordion-section">
+        <div class="accordion-header">Comentarios Destacados <i class="fas fa-chevron-down"></i></div>
+        <div class="accordion-content">
+          <p id="popup-comentarios"></p>
+        </div>
       </div>
-      <div class="extra-info">
-        <h3>Comentarios Destacados</h3>
-        <p id="popup-comentarios"></p>
-      </div>
+
       <div class="popup-buttons">
         <button class="rate-button good"><i class="fas fa-thumbs-up"></i></button>
         <button class="rate-button bad"><i class="fas fa-thumbs-down"></i></button>
