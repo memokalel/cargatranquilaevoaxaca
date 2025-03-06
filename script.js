@@ -1,27 +1,31 @@
 document.addEventListener('DOMContentLoaded', () => {
+  console.log("DOM fully loaded and parsed.");
+
   // Navegación entre vistas
   const listView = document.getElementById('list-view');
   const aboutView = document.getElementById('about-view');
   const navHome = document.getElementById('nav-home');
   const navInfo = document.getElementById('nav-info');
-  const searchBarContainer = document.querySelector('.search-bar');
+  const searchBar = document.querySelector('.search-bar');
 
   navHome.addEventListener('click', () => {
+    console.log("Clicked navHome. Showing list-view, hiding about-view.");
     listView.style.display = 'block';
     aboutView.style.display = 'none';
     navHome.classList.add('active');
     navInfo.classList.remove('active');
     // Mostrar la barra de búsqueda en la vista de lista
-    searchBarContainer.style.display = 'flex';
+    searchBar.style.display = 'flex';
   });
 
   navInfo.addEventListener('click', () => {
+    console.log("Clicked navInfo. Showing about-view, hiding list-view.");
     listView.style.display = 'none';
     aboutView.style.display = 'block';
     navInfo.classList.add('active');
     navHome.classList.remove('active');
     // Ocultar la barra de búsqueda en la vista "Acerca de"
-    searchBarContainer.style.display = 'none';
+    searchBar.style.display = 'none';
   });
 
   // Elementos para el listado y modal
@@ -88,12 +92,12 @@ document.addEventListener('DOMContentLoaded', () => {
       estimatedChargeTime: "Para una batería de 40 kWh: ~1h 30min (20%-80%)",
       comentarios: ["No está funcionando bien.", "Falla con frecuencia."]
     }
-    // ... más cargadores si se requiere ...
   ];
 
   let filteredChargers = [...chargers];
 
   function displayChargerList() {
+    console.log("displayChargerList() called. Chargers to display:", filteredChargers.length);
     chargerList.innerHTML = '';
 
     filteredChargers.forEach(charger => {
@@ -126,6 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
       navigateButton.textContent = 'Ir al cargador';
       navigateButton.addEventListener('click', (event) => {
         event.stopPropagation();
+        console.log(`Navigating to ${charger.address}`);
         const addressForMaps = encodeURIComponent(charger.address);
         window.open(`https://www.google.com/maps/dir/?api=1&destination=${addressForMaps}`, '_blank');
       });
@@ -140,6 +145,8 @@ document.addEventListener('DOMContentLoaded', () => {
   displayChargerList();
 
   function openChargerPopup(charger) {
+    console.log("openChargerPopup() called for:", charger.name);
+
     document.getElementById('popup-charger-name').textContent = charger.name;
     document.getElementById('popup-charger-address-value').textContent = charger.address;
     document.getElementById('popup-charger-power-value').textContent = charger.power || 'Desconocida';
@@ -166,11 +173,12 @@ document.addEventListener('DOMContentLoaded', () => {
     chargerPopup.classList.add('show');
     modalOverlay.classList.add('show');
 
-    // Iniciar acordeones cerrados
-    initAccordions();
+    // Reseteamos y activamos acordeones
+    resetAccordions();
   }
 
   function closeChargerPopup() {
+    console.log("closeChargerPopup() called.");
     chargerPopup.classList.remove('show');
     modalOverlay.classList.remove('show');
   }
@@ -185,6 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
   rateGoodButtons.forEach(button => {
     button.addEventListener('click', (event) => {
       event.stopPropagation();
+      console.log("Pulgar arriba en pop-up.");
       alert("¡Gracias por indicar que funciona bien!");
     });
   });
@@ -192,6 +201,7 @@ document.addEventListener('DOMContentLoaded', () => {
   rateBadButtons.forEach(button => {
     button.addEventListener('click', (event) => {
       event.stopPropagation();
+      console.log("Pulgar abajo en pop-up.");
       alert("¡Gracias por indicar que no funciona bien!");
     });
   });
@@ -200,6 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const feedbackButton = document.getElementById('feedback-button');
   if (feedbackButton) {
     feedbackButton.addEventListener('click', () => {
+      console.log("Abriendo formulario de feedback.");
       window.open("https://forms.gle/wg5kTEsLYEExFVfS6", "_blank");
     });
   }
@@ -208,6 +219,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const filterInput = document.getElementById('filter-input');
   filterInput.addEventListener('input', (e) => {
     const text = e.target.value.toLowerCase();
+    console.log("Filtrando con texto:", text);
     filteredChargers = chargers.filter(charger => {
       const fullText = (charger.name + ' ' + charger.location).toLowerCase();
       return fullText.includes(text);
@@ -215,20 +227,21 @@ document.addEventListener('DOMContentLoaded', () => {
     displayChargerList();
   });
 
-  // Función para inicializar la lógica de acordeones dentro del modal
+  // ----- Acordeón -----
+  // Solo inicializamos una vez al cargar
+  initAccordions();
+
   function initAccordions() {
+    console.log("initAccordions() called. Setting up event listeners for accordion sections.");
     const accordionSections = document.querySelectorAll('.accordion-section');
     accordionSections.forEach(section => {
       const header = section.querySelector('.accordion-header');
       const content = section.querySelector('.accordion-content');
-      // Aseguramos que inicie cerrado
-      section.classList.remove('accordion-open');
-      content.style.display = 'none';
 
+      // Añadimos un listener que togglea la clase accordion-open
       header.addEventListener('click', () => {
-        // Toggle
-        const isOpen = section.classList.contains('accordion-open');
-        if (isOpen) {
+        console.log("Clicked accordion header:", header.innerText);
+        if (section.classList.contains('accordion-open')) {
           section.classList.remove('accordion-open');
           content.style.display = 'none';
         } else {
@@ -236,6 +249,16 @@ document.addEventListener('DOMContentLoaded', () => {
           content.style.display = 'block';
         }
       });
+    });
+  }
+
+  function resetAccordions() {
+    console.log("resetAccordions() called. Closing all accordion sections by default.");
+    const accordionSections = document.querySelectorAll('.accordion-section');
+    accordionSections.forEach(section => {
+      section.classList.remove('accordion-open');
+      const content = section.querySelector('.accordion-content');
+      content.style.display = 'none';
     });
   }
 });
