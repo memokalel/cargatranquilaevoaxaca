@@ -311,10 +311,13 @@ main {
   background-color: #288a78;
 }
 
+/* ... resto de tu CSS sin bugs se mantiene igual ... */
+
 /* Acordeón - Secciones colapsables dentro del modal */
 .accordion-section {
   border-top: 1px solid #ddd;
   padding: 10px 0;
+  margin-top: 10px;
 }
 
 .accordion-header {
