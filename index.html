@@ -2,8 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <!-- Evitamos zoom agresivo -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Carga Tranquila VE - Oaxaca</title>
   <link rel="stylesheet" href="style.css" />
   <link
@@ -15,26 +14,27 @@
   />
 </head>
 <body>
-  <!-- Header fijo con nombre centrado -->
+  <!-- Header fijo con app name centrado -->
   <header>
     <div class="header-content">
       <h1>Carga Tranquila VE - Oaxaca</h1>
     </div>
   </header>
 
-  <!-- Barra de búsqueda fija justo debajo del header (oculta en vista "Acerca de") -->
-  <div id="search-bar-container" class="search-bar-container">
-    <input type="text" id="filter-input" placeholder="Buscar, ej.: Gasolinera Centro" />
-  </div>
-
   <main>
     <!-- Vista de Lista -->
     <section id="list-view" class="view">
+      <!-- Nueva barra de búsqueda integrada, con diseño cálido -->
+      <div class="search-bar">
+        <input type="text" id="filter-input" placeholder="Buscar cargadores por nombre o ubicación...">
+      </div>
+      <!-- Descripción breve -->
       <div class="list-description">
         <p>
-          Explora los cargadores disponibles y selecciona uno para ver más detalles o planificar tu ruta con tranquilidad.
+          Explora los cargadores y planifica tu ruta con tranquilidad.
         </p>
       </div>
+      
       <ul id="charger-list">
         <!-- Se generará dinámicamente -->
       </ul>
@@ -63,9 +63,18 @@
         </ul>
         <h3>Funcionalidades:</h3>
         <ul>
-          <li><i class="fas fa-list"></i> Lista completa de cargadores con información detallada.</li>
-          <li><i class="fas fa-map-marker-alt"></i> Navegación directa al cargador con Google Maps.</li>
-          <li><i class="fas fa-thumbs-up"></i> Valoración sencilla con pulgar arriba/abajo.</li>
+          <li>
+            <i class="fas fa-list"></i>
+            Lista completa de cargadores con información detallada.
+          </li>
+          <li>
+            <i class="fas fa-map-marker-alt"></i>
+            Navegación directa al cargador con Google Maps.
+          </li>
+          <li>
+            <i class="fas fa-thumbs-up"></i>
+            Valoración sencilla con pulgar arriba/abajo.
+          </li>
         </ul>
         <p><em>Nota: Semáforo en simulación inicial. Ayúdanos con tu feedback.</em></p>
         <div class="feedback-button-container">
@@ -82,11 +91,6 @@
     <button id="nav-home" class="nav-button active"><i class="fas fa-home"></i></button>
     <button id="nav-info" class="nav-button"><i class="fas fa-info-circle"></i></button>
   </nav>
-
-  <!-- Botón flotante de búsqueda (opcional, si decides usarlo en lugar de la barra fija) -->
-  <!-- <button id="floating-search" aria-label="Buscar">
-    <i class="fas fa-search"></i>
-  </button> -->
 
   <!-- Modal de detalle de cargador -->
   <div id="charger-popup" class="modal">
@@ -113,24 +117,6 @@
           <span id="popup-rating-stars">[Estrellas]</span>
           <span id="popup-rating-count">[Valoraciones]</span>
         </p>
-      </div>
-      <!-- Secciones adicionales para información extra -->
-      <div class="extra-info">
-        <h3>Costo y Horario</h3>
-        <p><strong>Costo:</strong> <span id="popup-costo">Gratis</span></p>
-        <p><strong>Horario:</strong> <span id="popup-horario">8:00 - 22:00</span></p>
-      </div>
-      <div class="extra-info">
-        <h3>Último Reporte</h3>
-        <p><span id="popup-ultimo">Hace 2 horas</span></p>
-      </div>
-      <div class="extra-info">
-        <h3>Tiempo Estimado de Carga</h3>
-        <p><span id="popup-tiempo">Para una batería de 40 kWh: ~1 hora (20%-80%)</span></p>
-      </div>
-      <div class="extra-info">
-        <h3>Comentarios Destacados</h3>
-        <p id="popup-comentarios">"Excelente ubicación, cerca de cafeterías."<br>"Algo lento en hora pico."</p>
       </div>
       <div class="popup-buttons">
         <button class="rate-button good"><i class="fas fa-thumbs-up"></i></button>

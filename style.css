@@ -1,4 +1,8 @@
-/* Paleta de colores: Fondo #eaf7f3, Encabezado y nav: #0c8f76, Botones: #34a88e, activo: #ffcb05 */
+/* Paleta de colores sugerida (mantenemos la misma):
+   - Fondo general: #eaf7f3
+   - Encabezado y nav: #0c8f76 (teal)
+   - Botones: #34a88e, resaltado: #ffcb05
+*/
 
 /* Estilos Generales */
 body {
@@ -30,42 +34,38 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%;
   position: relative;
+  height: 100%;
 }
 
 .header-content h1 {
   margin: 0;
   font-size: 20px;
+  /* Si es necesario, ajustar con margin-left para centrar visualmente */
 }
 
-/* Barra de búsqueda: posicionada fija justo debajo del header, centrada */
-.search-bar-container {
-  position: fixed;
-  top: 70px;
-  left: 0;
-  width: 100%;
-  display: none;
+/* Nueva barra de búsqueda integrada en la vista de lista */
+.search-bar {
+  display: flex;
+  align-items: center;
   justify-content: center;
-  z-index: 1002;
+  margin: 10px auto 20px auto;
+  max-width: 600px;
 }
 
-.search-bar-container input {
-  width: 90%;
-  max-width: 350px;
-  padding: 8px 12px;
+.search-bar input {
+  width: 80%;
+  padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 14px;
+  border-radius: 10px 10px 10px 10px;
+  font-size: 16px;
   outline: none;
-  background-color: rgba(255,255,255,0.9);
-  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
 }
 
-/* MAIN: espacio para no quedar oculto por el header y la nav inferior */
+/* MAIN: espacio para no quedar oculto por header y nav inferior */
 main {
   flex-grow: 1;
-  margin-top: 100px; /* 70px header + 30px de separación */
+  margin-top: 80px;
   padding: 20px;
   padding-bottom: 80px;
 }
@@ -209,25 +209,24 @@ main {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-65%, -50%);
   z-index: 1001;
   display: none;
 }
 
 .modal.show { display: block; }
 
-/* Modal content más ancho y centrado */
+/* Modal content: aumentar la anchura (30% más ancho que antes) */
 .modal-content {
   background-color: white;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(0,0,0,0.2);
   position: relative;
-  width: 95%;
+  width: 110%;
   max-width: 940px;
   max-height: 90%;
   overflow-y: auto;
-  margin: 0 auto;
 }
 
 .modal-content h2 {
@@ -282,7 +281,7 @@ main {
   margin-top: 10px;
 }
 
-/* Semáforo en el pop-up: centrado y doble tamaño (40px) */
+/* Semáforo en el pop-up */
 #popup-charger-semaphore {
   width: 40px;
   height: 40px;
@@ -290,25 +289,6 @@ main {
   min-height: 40px;
   border-radius: 50%;
   margin: 20px auto;
-}
-
-/* Extra info en el modal */
-.extra-info {
-  margin-top: 15px;
-  padding-top: 10px;
-  border-top: 1px solid #ddd;
-}
-
-.extra-info h3 {
-  margin: 0 0 5px 0;
-  font-size: 16px;
-  color: #0c8f76;
-}
-
-.extra-info p {
-  margin: 4px 0;
-  font-size: 14px;
-  color: #555;
 }
 
 /* Botón de feedback en la vista Acerca de */
