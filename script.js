@@ -4,12 +4,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const aboutView = document.getElementById('about-view');
   const navHome = document.getElementById('nav-home');
   const navInfo = document.getElementById('nav-info');
+  const searchBarContainer = document.getElementById('search-bar-container');
 
   navHome.addEventListener('click', () => {
     listView.style.display = 'block';
     aboutView.style.display = 'none';
     navHome.classList.add('active');
     navInfo.classList.remove('active');
+    // Mostrar la barra de búsqueda en la vista de lista
+    searchBarContainer.style.display = 'flex';
   });
 
   navInfo.addEventListener('click', () => {
@@ -17,6 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
     aboutView.style.display = 'block';
     navInfo.classList.add('active');
     navHome.classList.remove('active');
+    // Ocultar la barra de búsqueda en la vista "Acerca de"
+    searchBarContainer.style.display = 'none';
   });
 
   // Elementos para el listado y modal
@@ -25,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalOverlay = document.getElementById('modal-overlay');
   const closeButton = chargerPopup.querySelector('.close-button');
 
-  // Datos de ejemplo de cargadores
+  // Datos de ejemplo de cargadores (se han agregado campos extra)
   const chargers = [
     {
       name: "Cargador Plaza Oaxaca",
@@ -34,9 +39,13 @@ document.addEventListener('DOMContentLoaded', () => {
       status: "green",
       ratingAverage: 4.5,
       ratingCount: 50,
-      photos: [],
       power: "50 kW",
-      address: "Av. Universidad S/N, Centro Histórico, 68000 Oaxaca de Juárez"
+      address: "Av. Universidad S/N, Centro Histórico, 68000 Oaxaca de Juárez",
+      costo: "Gratis",
+      horario: "8:00 - 22:00",
+      ultimoReporte: "Hace 2 horas",
+      estimatedChargeTime: "Para una batería de 40 kWh: ~1 hora (20%-80%)",
+      comentarios: ["Excelente ubicación, cerca de cafeterías.", "Algo lento en hora pico."]
     },
     {
       name: "Cargador Gasolinera Centro",
@@ -45,9 +54,13 @@ document.addEventListener('DOMContentLoaded', () => {
       status: "green",
       ratingAverage: 4.2,
       ratingCount: 35,
-      photos: [],
       power: "7 kW",
-      address: "Calle Macedonio Alcalá 507, Centro, 68000 Oaxaca de Juárez"
+      address: "Calle Macedonio Alcalá 507, Centro, 68000 Oaxaca de Juárez",
+      costo: "$0.10/kWh",
+      horario: "24/7",
+      ultimoReporte: "Hace 1 hora",
+      estimatedChargeTime: "Para una batería de 40 kWh: ~45 minutos (20%-80%)",
+      comentarios: ["Rápido y eficiente.", "Muy bien ubicado."]
     },
     {
       name: "Cargador Hotel Reforma",
@@ -56,9 +69,13 @@ document.addEventListener('DOMContentLoaded', () => {
       status: "yellow",
       ratingAverage: 3.8,
       ratingCount: 22,
-      photos: [],
       power: "11 kW",
-      address: "Av. Independencia 1003, Centro, 68000 Oaxaca de Juárez"
+      address: "Av. Independencia 1003, Centro, 68000 Oaxaca de Juárez",
+      costo: "$0.15/kWh",
+      horario: "8:00 - 20:00",
+      ultimoReporte: "Hace 3 horas",
+      estimatedChargeTime: "Para una batería de 40 kWh: ~1 hora 15 minutos (20%-80%)",
+      comentarios: ["El servicio es regular.", "Puede haber demoras."]
     },
     {
       name: "Cargador Desconocido 1",
@@ -67,9 +84,13 @@ document.addEventListener('DOMContentLoaded', () => {
       status: "red",
       ratingAverage: 2.5,
       ratingCount: 15,
-      photos: [],
       power: "6 kW",
-      address: "Calle Independencia 802, Centro, 68000 Oaxaca de Juárez"
+      address: "Calle Independencia 802, Centro, 68000 Oaxaca de Juárez",
+      costo: "Gratis",
+      horario: "10:00 - 18:00",
+      ultimoReporte: "Hace 5 horas",
+      estimatedChargeTime: "Para una batería de 40 kWh: ~1 hora 30 minutos (20%-80%)",
+      comentarios: ["No está funcionando bien.", "Falla con frecuencia."]
     }
     // ... más cargadores si se requiere ...
   ];
@@ -93,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const chargerInfo = document.createElement('div');
       chargerInfo.className = 'charger-info';
-      // Concatenamos la información de conectores y potencia en una misma línea
+      // Concatenar conectores y potencia en una línea
       chargerInfo.innerHTML = `
         <h3>${charger.name}</h3>
         <p>${charger.location}</p>
@@ -138,6 +159,13 @@ document.addEventListener('DOMContentLoaded', () => {
       ratingCountSpan.textContent = charger.ratingCount ? `(${charger.ratingCount} valoraciones)` : '';
     }
 
+    // Asignar información extra al modal
+    document.getElementById('popup-costo').textContent = charger.costo;
+    document.getElementById('popup-horario').textContent = charger.horario;
+    document.getElementById('popup-ultimo').textContent = charger.ultimoReporte;
+    document.getElementById('popup-tiempo').textContent = charger.estimatedChargeTime;
+    document.getElementById('popup-comentarios').innerHTML = charger.comentarios.join('<br>');
+
     chargerPopup.classList.add('show');
     modalOverlay.classList.add('show');
   }
@@ -178,7 +206,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Filtrado en la barra de búsqueda integrada
   const filterInput = document.getElementById('filter-input');
-  const searchBtn = document.getElementById('search-btn');
 
   filterInput.addEventListener('input', (e) => {
     const text = e.target.value.toLowerCase();
@@ -187,10 +214,5 @@ document.addEventListener('DOMContentLoaded', () => {
       return fullText.includes(text);
     });
     displayChargerList();
-  });
-
-  // Opcional: Si se hace clic en el botón de búsqueda, se enfoca el input
-  searchBtn.addEventListener('click', () => {
-    filterInput.focus();
   });
 });
