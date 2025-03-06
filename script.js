@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const aboutView = document.getElementById('about-view');
   const navHome = document.getElementById('nav-home');
   const navInfo = document.getElementById('nav-info');
-  const searchBarContainer = document.getElementById('search-bar-container');
+  const searchBarContainer = document.querySelector('.search-bar');
 
   navHome.addEventListener('click', () => {
     listView.style.display = 'block';
@@ -43,7 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
       address: "Av. Universidad S/N, Centro Histórico, 68000 Oaxaca de Juárez",
       costo: "Gratis",
       horario: "8:00 - 22:00",
-      ultimoReporte: "Hace 2 horas",
       estimatedChargeTime: "Para una batería de 40 kWh: ~1 hora (20%-80%)",
       comentarios: ["Excelente ubicación, cerca de cafeterías.", "Algo lento en hora pico."]
     },
@@ -58,7 +57,6 @@ document.addEventListener('DOMContentLoaded', () => {
       address: "Calle Macedonio Alcalá 507, Centro, 68000 Oaxaca de Juárez",
       costo: "$0.10/kWh",
       horario: "24/7",
-      ultimoReporte: "Hace 1 hora",
       estimatedChargeTime: "Para una batería de 40 kWh: ~45 minutos (20%-80%)",
       comentarios: ["Rápido y eficiente.", "Muy bien ubicado."]
     },
@@ -73,8 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
       address: "Av. Independencia 1003, Centro, 68000 Oaxaca de Juárez",
       costo: "$0.15/kWh",
       horario: "8:00 - 20:00",
-      ultimoReporte: "Hace 3 horas",
-      estimatedChargeTime: "Para una batería de 40 kWh: ~1 hora 15 minutos (20%-80%)",
+      estimatedChargeTime: "Para una batería de 40 kWh: ~1h 15min (20%-80%)",
       comentarios: ["El servicio es regular.", "Puede haber demoras."]
     },
     {
@@ -88,8 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
       address: "Calle Independencia 802, Centro, 68000 Oaxaca de Juárez",
       costo: "Gratis",
       horario: "10:00 - 18:00",
-      ultimoReporte: "Hace 5 horas",
-      estimatedChargeTime: "Para una batería de 40 kWh: ~1 hora 30 minutos (20%-80%)",
+      estimatedChargeTime: "Para una batería de 40 kWh: ~1h 30min (20%-80%)",
       comentarios: ["No está funcionando bien.", "Falla con frecuencia."]
     }
     // ... más cargadores si se requiere ...
@@ -160,14 +156,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Asignar la información extra al modal
-    document.getElementById('popup-costo').textContent = charger.costo;
-    document.getElementById('popup-horario').textContent = charger.horario;
-    document.getElementById('popup-ultimo').textContent = charger.ultimoReporte;
-    document.getElementById('popup-tiempo').textContent = charger.estimatedChargeTime;
-    document.getElementById('popup-comentarios').innerHTML = charger.comentarios.join('<br>');
+    document.getElementById('popup-costo').textContent = charger.costo || "No especificado";
+    document.getElementById('popup-horario').textContent = charger.horario || "No especificado";
+    document.getElementById('popup-tiempo').textContent = charger.estimatedChargeTime || "Desconocido";
+    document.getElementById('popup-comentarios').innerHTML = (charger.comentarios && charger.comentarios.length)
+      ? charger.comentarios.join('<br>')
+      : "Sin comentarios destacados.";
 
     chargerPopup.classList.add('show');
     modalOverlay.classList.add('show');
+
+    // Iniciar acordeones cerrados
+    initAccordions();
   }
 
   function closeChargerPopup() {
@@ -206,7 +206,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Filtrado en la barra de búsqueda integrada
   const filterInput = document.getElementById('filter-input');
-
   filterInput.addEventListener('input', (e) => {
     const text = e.target.value.toLowerCase();
     filteredChargers = chargers.filter(charger => {
@@ -215,4 +214,28 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     displayChargerList();
   });
+
+  // Función para inicializar la lógica de acordeones dentro del modal
+  function initAccordions() {
+    const accordionSections = document.querySelectorAll('.accordion-section');
+    accordionSections.forEach(section => {
+      const header = section.querySelector('.accordion-header');
+      const content = section.querySelector('.accordion-content');
+      // Aseguramos que inicie cerrado
+      section.classList.remove('accordion-open');
+      content.style.display = 'none';
+
+      header.addEventListener('click', () => {
+        // Toggle
+        const isOpen = section.classList.contains('accordion-open');
+        if (isOpen) {
+          section.classList.remove('accordion-open');
+          content.style.display = 'none';
+        } else {
+          section.classList.add('accordion-open');
+          content.style.display = 'block';
+        }
+      });
+    });
+  }
 });
