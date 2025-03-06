@@ -2,16 +2,14 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!-- Meta viewport ajustado para evitar zoom excesivo -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Carga Tranquila VE - Oaxaca</title>
   <link rel="stylesheet" href="style.css" />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
+  <link rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" 
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
   <!-- Header fijo con app name centrado -->
@@ -24,9 +22,9 @@
   <main>
     <!-- Vista de Lista -->
     <section id="list-view" class="view">
-      <!-- Nueva barra de búsqueda integrada, con diseño cálido -->
+      <!-- Barra de búsqueda integrada -->
       <div class="search-bar">
-        <input type="text" id="filter-input" placeholder="Buscar cargadores por nombre o ubicación...">
+        <input type="text" id="filter-input" placeholder="Buscar, ej.: Gasolinera Centro">
       </div>
       <!-- Descripción breve -->
       <div class="list-description">
@@ -34,7 +32,6 @@
           Explora los cargadores y planifica tu ruta con tranquilidad.
         </p>
       </div>
-      
       <ul id="charger-list">
         <!-- Se generará dinámicamente -->
       </ul>
@@ -49,15 +46,15 @@
         </p>
         <ul>
           <li>
-            <i class="fas fa-circle" style="color: #4caf50;"></i>
+            <i class="fas fa-circle" style="color:#4CAF50;"></i>
             <strong>VERDE:</strong> Carga disponible, dirígete con seguridad.
           </li>
           <li>
-            <i class="fas fa-circle" style="color: #ffc107;"></i>
+            <i class="fas fa-circle" style="color:#FFC107;"></i>
             <strong>AMARILLO:</strong> Posible demora, precaución.
           </li>
           <li>
-            <i class="fas fa-circle" style="color: #f44336;"></i>
+            <i class="fas fa-circle" style="color:#F44336;"></i>
             <strong>ROJO:</strong> Cargador fuera de servicio, evitar.
           </li>
         </ul>
@@ -117,6 +114,24 @@
           <span id="popup-rating-stars">[Estrellas]</span>
           <span id="popup-rating-count">[Valoraciones]</span>
         </p>
+      </div>
+      <!-- Secciones extra con información adicional -->
+      <div class="extra-info">
+        <h3>Costo y Horario</h3>
+        <p><strong>Costo:</strong> <span id="popup-costo"></span></p>
+        <p><strong>Horario:</strong> <span id="popup-horario"></span></p>
+      </div>
+      <div class="extra-info">
+        <h3>Último Reporte</h3>
+        <p><span id="popup-ultimo"></span></p>
+      </div>
+      <div class="extra-info">
+        <h3>Tiempo Estimado de Carga</h3>
+        <p><span id="popup-tiempo"></span></p>
+      </div>
+      <div class="extra-info">
+        <h3>Comentarios Destacados</h3>
+        <p id="popup-comentarios"></p>
       </div>
       <div class="popup-buttons">
         <button class="rate-button good"><i class="fas fa-thumbs-up"></i></button>
